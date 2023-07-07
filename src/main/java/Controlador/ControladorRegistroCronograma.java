@@ -1,13 +1,18 @@
 package Controlador;
 
+import DTO.CronogramaDTO;
 import DTO.TerrenoDTO;
+import JDBC.CronogramaJDBC;
 import VistaRegistro.RegistroCronograma;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControladorRegistroCronograma implements ActionListener{
@@ -48,12 +53,14 @@ public class ControladorRegistroCronograma implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        CronogramaDTO CronogramaNuevo;
+        CronogramaJDBC insertarCronograma = new CronogramaJDBC();
+        
         String nuevoId;
         String accion = e.getActionCommand();
         switch(accion){
             case "comboBoxChanged":
                 nuevoId = nuevoRegistro.boxID.getSelectedItem().toString();
-                System.out.println("accion = " + nuevoId);
                 
                 if(isNumeric(nuevoId) == true){
                     numero = Integer.parseInt(nuevoId);
@@ -99,7 +106,13 @@ public class ControladorRegistroCronograma implements ActionListener{
                                                                        "     ESTADO DE ACTIVIDAD ");
                         return;
                     }else{
-                        System.out.println("DATOS : [" + numero+" : "+id+" : "+propietario+" : "+ubicacion+" : "+hectarea+" : "+fecha+" : "+actividad+" : "+tipoCultivo+" : "+estadoActividad);
+                        //System.out.println("DATOS : [" + numero+" : "+id+" : "+propietario+" : "+ubicacion+" : "+hectarea+" : "+fecha+" : "+actividad+" : "+tipoCultivo+" : "+estadoActividad);
+                        CronogramaNuevo = new CronogramaDTO(numero,id,propietario,ubicacion,hectarea,fecha,actividad,tipoCultivo,estadoActividad);
+                        try {
+                            insertarCronograma.insertar(CronogramaNuevo);
+                        } catch (SQLException ex) {
+                            ex.printStackTrace(System.out);
+                        }
                     }
                     
                 }else{

@@ -52,6 +52,9 @@ public class ControladorGestionTerreno implements ActionListener{
         controlCronograma = new VistaTablaCronograma();
         controlProduccion = new VistaTablaProduccion();
         
+        ControladorAccionCronograma accionCronograma;
+        ControladorAccionesListar ListarTerreno;
+        
         model = new DefaultTableModel();  
         modeldos = new DefaultTableModel(); 
         Connection conexion = null;
@@ -96,7 +99,7 @@ public class ControladorGestionTerreno implements ActionListener{
                         idTerreno.add(lista.getIdterreno());
                     }
                 }
-                ControladorAccionesListar ListarTerreno = new ControladorAccionesListar(controlVista,id,idTerreno);
+                ListarTerreno = new ControladorAccionesListar(controlVista,id,idTerreno);
                 break;
             case "Cronograma de Trabajo":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlTerreno.PanelGestion,controlCronograma.panelCronograma );
@@ -122,22 +125,23 @@ public class ControladorGestionTerreno implements ActionListener{
                     }
                 }
                 modeldos = (DefaultTableModel) controlCronograma.TablaCronograma.getModel();
-                objetodos = new String[8];
+                objetodos = new String[9];
                 for(CronogramaDTO lista : listaCronograma){
                     if(lista.getIdPersona() == id){
                             objetodos[0] = Integer.toString(lista.getIdcronograma());
-                            objetodos[1] = lista.getPropietario();
-                            objetodos[2] = lista.getUbicacion();
-                            objetodos[3] = lista.getHectarea();
-                            objetodos[4] = lista.getFechactividad();
-                            objetodos[5] = lista.getActividad();
-                            objetodos[6] = lista.getCultivo();
-                            objetodos[7] = lista.getEstadoCronograma();
+                            objetodos[1] = Integer.toString(lista.getIdterreno());
+                            objetodos[2] = lista.getPropietario();
+                            objetodos[3] = lista.getUbicacion();
+                            objetodos[4] = lista.getHectarea();
+                            objetodos[5] = lista.getFechactividad();
+                            objetodos[6] = lista.getActividad();
+                            objetodos[7] = lista.getCultivo();
+                            objetodos[8] = lista.getEstadoCronograma();
                             modeldos.addRow(objetodos);
                     }
                 }
                 
-                ControladorAccionCronograma accionCronograma = new ControladorAccionCronograma(controlCronograma,id,idActivos);
+                accionCronograma = new ControladorAccionCronograma(controlCronograma,id,idActivos);
                 
                 break;
             case "Produccion":

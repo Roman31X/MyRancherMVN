@@ -94,7 +94,7 @@ public class VistaTablaCronograma extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Propietario", "Ubicacion", "Hectarea", "Fecha", "Actividad", "Cultivo", "Estado"
+                "ID", "IDTERRENO", "Propietario", "Ubicacion", "Hectarea", "Fecha", "Actividad", "Cultivo", "Estado"
             }
         ));
         jScrollPane2.setViewportView(TablaCronograma);

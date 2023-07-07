@@ -67,17 +67,89 @@ public class CronogramaJDBC implements CronogramaTerrenoDAO{
 
     @Override
     public int insertar(CronogramaDTO cronograma) throws SQLException {
-         return 0;
+        Connection conectar = null;
+        PreparedStatement stmt = null;
+        int registro = 0;
+        try {
+            conectar = (this.conexionTrasaccional != null) ? this.conexionTrasaccional : getConnection();
+            stmt  = conectar.prepareStatement(SQL_INSERT);
+            stmt.setInt(1,cronograma.getIdterreno());
+            stmt.setInt(2,cronograma.getIdPersona());
+            stmt.setString(3,cronograma.getPropietario());
+            stmt.setString(4,cronograma.getUbicacion());
+            stmt.setString(5,cronograma.getHectarea());
+            stmt.setString(6,cronograma.getFechactividad());
+            stmt.setString(7,cronograma.getActividad());
+            stmt.setString(8,cronograma.getCultivo());
+            stmt.setString(9,cronograma.getEstadoCronograma());
+            registro  = stmt.executeUpdate();
+        }finally {
+            try {
+                closePREPA(stmt);
+                if(this.conexionTrasaccional == null){
+                    closeMYSQL(conectar);
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
+        return registro;
     }
 
     @Override
     public int actualizar(CronogramaDTO cronograma) throws SQLException {
-         return 0;
+        Connection conectar = null;
+        PreparedStatement stmt = null;
+        int registro = 0;
+        try {
+            conectar = (this.conexionTrasaccional != null) ? this.conexionTrasaccional : getConnection();
+                               
+            stmt = conectar.prepareStatement(SQL_UPDATE);
+            stmt.setInt(1,cronograma.getIdterreno());
+            stmt.setInt(2,cronograma.getIdPersona());
+            stmt.setString(3,cronograma.getPropietario());
+            stmt.setString(4,cronograma.getUbicacion());
+            stmt.setString(5,cronograma.getHectarea());
+            stmt.setString(6,cronograma.getFechactividad());
+            stmt.setString(7,cronograma.getActividad());
+            stmt.setString(8,cronograma.getCultivo());
+            stmt.setString(9,cronograma.getEstadoCronograma());
+            stmt.setInt(10,cronograma.getIdcronograma());
+            registro  = stmt.executeUpdate();
+        }finally {
+            try {
+                closePREPA(stmt);
+                if(this.conexionTrasaccional == null){
+                    closeMYSQL(conectar);
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
+        return registro;
     }
 
     @Override
     public int eliminar(CronogramaDTO cronograma) throws SQLException {
-         return 0;
+        Connection conectar = null;
+        PreparedStatement stmt = null;
+        int registro = 0;
+        try {
+            conectar = (this.conexionTrasaccional != null) ? this.conexionTrasaccional : getConnection();
+            stmt = conectar.prepareStatement(SQL_DELETE);
+            stmt.setInt(1,cronograma.getIdcronograma());
+            registro  = stmt.executeUpdate();
+        }finally {
+            try {
+                closePREPA(stmt);
+                if(this.conexionTrasaccional == null){
+                    closeMYSQL(conectar);
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
+        return registro;
     }
     
 }
