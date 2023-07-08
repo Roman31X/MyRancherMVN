@@ -24,6 +24,7 @@ public class VistaTablaTerreno extends javax.swing.JFrame {
         TablaTerrenoUsuario = new javax.swing.JTable();
         Registrar = new javax.swing.JButton();
         Eliminar = new javax.swing.JButton();
+        Registrar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -46,7 +47,7 @@ public class VistaTablaTerreno extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TablaTerrenoUsuario);
 
         Registrar.setBackground(new java.awt.Color(0, 102, 102));
-        Registrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Registrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Registrar.setForeground(new java.awt.Color(255, 255, 255));
         Registrar.setText("REGISTRAR");
         Registrar.addActionListener(new java.awt.event.ActionListener() {
@@ -56,12 +57,22 @@ public class VistaTablaTerreno extends javax.swing.JFrame {
         });
 
         Eliminar.setBackground(new java.awt.Color(0, 102, 102));
-        Eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Eliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Eliminar.setForeground(new java.awt.Color(255, 255, 255));
         Eliminar.setText("ELIMINAR");
         Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarActionPerformed(evt);
+            }
+        });
+
+        Registrar1.setBackground(new java.awt.Color(0, 102, 102));
+        Registrar1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Registrar1.setForeground(new java.awt.Color(255, 255, 255));
+        Registrar1.setText("MODIFICAR");
+        Registrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Registrar1ActionPerformed(evt);
             }
         });
 
@@ -71,19 +82,21 @@ public class VistaTablaTerreno extends javax.swing.JFrame {
             PanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPropietarioLayout.createSequentialGroup()
                 .addContainerGap(42, Short.MAX_VALUE)
-                .addGroup(PanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPropietarioLayout.createSequentialGroup()
-                        .addGroup(PanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelPropietarioLayout.createSequentialGroup()
-                                .addGap(132, 132, 132)
-                                .addComponent(Registrar)
-                                .addGap(169, 169, 169)
-                                .addComponent(Eliminar))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPropietarioLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(297, 297, 297))))
+                        .addGap(297, 297, 297))
+                    .addGroup(PanelPropietarioLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(Registrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Registrar1)
+                        .addGap(90, 90, 90)
+                        .addComponent(Eliminar)
+                        .addGap(95, 95, 95))))
         );
         PanelPropietarioLayout.setVerticalGroup(
             PanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,8 +107,9 @@ public class VistaTablaTerreno extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(PanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Registrar)
-                    .addComponent(Eliminar))
+                    .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Registrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
 
@@ -125,11 +139,16 @@ public class VistaTablaTerreno extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EliminarActionPerformed
 
+    private void Registrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registrar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Registrar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton Eliminar;
     public javax.swing.JPanel PanelPropietario;
     public javax.swing.JButton Registrar;
+    public javax.swing.JButton Registrar1;
     public javax.swing.JTable TablaTerrenoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

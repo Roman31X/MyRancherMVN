@@ -106,7 +106,6 @@ public class ControladorRegistroCronograma implements ActionListener{
                                                                        "     ESTADO DE ACTIVIDAD ");
                         return;
                     }else{
-                        //System.out.println("DATOS : [" + numero+" : "+id+" : "+propietario+" : "+ubicacion+" : "+hectarea+" : "+fecha+" : "+actividad+" : "+tipoCultivo+" : "+estadoActividad);
                         CronogramaNuevo = new CronogramaDTO(numero,id,propietario,ubicacion,hectarea,fecha,actividad,tipoCultivo,estadoActividad);
                         try {
                             insertarCronograma.insertar(CronogramaNuevo);

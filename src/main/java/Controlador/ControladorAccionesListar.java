@@ -12,7 +12,7 @@ public class ControladorAccionesListar implements ActionListener{
     private RegistroTerreno nuevoTerreno;
     private VistaEliminarTerreno eliminarTerreno;
     
-    private final List<Integer> idTerreno;
+    //private final List<Integer> idTerreno;
     private int id;
 
     public ControladorAccionesListar(VistaTablaTerreno listaTerreno2, int id2,List<Integer> idTerreno2 ) {
@@ -30,10 +30,14 @@ public class ControladorAccionesListar implements ActionListener{
         nuevoTerreno = new RegistroTerreno();
         eliminarTerreno = new VistaEliminarTerreno();
         ControladorRegistroTerreno registrar;
+        
         switch(accion){
             case "REGISTRAR":
                 registrar = new ControladorRegistroTerreno(nuevoTerreno,id);
                 registrar.Mostrar();
+                break;
+            case "MODIFICAR":
+                
                 break;
             case "ELIMINAR":
                 ControladorElimnarTerreno eliminar = new ControladorElimnarTerreno(eliminarTerreno,idTerreno);

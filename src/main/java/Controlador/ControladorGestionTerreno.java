@@ -26,7 +26,7 @@ public class ControladorGestionTerreno implements ActionListener{
     DefaultTableModel modeldos;
     String[] objeto;
     String[] objetodos;
-    private List<Integer> idTerreno;
+    //private List<Integer> idTerreno;
     private TerrenoDTO datosActivos;
     List<TerrenoDTO> idActivos;
     
@@ -79,7 +79,7 @@ public class ControladorGestionTerreno implements ActionListener{
         }
         
         
-        idTerreno = new ArrayList<Integer>();
+        //idTerreno = new ArrayList<Integer>();
         idActivos = new ArrayList<>();
         String accion = e.getActionCommand();
         //Accion
