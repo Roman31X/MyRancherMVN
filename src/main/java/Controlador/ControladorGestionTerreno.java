@@ -1,8 +1,10 @@
 package Controlador;
 
 import DTO.CronogramaDTO;
+import DTO.ProduccionDTO;
 import DTO.TerrenoDTO;
 import JDBC.CronogramaJDBC;
+import JDBC.ProduccionJDBC;
 import JDBC.TerrenoJDBC;
 import MySql.Conexion;
 import VistaPaneles.GestionTerreno;
@@ -21,19 +23,28 @@ public class ControladorGestionTerreno implements ActionListener{
     private VistaTablaProduccion controlProduccion;
     
     
-    private int id;
+    private final int id;
     DefaultTableModel model;
     DefaultTableModel modeldos;
+    DefaultTableModel modeltres;
+    
     String[] objeto;
     String[] objetodos;
+    String[] objetotres;
+    
     private List<TerrenoDTO> idTerreno;
     private TerrenoDTO datosActivos;
-    List<TerrenoDTO> idActivos;
     
-    TerrenoJDBC terreno;
-    List<TerrenoDTO> listaTerreno;
-    CronogramaJDBC cronogramaTerreno;
-    List<CronogramaDTO> listaCronograma;
+    private List<TerrenoDTO> idActivos;
+    private List<CronogramaDTO> idActivosCronograma;
+    private CronogramaDTO informacionCronograma;
+    
+    private TerrenoJDBC terreno;
+    private List<TerrenoDTO> listaTerreno;
+    private CronogramaJDBC cronogramaTerreno;
+    private List<CronogramaDTO> listaCronograma;
+    private ProduccionJDBC produccio;
+    private List<ProduccionDTO> listaProduccion;
     
     //Constructor
     public ControladorGestionTerreno(GestionTerreno controlTerreno2,int id2) {
@@ -67,6 +78,9 @@ public class ControladorGestionTerreno implements ActionListener{
         listaTerreno  = terreno.seleccionar();
         cronogramaTerreno = new CronogramaJDBC();
         listaCronograma  = cronogramaTerreno.seleccionar();
+        produccio = new ProduccionJDBC();
+        listaProduccion = produccio.seleccionar();
+        
         conexion.commit();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -81,6 +95,8 @@ public class ControladorGestionTerreno implements ActionListener{
         
         idTerreno = new ArrayList<>();
         idActivos = new ArrayList<>();
+        idActivosCronograma = new ArrayList<>();
+        
         String accion = e.getActionCommand();
         //Accion
         switch(accion){
@@ -136,16 +152,32 @@ public class ControladorGestionTerreno implements ActionListener{
                             objetodos[7] = lista.getCultivo();
                             objetodos[8] = lista.getEstadoCronograma();
                             modeldos.addRow(objetodos);
+                            informacionCronograma = new CronogramaDTO(lista.getIdcronograma(),lista.getIdterreno(),lista.getIdPersona(),lista.getPropietario(),lista.getUbicacion(),lista.getHectarea(),lista.getFechactividad(),lista.getActividad(),lista.getCultivo(),lista.getEstadoCronograma());
+                            idActivosCronograma.add(informacionCronograma);
                     }
                 }
                 
-                accionCronograma = new ControladorAccionCronograma(controlCronograma,id,idActivos);
+                accionCronograma = new ControladorAccionCronograma(controlCronograma,id,idActivos,idActivosCronograma);
                 
                 break;
             case "Produccion":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlTerreno.PanelGestion,controlProduccion.panelProduccion );
-                
-                
+                modeltres = (DefaultTableModel) controlProduccion.TablaCosecha.getModel();
+                objetotres = new String[9];
+                for(ProduccionDTO lista : listaProduccion){
+                    if(lista.getIdPersona() == id){
+                        objetotres[0] = Integer.toString(lista.getIdregistrocosecha());
+                        objetotres[1] = lista.getPropietario();
+                        objetotres[2] = lista.getUbicacion();
+                        objetotres[3] = lista.getHectarea();
+                        objetotres[4] = lista.getCosecha();
+                        objetotres[5] = lista.getPesocosecha();
+                        objetotres[6] = lista.getPrecio();
+                        objetotres[7] = lista.getGanacia();
+                        objetotres[8] = lista.getFechaincriccion();
+                        modeltres.addRow(objetotres);
+                    }
+                }
                 break;
         }
     }

@@ -67,6 +67,7 @@ public class ControladorLogin implements ActionListener{
                             controLogin.setVisible(false);
                             menuPrincipal.Mostrar();
                             busqueda=true;
+                            intentos = 5;
                             break;
                         }
                     }

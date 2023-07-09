@@ -51,9 +51,8 @@ public class ControladorAccionesListar implements ActionListener{
             case "ELIMINAR":
                 for (TerrenoDTO lista : idTerreno) {
                     eliminarTerreno.ListaID.addItem(Integer.toString(lista.getIdterreno()));
-                    System.out.println("lista = " + lista.getIdterreno());
                 }
-                eliminar = new ControladorElimnarTerreno(eliminarTerreno,idTerreno);
+                eliminar = new ControladorElimnarTerreno(eliminarTerreno);
                 
                 eliminar.Mostrar();
                 break;

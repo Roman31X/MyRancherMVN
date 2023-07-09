@@ -109,10 +109,7 @@ public class VistaTablaProduccion extends javax.swing.JFrame {
 
         TablaCosecha.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Propietario", "Ubicacion", "Hectarea", "Cosecha", "Peso Cosecha", "Precio", "Ganancia", "Fecha"

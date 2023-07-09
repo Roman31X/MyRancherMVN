@@ -1,11 +1,11 @@
 package Controlador;
 
 import DTO.TerrenoDTO;
+import JDBC.TerrenoJDBC;
 import VistaTerreno.VistaModificarTerreno;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Arrays;
-import java.util.List;
+import java.awt.event.*;
+import java.sql.SQLException;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorModificarTerreno implements ActionListener{
@@ -61,6 +61,9 @@ public class ControladorModificarTerreno implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        TerrenoDTO terroActualizado;
+        TerrenoJDBC actualizarTerreno = new TerrenoJDBC();
+        
         String accion = e.getActionCommand();
         switch(accion){
             case "comboBoxChanged":
@@ -123,8 +126,15 @@ public class ControladorModificarTerreno implements ActionListener{
                 double dimension = Double.parseDouble(nuevaHectarea)*10000;
                 nuevaHectarea = String.valueOf(dimension);
                 
-                System.out.println("Datos Actuales : "+ datoId+"||"+id+"||"+propietario+"||"+ubicacion+"||"+nuevaHectarea+"||"+estado);
+                terroActualizado = new TerrenoDTO(datoId,id,propietario,ubicacion,nuevaHectarea,estado);
+                try {
+                    actualizarTerreno.actualizar(terroActualizado);
+                } catch (SQLException ex) {
+                    ex.printStackTrace(System.out);
+                }
+                modificarTerreno.setVisible(false);
                 break;
+
             case "LIMPIAR":
                 modificarTerreno.IDBOX.setSelectedIndex(0);
                 modificarTerreno.Propietario.setText("");
