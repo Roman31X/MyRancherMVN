@@ -26,7 +26,7 @@ public class ControladorGestionTerreno implements ActionListener{
     DefaultTableModel modeldos;
     String[] objeto;
     String[] objetodos;
-    //private List<Integer> idTerreno;
+    private List<TerrenoDTO> idTerreno;
     private TerrenoDTO datosActivos;
     List<TerrenoDTO> idActivos;
     
@@ -79,7 +79,7 @@ public class ControladorGestionTerreno implements ActionListener{
         }
         
         
-        //idTerreno = new ArrayList<Integer>();
+        idTerreno = new ArrayList<>();
         idActivos = new ArrayList<>();
         String accion = e.getActionCommand();
         //Accion
@@ -96,7 +96,10 @@ public class ControladorGestionTerreno implements ActionListener{
                         objeto[3] = lista.getHectarea();
                         objeto[4] = lista.getEstadoTerreno();
                         model.addRow(objeto);
-                        idTerreno.add(lista.getIdterreno());
+                        
+                        datosActivos = new TerrenoDTO(lista.getIdterreno(),lista.getIdPersona(),lista.getPropietario(),lista.getUbicacion(),lista.getHectarea(),lista.getEstadoTerreno());
+                        
+                        idTerreno.add(datosActivos);
                     }
                 }
                 ListarTerreno = new ControladorAccionesListar(controlVista,id,idTerreno);
@@ -114,12 +117,7 @@ public class ControladorGestionTerreno implements ActionListener{
                         objeto[3] = lista.getHectarea();
                         objeto[4] = lista.getEstadoTerreno();
                         model.addRow(objeto);
-                        int idTerreno = lista.getIdterreno();
-                        int idUsuario = lista.getIdPersona();
-                        String propietario = lista.getPropietario();
-                        String ubicacion = lista.getUbicacion();
-                        String hectarea = lista.getHectarea();
-                        datosActivos = new TerrenoDTO(idTerreno,idUsuario,propietario,ubicacion,hectarea);
+                        datosActivos = new TerrenoDTO(lista.getIdterreno(),lista.getIdPersona(),lista.getPropietario(),lista.getUbicacion(),lista.getHectarea());
                         idActivos.add(datosActivos);
                         }
                     }

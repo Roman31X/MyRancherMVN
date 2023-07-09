@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
 
 public class ControladorElimnarTerreno implements ActionListener{
     private final VistaEliminarTerreno eliminarTerreno;
-    private final List<Integer> idTerreno;
+    private final List<TerrenoDTO> idTerreno;
 
-    public ControladorElimnarTerreno(VistaEliminarTerreno eliminarTerreno2, List<Integer> idTerreno2) {
+    public ControladorElimnarTerreno(VistaEliminarTerreno eliminarTerreno2, List<TerrenoDTO> idTerreno2) {
         this.eliminarTerreno = eliminarTerreno2;
         this.idTerreno = idTerreno2;
         

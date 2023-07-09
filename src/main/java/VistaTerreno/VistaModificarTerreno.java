@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VistaTerreno;
 
-/**
- *
- * @author DIEGO
- */
 public class VistaModificarTerreno extends javax.swing.JFrame {
 
     /**
@@ -15,6 +7,7 @@ public class VistaModificarTerreno extends javax.swing.JFrame {
      */
     public VistaModificarTerreno() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -39,10 +32,10 @@ public class VistaModificarTerreno extends javax.swing.JFrame {
         Ubicacion = new javax.swing.JTextField();
         Hectarea = new javax.swing.JTextField();
         Estado = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        IDBOX = new javax.swing.JComboBox<>();
         Propietario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        Agregar = new javax.swing.JToggleButton();
+        Actualizar = new javax.swing.JToggleButton();
         Limpiar = new javax.swing.JToggleButton();
         Cerrar = new javax.swing.JToggleButton();
 
@@ -123,10 +116,10 @@ public class VistaModificarTerreno extends javax.swing.JFrame {
 
         Estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Activo", "Descanso" }));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        IDBOX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
+        IDBOX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                IDBOXActionPerformed(evt);
             }
         });
 
@@ -156,7 +149,7 @@ public class VistaModificarTerreno extends javax.swing.JFrame {
                     .addComponent(Ubicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Hectarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Estado, 0, 122, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(IDBOX, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Propietario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
@@ -165,7 +158,7 @@ public class VistaModificarTerreno extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IDBOX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -186,13 +179,13 @@ public class VistaModificarTerreno extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        Agregar.setBackground(new java.awt.Color(0, 102, 102));
-        Agregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Agregar.setForeground(new java.awt.Color(255, 255, 255));
-        Agregar.setText("ACTUALIZAR");
-        Agregar.addActionListener(new java.awt.event.ActionListener() {
+        Actualizar.setBackground(new java.awt.Color(0, 102, 102));
+        Actualizar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Actualizar.setForeground(new java.awt.Color(255, 255, 255));
+        Actualizar.setText("ACTUALIZAR");
+        Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarActionPerformed(evt);
+                ActualizarActionPerformed(evt);
             }
         });
 
@@ -226,7 +219,7 @@ public class VistaModificarTerreno extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -241,7 +234,7 @@ public class VistaModificarTerreno extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(71, 71, 71)
-                        .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)
@@ -265,9 +258,9 @@ public class VistaModificarTerreno extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
+    private void ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarActionPerformed
+    }//GEN-LAST:event_ActualizarActionPerformed
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
@@ -277,54 +270,19 @@ public class VistaModificarTerreno extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CerrarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void IDBOXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDBOXActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaModificarTerreno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaModificarTerreno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaModificarTerreno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaModificarTerreno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaModificarTerreno().setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_IDBOXActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JToggleButton Agregar;
+    public javax.swing.JToggleButton Actualizar;
     public javax.swing.JToggleButton Cerrar;
     public javax.swing.JComboBox<String> Estado;
     public javax.swing.JTextField Hectarea;
+    public javax.swing.JComboBox<String> IDBOX;
     public javax.swing.JToggleButton Limpiar;
     public javax.swing.JTextField Propietario;
     public javax.swing.JTextField Ubicacion;
-    public javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
