@@ -4,18 +4,21 @@ import DTO.TerrenoDTO;
 import VistaTerreno.VistaModificarTerreno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ControladorModificarTerreno implements ActionListener{
     private final VistaModificarTerreno modificarTerreno;
     private final List<TerrenoDTO> idTerreno;
+    private final int id;
     double hectarea;
     int datoId;
     String llenarCampos;
 
-    public ControladorModificarTerreno(VistaModificarTerreno modificarTerreno2, List<TerrenoDTO> idTerreno2) {
+    public ControladorModificarTerreno(VistaModificarTerreno modificarTerreno2,int id2, List<TerrenoDTO> idTerreno2) {
         this.modificarTerreno = modificarTerreno2;
+        this.id = id2;
         this.idTerreno = idTerreno2;
         
         modificarTerreno.IDBOX.addActionListener(this);
@@ -42,10 +45,23 @@ public class ControladorModificarTerreno implements ActionListener{
         return resultado;
     }
     
+    public boolean Decimal(String cadena) {
+
+        boolean resultado;
+
+        try {
+            Double.parseDouble(cadena);
+            resultado = true;
+        } catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+
+        return resultado;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         String accion = e.getActionCommand();
-        System.out.println("accion = " + accion);
         switch(accion){
             case "comboBoxChanged":
                 llenarCampos = modificarTerreno.IDBOX.getSelectedItem().toString();
@@ -66,15 +82,48 @@ public class ControladorModificarTerreno implements ActionListener{
                         }
                     }
                 }else{
-                    JOptionPane.showMessageDialog(null,"Debe seleccionar el numero de ID\n"+
-                                                                   " de la tabla de sus Terrenos");
                     modificarTerreno.Propietario.setText("");
                     modificarTerreno.Ubicacion.setText("");
                     modificarTerreno.Hectarea.setText("");
                 }
                 break;
             case "ACTUALIZAR":
-                System.out.println("Actualizado XD");
+                String propietario = modificarTerreno.Propietario.getText();
+                String ubicacion = modificarTerreno.Ubicacion.getText();
+                String nuevaHectarea = modificarTerreno.Hectarea.getText();
+                String estado = modificarTerreno.Estado.getSelectedItem().toString();
+                
+                String [] nuevoUsuario = {propietario,ubicacion,nuevaHectarea};
+                List datos = Arrays.asList(nuevoUsuario);
+                
+                if(isNumeric(llenarCampos) == true){
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar un\n"+
+                                                                   "   ID TERRENO");
+                    return;
+                }
+                
+                if(datos.contains("")){
+                    JOptionPane.showMessageDialog(null,"Debe rellenar todos los campos");
+                    return;
+                }
+                
+                if(Decimal(nuevaHectarea) == true){
+                    if(estado.equals("-Seleccione-")){
+                        JOptionPane.showMessageDialog(null,"Selecciones una opcion de Estado");
+                        return;
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null,"En el campo hectrea solo esta permitio\n"+
+                                                                   "ingresa numeros enteros[1] y decimales [1.0]");
+                    return;
+                }
+                
+                double dimension = Double.parseDouble(nuevaHectarea)*10000;
+                nuevaHectarea = String.valueOf(dimension);
+                
+                System.out.println("Datos Actuales : "+ datoId+"||"+id+"||"+propietario+"||"+ubicacion+"||"+nuevaHectarea+"||"+estado);
                 break;
             case "LIMPIAR":
                 modificarTerreno.IDBOX.setSelectedIndex(0);

@@ -60,8 +60,8 @@ public class ControladorElimnarTerreno implements ActionListener{
                     }
                     
                 }else{
-                    JOptionPane.showMessageDialog(null,"Debe seleccionar el numero de ID\n"+
-                                                                   " de la tabla de sus Terrenos");
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar el numero\n"+
+                                                                   "   ID TERRENO a eliminar");
                     return;
                 }
                 eliminarTerreno.setVisible(false);
