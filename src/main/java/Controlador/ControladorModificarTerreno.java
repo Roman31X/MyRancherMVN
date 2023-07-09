@@ -10,6 +10,9 @@ import javax.swing.JOptionPane;
 public class ControladorModificarTerreno implements ActionListener{
     private final VistaModificarTerreno modificarTerreno;
     private final List<TerrenoDTO> idTerreno;
+    double hectarea;
+    int datoId;
+    String llenarCampos;
 
     public ControladorModificarTerreno(VistaModificarTerreno modificarTerreno2, List<TerrenoDTO> idTerreno2) {
         this.modificarTerreno = modificarTerreno2;
@@ -45,22 +48,29 @@ public class ControladorModificarTerreno implements ActionListener{
         System.out.println("accion = " + accion);
         switch(accion){
             case "comboBoxChanged":
-                
-                String llenarCampos = modificarTerreno.IDBOX.getSelectedItem().toString();
+                llenarCampos = modificarTerreno.IDBOX.getSelectedItem().toString();
                 
                 if(isNumeric(llenarCampos) == true){
-                    int datoId = Integer.parseInt(modificarTerreno.IDBOX.getSelectedItem().toString());
+                    datoId = Integer.parseInt(llenarCampos);
                     for (TerrenoDTO lista : idTerreno) {
                         if (lista.getIdterreno() == datoId){
                             modificarTerreno.Propietario.setText(lista.getPropietario());
                             modificarTerreno.Ubicacion.setText(lista.getUbicacion());
-                            modificarTerreno.Hectarea.setText(lista.getHectarea());
+                            hectarea = Double.parseDouble(lista.getHectarea())/10000;
+                            modificarTerreno.Hectarea.setText(String.valueOf(hectarea));
+                            if(lista.getEstadoTerreno().equals("Activo")){
+                                modificarTerreno.Estado.setSelectedIndex(1);
+                            }else{
+                                modificarTerreno.Estado.setSelectedIndex(2);
+                            }
                         }
                     }
                 }else{
                     JOptionPane.showMessageDialog(null,"Debe seleccionar el numero de ID\n"+
                                                                    " de la tabla de sus Terrenos");
-                    return;
+                    modificarTerreno.Propietario.setText("");
+                    modificarTerreno.Ubicacion.setText("");
+                    modificarTerreno.Hectarea.setText("");
                 }
                 break;
             case "ACTUALIZAR":

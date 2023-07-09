@@ -44,7 +44,6 @@ public class ControladorAccionesListar implements ActionListener{
             case "MODIFICAR":
                 for (TerrenoDTO lista : idTerreno) {
                     modificarTerreno.IDBOX.addItem(Integer.toString(lista.getIdterreno()));
-                    System.out.println("lista = " + lista.getIdterreno());
                 }
                 modificar = new ControladorModificarTerreno(modificarTerreno,idTerreno);
                 modificar.Mostrar();
