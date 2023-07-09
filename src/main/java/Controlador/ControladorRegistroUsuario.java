@@ -20,6 +20,7 @@ public class ControladorRegistroUsuario implements ActionListener{
         
         //Botones
         registro.Registrar.addActionListener(this);
+        registro.Limpiar.addActionListener(this);
         registro.Regresar.addActionListener(this); 
     }
     
@@ -73,6 +74,14 @@ public class ControladorRegistroUsuario implements ActionListener{
                 }else{
                     JOptionPane.showMessageDialog(null,"La contraseña no coincide");
                 }
+                break;
+            case "LIMPIAR":
+                registro.nombre.setText("");
+                registro.apellido.setText("");
+                registro.nombreusuario.setText("");
+                registro.correo.setText("");
+                registro.contraseñauno.setText("");
+                registro.contraseñados.setText("");
                 break;
             case "REGRESAR":
                 registro.setVisible(false);

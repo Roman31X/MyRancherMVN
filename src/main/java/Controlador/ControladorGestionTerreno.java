@@ -32,13 +32,20 @@ public class ControladorGestionTerreno implements ActionListener{
     String[] objetodos;
     String[] objetotres;
     
+    //Listar
     private List<TerrenoDTO> idTerreno;
     private TerrenoDTO datosActivos;
     
+    //Cronograma
     private List<TerrenoDTO> idActivos;
     private List<CronogramaDTO> idActivosCronograma;
     private CronogramaDTO informacionCronograma;
     
+    //Produccion
+    private List<ProduccionDTO> idActivosProduccion;
+    private ProduccionDTO informacionProduccion;
+    
+    //Conexion
     private TerrenoJDBC terreno;
     private List<TerrenoDTO> listaTerreno;
     private CronogramaJDBC cronogramaTerreno;
@@ -63,8 +70,9 @@ public class ControladorGestionTerreno implements ActionListener{
         controlCronograma = new VistaTablaCronograma();
         controlProduccion = new VistaTablaProduccion();
         
-        ControladorAccionCronograma accionCronograma;
         ControladorAccionesListar ListarTerreno;
+        ControladorAccionCronograma accionCronograma;        
+        ControladorAccionProduccion accionProduccion;
         
         model = new DefaultTableModel();  
         modeldos = new DefaultTableModel(); 
@@ -96,6 +104,7 @@ public class ControladorGestionTerreno implements ActionListener{
         idTerreno = new ArrayList<>();
         idActivos = new ArrayList<>();
         idActivosCronograma = new ArrayList<>();
+        idActivosProduccion = new ArrayList<>();
         
         String accion = e.getActionCommand();
         //Accion
@@ -176,8 +185,18 @@ public class ControladorGestionTerreno implements ActionListener{
                         objetotres[7] = lista.getGanacia();
                         objetotres[8] = lista.getFechaincriccion();
                         modeltres.addRow(objetotres);
+                        informacionProduccion = new ProduccionDTO(lista.getIdregistrocosecha(),lista.getIdterreno(),lista.getIdPersona(),lista.getPropietario(),lista.getUbicacion(),lista.getHectarea(),lista.getCosecha(),lista.getPesocosecha(),lista.getPrecio(),lista.getGanacia(),lista.getFechaincriccion());
+                        idActivosProduccion.add( informacionProduccion);
                     }
                 }
+                for(TerrenoDTO lista : listaTerreno){
+                    if(lista.getIdPersona() == id){                        
+                        datosActivos = new TerrenoDTO(lista.getIdterreno(),lista.getIdPersona(),lista.getPropietario(),lista.getUbicacion(),lista.getHectarea());
+                        idTerreno.add(datosActivos);
+                        
+                    }
+                }
+                accionProduccion = new ControladorAccionProduccion(controlProduccion,id,idActivosProduccion);
                 break;
         }
     }
