@@ -1,4 +1,4 @@
-package VistaGanado;
+package VistaRegistro;
 
 public class RegistroGanado extends javax.swing.JFrame {
 
@@ -94,7 +94,7 @@ public class RegistroGanado extends javax.swing.JFrame {
         Raza.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         Sexo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleecione-", "Macho", "Hembra" }));
+        Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Macho", "Hembra" }));
 
         Tipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Lechero", "Engorde" }));

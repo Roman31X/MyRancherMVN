@@ -5,10 +5,10 @@ import JDBC.GanadoJDBC;
 import MySql.Conexion;
 import VistaGanado.*;
 import VistaPaneles.GestionGanado;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.SQLException;
+import VistaRegistro.RegistroGanado;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,6 +19,7 @@ public class ControladorGestionGanado implements ActionListener{
     VistaListarGanado ganado;
     VistaProduccionGanado productoGanado;
     int id;
+    String hoy;
     
     DefaultTableModel model;
     
@@ -46,6 +47,7 @@ public class ControladorGestionGanado implements ActionListener{
         ganado = new VistaListarGanado();
         productoGanado = new VistaProduccionGanado();
         
+        ControladorRegistroGanado controlRegistro;
         Connection conexion = null;
         
         try{
@@ -71,8 +73,11 @@ public class ControladorGestionGanado implements ActionListener{
         switch(accion){
             case "REGISTRO GANADO":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlGanado.PanelGanado, registroGanado.PanelRegistroGanado);
-                
-                
+                java.util.Date fechaHoy = new java.util.Date();
+                SimpleDateFormat nuevaFecha = new SimpleDateFormat("dd/MM/yyyy");
+                hoy = nuevaFecha.format(fechaHoy);
+                registroGanado.FechaNacimineto.setText(hoy);
+                controlRegistro = new ControladorRegistroGanado(registroGanado,id);
                 break;
             case "LISTAR GANADO":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlGanado.PanelGanado, ganado.PanelListaGanado);
@@ -82,7 +87,7 @@ public class ControladorGestionGanado implements ActionListener{
                     if(lista.getIdPersona() == id){
                         objeto[0] = String.valueOf(lista.getIdGanado());
                         objeto[1] = lista.getFechaNacimiento();
-                        objeto[2] = lista.getEdad();
+                        objeto[2] = lista.getEdad()+" años";
                         objeto[3] = lista.getRaza();
                         objeto[4] = lista.getSexo();
                         objeto[5] = lista.getTipoGanado();
@@ -90,6 +95,7 @@ public class ControladorGestionGanado implements ActionListener{
                         model.addRow(objeto);
                     }
                 }
+                
                 
                 break;
             case "PRODUCCION GANADO":
