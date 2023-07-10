@@ -23,7 +23,7 @@ public class VistaListarGanado extends javax.swing.JFrame {
         Eliminar = new javax.swing.JButton();
         Filtrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tablaganado = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -63,18 +63,15 @@ public class VistaListarGanado extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tablaganado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Fecha Nacimiento", "Sexo", "Edad", "Raza", "Tipo", "N° Crias"
+                "ID", "Fecha Nacimiento", "Edad", "Raza", "Sexo", "Tipo", "N° Crias"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tablaganado);
 
         javax.swing.GroupLayout PanelListaGanadoLayout = new javax.swing.GroupLayout(PanelListaGanado);
         PanelListaGanado.setLayout(PanelListaGanadoLayout);
@@ -83,9 +80,9 @@ public class VistaListarGanado extends javax.swing.JFrame {
             .addGroup(PanelListaGanadoLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(Modificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(129, 129, 129)
                 .addComponent(Eliminar)
-                .addGap(108, 108, 108)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Filtrar)
                 .addGap(56, 56, 56))
             .addGroup(PanelListaGanadoLayout.createSequentialGroup()
@@ -98,12 +95,12 @@ public class VistaListarGanado extends javax.swing.JFrame {
             .addGroup(PanelListaGanadoLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(PanelListaGanadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Modificar)
-                    .addComponent(Eliminar)
-                    .addComponent(Filtrar))
+                    .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Filtrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,11 +134,11 @@ public class VistaListarGanado extends javax.swing.JFrame {
     }//GEN-LAST:event_FiltrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Eliminar;
-    private javax.swing.JButton Filtrar;
-    private javax.swing.JButton Modificar;
+    public javax.swing.JButton Eliminar;
+    public javax.swing.JButton Filtrar;
+    public javax.swing.JButton Modificar;
     public javax.swing.JPanel PanelListaGanado;
+    public javax.swing.JTable Tablaganado;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

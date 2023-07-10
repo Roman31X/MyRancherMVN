@@ -1,26 +1,33 @@
 package Controlador;
 
 import DTO.ProduccionDTO;
+import DTO.TerrenoDTO;
 import Modelo.ProduccionCosecha;
+import VistaRegistro.RegistroProduccion;
 import VistaTerreno.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorAccionProduccion implements ActionListener{
-    VistaTablaProduccion controlProduccion;
-    VistaEliminarProduccion VistaEliminar;
+    private VistaTablaProduccion controlProduccion;
+    private VistaEliminarProduccion VistaEliminar;
+    private RegistroProduccion vistalRegistro;
     int id;
     List<ProduccionDTO> listaIDProduccion;
+    private List<TerrenoDTO> idTerreno;
     
     double pesoTotal = 0, presioKilo = 0;
     ProduccionCosecha resultado;
-    ControladorEliminarProduccion eliminaProduccion;
+    String[] datosCalculo;
+    ControladorRegistroProduccion agregarProduccion;
+    ControladorEliminarProduccion eliminaProduccion;    
     
-    public ControladorAccionProduccion(VistaTablaProduccion controlProduccion1, int id1,List<ProduccionDTO> listaIDProduccion1) {
+    public ControladorAccionProduccion(VistaTablaProduccion controlProduccion1, int id1,List<ProduccionDTO> listaIDProduccion1,List<TerrenoDTO> idTerreno1) {
         this.controlProduccion = controlProduccion1;
         this.id = id1;
         this.listaIDProduccion = listaIDProduccion1;
+        this.idTerreno = idTerreno1;
         
         controlProduccion.Calcular.addActionListener(this);
         controlProduccion.Eliminar.addActionListener(this);
@@ -46,6 +53,9 @@ public class ControladorAccionProduccion implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         VistaEliminar = new VistaEliminarProduccion();
+        vistalRegistro = new RegistroProduccion();
+        
+        datosCalculo = new String[3];
         
         String accion = e.getActionCommand();
         switch(accion){
@@ -68,6 +78,7 @@ public class ControladorAccionProduccion implements ActionListener{
 
                         resultado = new ProduccionCosecha(pesoTotal,presioKilo);
                         controlProduccion.Ganancia.setText(resultado.GananciaTotal());
+                        
                     }else{
                        JOptionPane.showMessageDialog(null,"En el campo Precio x Kilo debe ingresar\n"+
                                                                       "numeros enteros[1] y decimales [1.5]");
@@ -85,8 +96,20 @@ public class ControladorAccionProduccion implements ActionListener{
                 controlProduccion.Ganancia.setText("");
                 break;
             case "REGISTRAR":
-                
-                
+                for(TerrenoDTO lista : idTerreno){
+                    vistalRegistro.IDBOX.addItem(Integer.toString(lista.getIdterreno()));
+                }
+                datosCalculo[0] = String.valueOf(controlProduccion.PesoTotal.getText());
+                datosCalculo[1] = String.valueOf(controlProduccion.PesoKilo.getText());
+                datosCalculo[2] = String.valueOf(controlProduccion.Ganancia.getText());
+                List resultado = Arrays.asList(datosCalculo);
+                    if(resultado.contains("")){
+                        JOptionPane.showMessageDialog(null,"Debe rellenar todos los campos\n"+
+                                                                       "    de calculo de COSECHA");
+                        return;
+                    }
+                agregarProduccion = new ControladorRegistroProduccion(vistalRegistro,id,idTerreno,datosCalculo);
+                agregarProduccion.Mostrar();
                 break;
             case "ELIMINAR":
                 for (ProduccionDTO lista : listaIDProduccion) {

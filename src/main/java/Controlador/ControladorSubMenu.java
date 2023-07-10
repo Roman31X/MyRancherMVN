@@ -42,7 +42,7 @@ public class ControladorSubMenu implements ActionListener{
                 break;
             case "Gestion Ganado":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlMenu.PanelMenu, controlGanado.PanelGestionGanado);
-                ControladorGestionGanado ganado = new ControladorGestionGanado(controlGanado);
+                ControladorGestionGanado ganado = new ControladorGestionGanado(controlGanado,id);
                 break;
         }
     }

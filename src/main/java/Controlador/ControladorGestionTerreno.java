@@ -172,18 +172,19 @@ public class ControladorGestionTerreno implements ActionListener{
             case "Produccion":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlTerreno.PanelGestion,controlProduccion.panelProduccion );
                 modeltres = (DefaultTableModel) controlProduccion.TablaCosecha.getModel();
-                objetotres = new String[9];
+                objetotres = new String[10];
                 for(ProduccionDTO lista : listaProduccion){
                     if(lista.getIdPersona() == id){
                         objetotres[0] = Integer.toString(lista.getIdregistrocosecha());
-                        objetotres[1] = lista.getPropietario();
-                        objetotres[2] = lista.getUbicacion();
-                        objetotres[3] = lista.getHectarea();
-                        objetotres[4] = lista.getCosecha();
-                        objetotres[5] = lista.getPesocosecha();
-                        objetotres[6] = lista.getPrecio();
-                        objetotres[7] = lista.getGanacia();
-                        objetotres[8] = lista.getFechaincriccion();
+                        objetotres[1] = Integer.toString(lista.getIdterreno());
+                        objetotres[2] = lista.getPropietario();
+                        objetotres[3] = lista.getUbicacion();
+                        objetotres[4] = lista.getHectarea();
+                        objetotres[5] = lista.getCosecha();
+                        objetotres[6] = lista.getPesocosecha();
+                        objetotres[7] = lista.getPrecio();
+                        objetotres[8] = lista.getGanacia();
+                        objetotres[9] = lista.getFechaincriccion();
                         modeltres.addRow(objetotres);
                         informacionProduccion = new ProduccionDTO(lista.getIdregistrocosecha(),lista.getIdterreno(),lista.getIdPersona(),lista.getPropietario(),lista.getUbicacion(),lista.getHectarea(),lista.getCosecha(),lista.getPesocosecha(),lista.getPrecio(),lista.getGanacia(),lista.getFechaincriccion());
                         idActivosProduccion.add( informacionProduccion);
@@ -196,7 +197,7 @@ public class ControladorGestionTerreno implements ActionListener{
                         
                     }
                 }
-                accionProduccion = new ControladorAccionProduccion(controlProduccion,id,idActivosProduccion);
+                accionProduccion = new ControladorAccionProduccion(controlProduccion,id,idActivosProduccion,idTerreno);
                 break;
         }
     }

@@ -112,7 +112,7 @@ public class VistaTablaProduccion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Propietario", "Ubicacion", "Hectarea", "Cosecha", "Peso Cosecha", "Precio", "Ganancia", "Fecha"
+                "ID", "IDTERRENO", "Propietario", "Ubicacion", "Hectarea", "Cosecha", "Peso Cosecha", "Precio", "Ganancia", "Fecha"
             }
         ));
         jScrollPane1.setViewportView(TablaCosecha);
