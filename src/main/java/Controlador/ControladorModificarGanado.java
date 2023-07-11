@@ -6,8 +6,6 @@ import VistaGanado.VistaModificarGanado;
 import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -102,6 +100,7 @@ public class ControladorModificarGanado implements ActionListener{
                 }
                 break;
             case "MODIFICAR":
+                idregistrado = Integer.parseInt(vistaModificar.IDGanado.getSelectedItem().toString());
                 String fecha = vistaModificar.FechaNacimineto.getText();
                 String edad = vistaModificar.edad.getText();
                 String raza = vistaModificar.Raza.getText();
@@ -142,6 +141,7 @@ public class ControladorModificarGanado implements ActionListener{
                                                                    "ingresa numeros enteros[1] y decimales [1.5]");
                     return;
                 }
+                
                 
                 ganadoModifiado = new GanadoDTO(idregistrado,id,fecha,edad,raza,sexo,tipo,numeroCrias);
             

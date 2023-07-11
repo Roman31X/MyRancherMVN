@@ -18,7 +18,7 @@ public class Conexion {
         ds.setUsername(JDBC_USER);
         ds.setPassword(JDBC_PASSWORD);
         //DEFINIMOS EL TAMAÑO INICIAL DEL POOL DE CONEXIONES
-        ds.setInitialSize(5);
+        ds.setInitialSize(6);
         return ds;
     }
    

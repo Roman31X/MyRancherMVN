@@ -26,14 +26,18 @@ public class ControladorGestionGanado implements ActionListener{
     
     String[] objeto;
     
-    private GanadoJDBC todoGanado;
-    private List<GanadoDTO> listaGanado;
+    //Datos conexion
+    GanadoJDBC todoGanado;
+    List<GanadoDTO> listaGanado;
     
-    //Enviar datos
+    //Enviar datos modificar
     private List<GanadoDTO> idGanado;
     private GanadoDTO datosActivos;
     
-    ControladorPanelesMenuPrincipal principalInterfaz;    
+    ControladorPanelesMenuPrincipal principalInterfaz; 
+    ControladorRegistroGanado controlRegistro;
+    ControladorAccionListarGanado modificarGanado;
+        
     //Constructor
     public ControladorGestionGanado(GestionGanado controlGanado3,int id3) {
         this.controlGanado = controlGanado3;
@@ -65,9 +69,7 @@ public class ControladorGestionGanado implements ActionListener{
         ganado = new VistaListarGanado();
         productoGanado = new VistaProduccionGanado();
         
-        ControladorRegistroGanado controlRegistro;
-        ControladorAccionListarGanado modificarGanado;
-        
+        //Dato almacenado
         idGanado = new ArrayList<>();
         
         Connection conexion = null;

@@ -2,12 +2,12 @@ package DTO;
 
 public class ProduccionDTO extends TerrenoDTO{
     //Atributos
-    protected int idregistrocosecha;
-    protected String cosecha;
-    protected String pesocosecha;
-    protected String precio;
-    protected String ganacia;
-    protected String fechaincriccion;
+    private int idregistrocosecha;
+    private String cosecha;
+    private String pesocosecha;
+    private String precio;
+    private String ganacia;
+    private String fechaincriccion;
     
     //Constructor
     public ProduccionDTO() {

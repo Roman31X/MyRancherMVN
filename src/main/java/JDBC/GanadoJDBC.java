@@ -111,7 +111,7 @@ public class GanadoJDBC implements GanadoDAO{
             stmt.setString(6,ganado.getTipoGanado());
             stmt.setString(7,ganado.getNumeroCrias());
             stmt.setInt(8,ganado.getIdGanado());
-            
+            registro  = stmt.executeUpdate();
         }finally {
             try {
                 closePREPA(stmt);

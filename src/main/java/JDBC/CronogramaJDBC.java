@@ -2,10 +2,7 @@ package JDBC;
 
 import DAO.CronogramaTerrenoDAO;
 import DTO.CronogramaDTO;
-import static MySql.Conexion.closeMYSQL;
-import static MySql.Conexion.closePREPA;
-import static MySql.Conexion.closeRESULT;
-import static MySql.Conexion.getConnection;
+import static MySql.Conexion.*;
 import java.sql.*;
 import java.util.*;
 
