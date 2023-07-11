@@ -91,8 +91,6 @@ public class ControladorGestionGanado implements ActionListener{
                 exx.printStackTrace(System.out);
             }
         }
-        
-        
         String accion = e.getActionCommand();
         switch(accion){
             case "REGISTRO GANADO":
@@ -114,13 +112,7 @@ public class ControladorGestionGanado implements ActionListener{
                         if(Años(lista.getEdad()) == true){
                             objeto[2] = lista.getEdad()+" años";
                         }else{
-                            double edad = Double.parseDouble(lista.getEdad());
-                            if(edad < 1){
-                                objeto[2] = lista.getEdad()+" meses";
-                            }else{
-                                objeto[2] = lista.getEdad()+" años";
-                            }
-                            
+                            objeto[2] = lista.getEdad()+" meses";
                         }
                         objeto[3] = lista.getRaza();
                         objeto[4] = lista.getSexo();

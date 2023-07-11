@@ -2,20 +2,24 @@ package Controlador;
 
 import DTO.GanadoDTO;
 import VistaGanado.VistaEliminarGanado;
+import VistaGanado.VistaFiltroGanado;
 import VistaGanado.VistaListarGanado;
 import VistaGanado.VistaModificarGanado;
 import java.awt.event.*;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class ControladorAccionListarGanado implements ActionListener{
     private final VistaListarGanado controlGanado;
     private VistaEliminarGanado controlEliminar;
+    private VistaFiltroGanado filtro;
     int id;
     private List<GanadoDTO> idActivos;
     
     private VistaModificarGanado vistaModificar;
     ControladorModificarGanado controlModificar;
     ControladorEliminarGanado controlBorrar;
+    ControladorFiltroGanado filtrarGanado;
 
     public ControladorAccionListarGanado(VistaListarGanado controlGanado2, int id2,List<GanadoDTO> idActivos2) {
         this.controlGanado = controlGanado2;
@@ -25,8 +29,6 @@ public class ControladorAccionListarGanado implements ActionListener{
         controlGanado.Modificar.addActionListener(this);
         controlGanado.Eliminar.addActionListener(this);
         controlGanado.Filtrar.addActionListener(this);
-        
-        
     }
 
     @Override
@@ -34,6 +36,7 @@ public class ControladorAccionListarGanado implements ActionListener{
         
         vistaModificar = new VistaModificarGanado();
         controlEliminar = new VistaEliminarGanado();
+        filtro = new VistaFiltroGanado();
         
         String accion = e.getActionCommand();
         switch(accion){
@@ -52,6 +55,8 @@ public class ControladorAccionListarGanado implements ActionListener{
                 controlBorrar.Mostrar();
                 break;
             case "FILTRAR":
+                filtrarGanado = new ControladorFiltroGanado(controlGanado,filtro,idActivos);
+                filtrarGanado.Mostrar();
                 break;
         }
     }

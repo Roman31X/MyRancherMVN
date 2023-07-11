@@ -1,6 +1,6 @@
 package DTO;
 
-public class RegistroProduccionGanadoDTO {
+public class ProduccionGanadoDTO {
     //Atributos
     protected int idproduccionGanado;
     protected String producto;
@@ -9,20 +9,20 @@ public class RegistroProduccionGanadoDTO {
     
     //Constructor
 
-    public RegistroProduccionGanadoDTO() {
+    public ProduccionGanadoDTO() {
     }
 
-    public RegistroProduccionGanadoDTO(int idproduccionGanado) {
+    public ProduccionGanadoDTO(int idproduccionGanado) {
         this.idproduccionGanado = idproduccionGanado;
     }
 
-    public RegistroProduccionGanadoDTO(String producto, String mes, String Ganancia) {
+    public ProduccionGanadoDTO(String producto, String mes, String Ganancia) {
         this.producto = producto;
         this.mes = mes;
         this.Ganancia = Ganancia;
     }
 
-    public RegistroProduccionGanadoDTO(int idproduccionGanado, String producto, String mes, String Ganancia) {
+    public ProduccionGanadoDTO(int idproduccionGanado, String producto, String mes, String Ganancia) {
         this.idproduccionGanado = idproduccionGanado;
         this.producto = producto;
         this.mes = mes;
