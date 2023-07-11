@@ -13,7 +13,7 @@ public class GanadoJDBC implements GanadoDAO{
     //sentencias
     private static final String SQL_SELECT = "SELECT idganado, idusuario, fechanacimiento, edad, raza, sexo, tipo, numerocrias FROM ganado";
     private static final String SQL_INSERT = "INSERT INTO ganado(idusuario, fechanacimiento, edad, raza, sexo, tipo, numerocrias) VALUES(?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE ganado SET idusuario = ?, fechanacimiento = ?, edad = ?, raza = ?, sexo = ?, tipo = ?, numerocrias = ?  WHERE idganado  = ?";
+    private static final String SQL_UPDATE = "UPDATE ganado SET idusuario = ?, fechanacimiento = ?, edad = ?, raza = ?, sexo = ?, tipo = ?, numerocrias = ?  WHERE idganado = ?";
     private static final String SQL_DELETE = "DELETE FROM ganado WHERE idganado = ?";
     
     //constrcutor vacio
@@ -103,7 +103,6 @@ public class GanadoJDBC implements GanadoDAO{
             conectar = (this.conexionTrasaccional != null) ? this.conexionTrasaccional : getConnection();
             
             stmt = conectar.prepareStatement(SQL_UPDATE);
-            
             stmt.setInt(1,ganado.getIdPersona());
             stmt.setString(2,ganado.getFechaNacimiento());
             stmt.setString(3,ganado.getEdad());

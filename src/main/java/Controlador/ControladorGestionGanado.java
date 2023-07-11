@@ -9,6 +9,7 @@ import VistaRegistro.RegistroGanado;
 import java.awt.event.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,6 +29,10 @@ public class ControladorGestionGanado implements ActionListener{
     private GanadoJDBC todoGanado;
     private List<GanadoDTO> listaGanado;
     
+    //Enviar datos
+    private List<GanadoDTO> idGanado;
+    private GanadoDTO datosActivos;
+    
     ControladorPanelesMenuPrincipal principalInterfaz;    
     //Constructor
     public ControladorGestionGanado(GestionGanado controlGanado3,int id3) {
@@ -39,8 +44,21 @@ public class ControladorGestionGanado implements ActionListener{
         controlGanado.ProduccionGanado.addActionListener(this);
     }
     
-    //Accion
+    public boolean Años(String cadena) {
 
+        boolean resultado;
+
+        try {
+            Integer.parseInt(cadena);
+            resultado = true;
+        } catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+
+        return resultado;
+    }
+    
+    //Accion
     @Override
     public void actionPerformed(ActionEvent e) {
         registroGanado = new RegistroGanado();
@@ -48,6 +66,10 @@ public class ControladorGestionGanado implements ActionListener{
         productoGanado = new VistaProduccionGanado();
         
         ControladorRegistroGanado controlRegistro;
+        ControladorAccionListarGanado modificarGanado;
+        
+        idGanado = new ArrayList<>();
+        
         Connection conexion = null;
         
         try{
@@ -87,16 +109,27 @@ public class ControladorGestionGanado implements ActionListener{
                     if(lista.getIdPersona() == id){
                         objeto[0] = String.valueOf(lista.getIdGanado());
                         objeto[1] = lista.getFechaNacimiento();
-                        objeto[2] = lista.getEdad()+" años";
+                        if(Años(lista.getEdad()) == true){
+                            objeto[2] = lista.getEdad()+" años";
+                        }else{
+                            double edad = Double.parseDouble(lista.getEdad());
+                            if(edad < 1){
+                                objeto[2] = lista.getEdad()+" meses";
+                            }else{
+                                objeto[2] = lista.getEdad()+" años";
+                            }
+                            
+                        }
                         objeto[3] = lista.getRaza();
                         objeto[4] = lista.getSexo();
                         objeto[5] = lista.getTipoGanado();
                         objeto[6] = lista.getNumeroCrias();
                         model.addRow(objeto);
+                        datosActivos = new GanadoDTO(lista.getIdGanado(),lista.getIdPersona(),lista.getFechaNacimiento(),lista.getEdad(),lista.getRaza(),lista.getSexo(),lista.getTipoGanado(),lista.getNumeroCrias());
+                        idGanado.add(datosActivos);
                     }
                 }
-                
-                
+                modificarGanado = new ControladorAccionListarGanado(ganado,id,idGanado);
                 break;
             case "PRODUCCION GANADO":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlGanado.PanelGanado, productoGanado.PanelProduccion);

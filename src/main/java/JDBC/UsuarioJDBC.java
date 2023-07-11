@@ -14,7 +14,7 @@ public class UsuarioJDBC implements UsuarioDAO{
     //sentencias
     private static final String SQL_SELECT = "SELECT idusuario, nombre, apellido, nombreusuario, email, contraseñauno, contraseñados FROM usuario";
     private static final String SQL_INSERT = "INSERT INTO usuario(nombre,apellido, nombreusuario, email, contraseñauno, contraseñados) VALUES(?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE usuario SET nombre = ?,apellido = ?,nombreusuario = ?,email = ?,contraseñauno = ?,contraseñados = ? WHERE idusuario  = ?";
+    private static final String SQL_UPDATE = "UPDATE usuario SET nombre = ?,apellido = ?,nombreusuario = ?,email = ?,contraseñauno = ?,contraseñados = ? WHERE idusuario = ?";
     private static final String SQL_DELETE = "DELETE FROM usuario WHERE idusuario = ?";
     
     //constrcutor vacio

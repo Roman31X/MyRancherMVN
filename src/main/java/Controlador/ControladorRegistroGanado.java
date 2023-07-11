@@ -7,8 +7,6 @@ import java.awt.event.*;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControladorRegistroGanado implements ActionListener{
@@ -117,7 +115,6 @@ public class ControladorRegistroGanado implements ActionListener{
                 break;
 
             case "LIMPIAR":
-                
                 hoy = nuevaFecha.format(fechaHoy);
                 registroGanado.FechaNacimineto.setText(hoy);
                 registroGanado.edad.setText("");

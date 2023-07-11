@@ -6,8 +6,16 @@ import Modelo.ProduccionCosecha;
 
 public class TestDatos {
     public static void main(String[] args) {
-        int dos = 2+2;
-        System.out.println("dos = " + dos);
+        
+        if(1.0 < 1){
+            System.out.println("menor");
+        }else{
+            System.out.println("Mayor");
+        }
+        
+        
+//        int dos = 2+2;
+//        System.out.println("dos = " + dos);
         
         //Connection conexion = null;
 //        String usuario1 = "Roman31X";
@@ -37,10 +45,10 @@ public class TestDatos {
 //            }
 //        }
 
-         ProduccionCosecha cosecha = new ProduccionCosecha(18500.52,18.5);
-//         cosecha.setPesoTotal(15000.552);
-//         cosecha.setPrecioKilo(15.825);
-         System.out.println("cosecha = " + cosecha.toString());
+//         ProduccionCosecha cosecha = new ProduccionCosecha(18500.52,18.5);
+////         cosecha.setPesoTotal(15000.552);
+////         cosecha.setPrecioKilo(15.825);
+//         System.out.println("cosecha = " + cosecha.toString());
 
     }
     

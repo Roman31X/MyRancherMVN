@@ -1,11 +1,7 @@
 package Controlador;
 
-import DTO.CronogramaDTO;
-import DTO.ProduccionDTO;
-import DTO.TerrenoDTO;
-import JDBC.CronogramaJDBC;
-import JDBC.ProduccionJDBC;
-import JDBC.TerrenoJDBC;
+import DTO.*;
+import JDBC.*;
 import MySql.Conexion;
 import VistaPaneles.GestionTerreno;
 import VistaTerreno.*;
