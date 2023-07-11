@@ -100,7 +100,6 @@ public class ControladorModificarGanado implements ActionListener{
                 }
                 break;
             case "MODIFICAR":
-                idregistrado = Integer.parseInt(vistaModificar.IDGanado.getSelectedItem().toString());
                 String fecha = vistaModificar.FechaNacimineto.getText();
                 String edad = vistaModificar.edad.getText();
                 String raza = vistaModificar.Raza.getText();
