@@ -64,11 +64,11 @@
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Modificar" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="Limpiar" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="Regresar" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="Limpiar" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                              <Component id="Regresar" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                              <Component id="Modificar" min="-2" pref="130" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -92,11 +92,11 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="Modificar" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           <Component id="Limpiar" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           <Component id="Regresar" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

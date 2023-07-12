@@ -142,8 +142,8 @@ public class ControladorGestionGanado implements ActionListener{
                 for (ProductoGanadoDTO lista : listaProducto) {
                     if(lista.getIdPersona() == id){
                         objeto1[0] = String.valueOf(lista.getIdproduccionGanado());
-                        objeto1[1] = lista.getMes();
-                        objeto1[2] = lista.getProducto();
+                        objeto1[1] = lista.getProducto();
+                        objeto1[2] = lista.getMes();
                         objeto1[3] = lista.getGanancia();
                         model1.addRow(objeto1);
                         activosProducto = new ProductoGanadoDTO(lista.getIdproduccionGanado(),lista.getIdPersona(),lista.getProducto(),lista.getMes(),lista.getGanancia());

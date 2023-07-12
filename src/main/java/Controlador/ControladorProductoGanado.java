@@ -1,13 +1,11 @@
 package Controlador;
 
 import DTO.ProductoGanadoDTO;
-import VistaGanado.VistaEliminarProducto;
-import VistaGanado.VistaModificarProducto;
-import VistaGanado.VistaProduccionGanado;
+import VistaGanado.*;
 import VistaRegistro.RegistroProductoGanado;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.List;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 public class ControladorProductoGanado implements ActionListener{
     private final VistaProduccionGanado controlProducto;
@@ -19,6 +17,7 @@ public class ControladorProductoGanado implements ActionListener{
     private VistaEliminarProducto eliminarProducto;
     
     private ControladorRegistroGanadoProducto accionRegistrar;
+    private ControladorModificarProductoGanado accionModificar;
     private ControladorEliminarGanadoProducion accionEliminar;
     
 
@@ -49,7 +48,11 @@ public class ControladorProductoGanado implements ActionListener{
                 accionRegistrar.Mostrar();
                 break;
             case "MODIFICAR":
-                
+                for (ProductoGanadoDTO lista : listaProducto) {
+                    modificcarProducto.IDProducto.addItem(String.valueOf(lista.getIdproduccionGanado()));
+                }
+                accionModificar = new ControladorModificarProductoGanado(modificcarProducto,id,listaProducto);
+                accionModificar.Mostrar();
                 break;
             case "ELIMINAR":
                 for (ProductoGanadoDTO lista : listaProducto) {
@@ -59,6 +62,9 @@ public class ControladorProductoGanado implements ActionListener{
                 accionEliminar.Mostrar();
                 break;
             case "GRAFICAR":
+                DefaultCategoryDataset datos = new DefaultCategoryDataset();
+                
+                
                 break;
         }
     }

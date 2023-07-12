@@ -42,7 +42,7 @@ public class ProductoGanadoJDBC implements ProductoGanadoDAO{
                 String producto = result.getString("producto");
                 String mes = result.getString("mes");
                 String ganancia = result.getString("ganancia");
-                productoGanado = new ProductoGanadoDTO(idproductoganado,idusuario, mes,producto,ganancia);
+                productoGanado = new ProductoGanadoDTO(idproductoganado,idusuario, producto,mes,ganancia);
                 listaProducto.add(productoGanado);
             }
         }finally {
