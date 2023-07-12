@@ -17,8 +17,8 @@ public class VistaProduccionGanado extends javax.swing.JFrame {
     private void initComponents() {
 
         PanelProduccion = new javax.swing.JPanel();
-        Modificar = new javax.swing.JButton();
         Agregar = new javax.swing.JButton();
+        Modificar = new javax.swing.JButton();
         Eliminar = new javax.swing.JButton();
         Graficar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -33,16 +33,6 @@ public class VistaProduccionGanado extends javax.swing.JFrame {
         PanelProduccion.setMinimumSize(new java.awt.Dimension(710, 453));
         PanelProduccion.setPreferredSize(new java.awt.Dimension(710, 453));
 
-        Modificar.setBackground(new java.awt.Color(0, 102, 102));
-        Modificar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Modificar.setForeground(new java.awt.Color(255, 255, 255));
-        Modificar.setText("MODIFICAR");
-        Modificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModificarActionPerformed(evt);
-            }
-        });
-
         Agregar.setBackground(new java.awt.Color(0, 102, 102));
         Agregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Agregar.setForeground(new java.awt.Color(255, 255, 255));
@@ -50,6 +40,16 @@ public class VistaProduccionGanado extends javax.swing.JFrame {
         Agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarActionPerformed(evt);
+            }
+        });
+
+        Modificar.setBackground(new java.awt.Color(0, 102, 102));
+        Modificar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Modificar.setForeground(new java.awt.Color(255, 255, 255));
+        Modificar.setText("MODIFICAR");
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
             }
         });
 
@@ -175,7 +175,7 @@ public class VistaProduccionGanado extends javax.swing.JFrame {
     public javax.swing.JButton Agregar;
     public javax.swing.JButton Eliminar;
     public javax.swing.JButton Graficar;
-    private javax.swing.JButton Modificar;
+    public javax.swing.JButton Modificar;
     public javax.swing.JPanel PanelGrafica;
     public javax.swing.JPanel PanelProduccion;
     public javax.swing.JTable TablaProduccion;

@@ -36,10 +36,13 @@ public class ControladorGestionGanado implements ActionListener{
     //Enviar datos modificar
     private List<GanadoDTO> idGanado;
     private GanadoDTO datosActivos;
+    private List<ProductoGanadoDTO> idProducto;
+    private ProductoGanadoDTO activosProducto;
     
     private ControladorPanelesMenuPrincipal principalInterfaz; 
     private ControladorRegistroGanado controlRegistro;
     private ControladorAccionListarGanado modificarGanado;
+    private ControladorProductoGanado controlProducto;
         
     //Constructor
     public ControladorGestionGanado(GestionGanado controlGanado3,int id3) {
@@ -74,6 +77,7 @@ public class ControladorGestionGanado implements ActionListener{
         
         //Dato almacenado
         idGanado = new ArrayList<>();
+        idProducto = new ArrayList<>();
         
         Connection conexion = null;
         
@@ -138,12 +142,15 @@ public class ControladorGestionGanado implements ActionListener{
                 for (ProductoGanadoDTO lista : listaProducto) {
                     if(lista.getIdPersona() == id){
                         objeto1[0] = String.valueOf(lista.getIdproduccionGanado());
-                        objeto1[1] = lista.getProducto();
-                        objeto1[2] = lista.getMes();
+                        objeto1[1] = lista.getMes();
+                        objeto1[2] = lista.getProducto();
                         objeto1[3] = lista.getGanancia();
                         model1.addRow(objeto1);
+                        activosProducto = new ProductoGanadoDTO(lista.getIdproduccionGanado(),lista.getIdPersona(),lista.getProducto(),lista.getMes(),lista.getGanancia());
+                        idProducto.add(activosProducto);
                     }
                 }
+                controlProducto = new ControladorProductoGanado(productoGanado,id,idProducto);
                 break;
         }
     }

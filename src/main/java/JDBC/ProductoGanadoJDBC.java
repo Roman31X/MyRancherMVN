@@ -2,25 +2,18 @@ package JDBC;
 
 import DAO.ProductoGanadoDAO;
 import DTO.ProductoGanadoDTO;
-import static MySql.Conexion.closeMYSQL;
-import static MySql.Conexion.closePREPA;
-import static MySql.Conexion.closeRESULT;
-import static MySql.Conexion.getConnection;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import static MySql.Conexion.*;
+import java.sql.*;
+import java.util.*;
 
 public class ProductoGanadoJDBC implements ProductoGanadoDAO{
     
     private Connection conexionTrasaccional;
     
     //sentencias
-    private static final String SQL_SELECT = "SELECT idusuario, producto, mes, ganancia FROM productoganado";
+    private static final String SQL_SELECT = "SELECT idproductoganado, idusuario, producto, mes, ganancia FROM productoganado";
     private static final String SQL_INSERT = "INSERT INTO productoganado(idusuario, producto, mes, ganancia) VALUES(?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE productoganado SET idusuario = ?, producto = ?, mes = ?, ganancia = ? WHERE iproductoganado = ?";
+    private static final String SQL_UPDATE = "UPDATE productoganado SET idusuario = ?, producto = ?, mes = ?, ganancia = ? WHERE idproductoganado = ?";
     private static final String SQL_DELETE = "DELETE FROM productoganado WHERE idproductoganado = ?";
     
     //constrcutor vacio
@@ -44,7 +37,7 @@ public class ProductoGanadoJDBC implements ProductoGanadoDAO{
             stmt = conector.prepareStatement(SQL_SELECT);
             result = stmt.executeQuery();
             while (result.next()) {
-                int idproductoganado = result.getInt("idusuario");
+                int idproductoganado = result.getInt("idproductoganado");
                 int idusuario = result.getInt("idusuario");
                 String producto = result.getString("producto");
                 String mes = result.getString("mes");

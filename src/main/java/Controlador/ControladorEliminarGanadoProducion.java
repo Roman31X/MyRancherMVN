@@ -1,20 +1,20 @@
 package Controlador;
 
-import DTO.GanadoDTO;
-import JDBC.GanadoJDBC;
-import VistaGanado.VistaEliminarGanado;
+import DTO.ProductoGanadoDTO;
+import JDBC.ProductoGanadoJDBC;
+import VistaGanado.VistaEliminarProducto;
 import java.awt.event.*;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class ControladorEliminarGanado implements ActionListener{
-    private final VistaEliminarGanado eliminar;
-    
-    private GanadoDTO GanadoEliminado;
-    private GanadoJDBC eliminarGanado;
+public class ControladorEliminarGanadoProducion implements ActionListener{
+    private final VistaEliminarProducto eliminar;
 
-    public ControladorEliminarGanado(VistaEliminarGanado eliminar2) {
-        this.eliminar = eliminar2;
+    private ProductoGanadoDTO ProductoEliminado;
+    private ProductoGanadoJDBC eliminarProducto;
+    
+    public ControladorEliminarGanadoProducion(VistaEliminarProducto eliminar3) {
+        this.eliminar = eliminar3;
         
         eliminar.Eliminar.addActionListener(this);
         eliminar.Regresar.addActionListener(this);
@@ -23,7 +23,7 @@ public class ControladorEliminarGanado implements ActionListener{
     public void Mostrar(){
         eliminar.setVisible(true);
     }
-
+    
     public boolean isNumeric(String cadena) {
 
         boolean resultado;
@@ -37,11 +37,11 @@ public class ControladorEliminarGanado implements ActionListener{
 
         return resultado;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        eliminarGanado = new GanadoJDBC();
+        eliminarProducto = new ProductoGanadoJDBC();
         
         String accion = e.getActionCommand();
         switch(accion){
@@ -49,18 +49,18 @@ public class ControladorEliminarGanado implements ActionListener{
                 String id = eliminar.ListaID.getSelectedItem().toString();
                 
                 if(isNumeric(id) == true){
-                    int idTerreno = Integer.parseInt(id);
-                    GanadoEliminado = new GanadoDTO(idTerreno);
+                    int idGanado = Integer.parseInt(id);
+                    ProductoEliminado = new ProductoGanadoDTO(idGanado);
                     try {
-                        eliminarGanado.eliminar(GanadoEliminado);
+                        eliminarProducto.eliminar(ProductoEliminado);
                     } catch (SQLException ex) {
                         ex.printStackTrace(System.out);
                     }
                     
                 }else{
                     JOptionPane.showMessageDialog(null,"Debe seleccionar el numero\n"+
-                                                                   "   ID GANADO a eliminar");
-                    return;
+                                                                   "   ID PRODUCTO a eliminar");
+                    return; 
                 }
                 eliminar.setVisible(false);
                 break;
@@ -68,5 +68,8 @@ public class ControladorEliminarGanado implements ActionListener{
                 eliminar.setVisible(false);
                 break;
         }
+               
     }
 }
+    
+

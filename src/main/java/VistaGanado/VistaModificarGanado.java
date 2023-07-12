@@ -29,14 +29,14 @@ public class VistaModificarGanado extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         FechaNacimineto = new javax.swing.JTextField();
-        Sexo = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        Sexo = new javax.swing.JComboBox<>();
         Raza = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         edad = new javax.swing.JTextField();
-        Tipo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
+        Tipo = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         Ncrias = new javax.swing.JTextField();
         Modificar = new javax.swing.JToggleButton();
@@ -94,7 +94,7 @@ public class VistaModificarGanado extends javax.swing.JFrame {
         );
 
         IDGanado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        IDGanado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seeccion-" }));
+        IDGanado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccion-" }));
         IDGanado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDGanadoActionPerformed(evt);
@@ -112,11 +112,11 @@ public class VistaModificarGanado extends javax.swing.JFrame {
 
         FechaNacimineto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        Sexo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Macho", "Hembra" }));
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Sexo:");
+
+        Sexo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Macho", "Hembra" }));
 
         Raza.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
@@ -128,11 +128,11 @@ public class VistaModificarGanado extends javax.swing.JFrame {
 
         edad.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        Tipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Lechero", "Engorde" }));
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Tipo:");
+
+        Tipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Lechero", "Engorde" }));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("N° Crias:");
