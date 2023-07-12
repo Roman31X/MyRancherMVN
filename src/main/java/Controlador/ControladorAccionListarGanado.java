@@ -7,7 +7,6 @@ import VistaGanado.VistaListarGanado;
 import VistaGanado.VistaModificarGanado;
 import java.awt.event.*;
 import java.util.List;
-import javax.swing.table.DefaultTableModel;
 
 public class ControladorAccionListarGanado implements ActionListener{
     private final VistaListarGanado controlGanado;
@@ -17,9 +16,9 @@ public class ControladorAccionListarGanado implements ActionListener{
     private List<GanadoDTO> idActivos;
     
     private VistaModificarGanado vistaModificar;
-    ControladorModificarGanado controlModificar;
-    ControladorEliminarGanado controlBorrar;
-    ControladorFiltroGanado filtrarGanado;
+    private ControladorModificarGanado controlModificar;
+    private ControladorEliminarGanado controlBorrar;
+    private ControladorFiltroGanado filtrarGanado;
 
     public ControladorAccionListarGanado(VistaListarGanado controlGanado2, int id2,List<GanadoDTO> idActivos2) {
         this.controlGanado = controlGanado2;

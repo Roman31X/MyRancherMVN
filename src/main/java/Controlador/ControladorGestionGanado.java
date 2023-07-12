@@ -1,7 +1,7 @@
 package Controlador;
 
-import DTO.GanadoDTO;
-import JDBC.GanadoJDBC;
+import DTO.*;
+import JDBC.*;
 import MySql.Conexion;
 import VistaGanado.*;
 import VistaPaneles.GestionGanado;
@@ -9,34 +9,37 @@ import VistaRegistro.RegistroGanado;
 import java.awt.event.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import javax.swing.table.DefaultTableModel;
 
 public class ControladorGestionGanado implements ActionListener{
     //Atributos
-    GestionGanado controlGanado;
-    RegistroGanado registroGanado;
-    VistaListarGanado ganado;
-    VistaProduccionGanado productoGanado;
-    int id;
-    String hoy;
+    private final GestionGanado controlGanado;
+    private RegistroGanado registroGanado;
+    private VistaListarGanado ganado;
+    private VistaProduccionGanado productoGanado;
+    private int id;
+    private String hoy;
     
     DefaultTableModel model;
+    DefaultTableModel model1;
     
     String[] objeto;
+    String[] objeto1;
     
     //Datos conexion
     GanadoJDBC todoGanado;
     List<GanadoDTO> listaGanado;
+    ProductoGanadoJDBC todoProducto;
+    List<ProductoGanadoDTO> listaProducto;
     
     //Enviar datos modificar
     private List<GanadoDTO> idGanado;
     private GanadoDTO datosActivos;
     
-    ControladorPanelesMenuPrincipal principalInterfaz; 
-    ControladorRegistroGanado controlRegistro;
-    ControladorAccionListarGanado modificarGanado;
+    private ControladorPanelesMenuPrincipal principalInterfaz; 
+    private ControladorRegistroGanado controlRegistro;
+    private ControladorAccionListarGanado modificarGanado;
         
     //Constructor
     public ControladorGestionGanado(GestionGanado controlGanado3,int id3) {
@@ -81,6 +84,9 @@ public class ControladorGestionGanado implements ActionListener{
         }
         todoGanado = new GanadoJDBC();
         listaGanado  = todoGanado.seleccionar();
+        todoProducto = new ProductoGanadoJDBC();
+        listaProducto = todoProducto.seleccionar();
+        
         conexion.commit();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -127,6 +133,17 @@ public class ControladorGestionGanado implements ActionListener{
                 break;
             case "PRODUCCION GANADO":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlGanado.PanelGanado, productoGanado.PanelProduccion);
+                model1 = (DefaultTableModel) productoGanado.TablaProduccion.getModel();
+                objeto1 = new String[4];
+                for (ProductoGanadoDTO lista : listaProducto) {
+                    if(lista.getIdPersona() == id){
+                        objeto1[0] = String.valueOf(lista.getIdproduccionGanado());
+                        objeto1[1] = lista.getProducto();
+                        objeto1[2] = lista.getMes();
+                        objeto1[3] = lista.getGanancia();
+                        model1.addRow(objeto1);
+                    }
+                }
                 break;
         }
     }
