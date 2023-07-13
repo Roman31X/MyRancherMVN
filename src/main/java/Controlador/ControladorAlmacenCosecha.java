@@ -83,8 +83,10 @@ public class ControladorAlmacenCosecha implements ActionListener{
         
         //Seleccion Terreno Usuario
         for (TerrenoDTO lista : listaTerreno) {
-            datosActivos = new TerrenoDTO(lista.getIdterreno(),lista.getIdPersona(),lista.getPropietario(),lista.getUbicacion(),lista.getHectarea());
-            idTerreno.add(datosActivos);
+            if(lista.getIdPersona() == id){
+                datosActivos = new TerrenoDTO(lista.getIdterreno(),lista.getIdPersona(),lista.getPropietario(),lista.getUbicacion(),lista.getHectarea());
+                idTerreno.add(datosActivos);
+            }
         }
         
         switch(accion){

@@ -3,16 +3,19 @@ package Controlador;
 import DTO.AlmacenForrajeDTO;
 import DTO.TerrenoDTO;
 import VistaAlmacen.*;
+import VistaRegistro.RegistroForraje;
 import java.awt.event.*;
 import java.util.*;
 
 public class ControladorAccionAlmacenForraje implements ActionListener{
     private VistaAlmacenListaForraje controlForraje;
+    private RegistroForraje controlRegistro;
     private VistaEliminarForraje controlforraje;
     private int id;
     private List<AlmacenForrajeDTO> listaForraje;
     private List<TerrenoDTO> listaTerreno;
 
+    private ControladorRegistroForraje accionRegistrar;
     private ControladorEliminarForraje accioneliminar;
     
     public ControladorAccionAlmacenForraje(VistaAlmacenListaForraje controlForraje1, int id1, List<AlmacenForrajeDTO> listaForraje1,List<TerrenoDTO> listaTerreno1) {
@@ -28,11 +31,17 @@ public class ControladorAccionAlmacenForraje implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        controlRegistro = new RegistroForraje();
         controlforraje = new VistaEliminarForraje();
                 
         String accion = e.getActionCommand();
         switch(accion){
             case "REGISTRAR":
+                for (TerrenoDTO lista : listaTerreno) {
+                    controlRegistro.IDterreno.addItem(String.valueOf(lista.getIdterreno()));
+                }
+                accionRegistrar = new ControladorRegistroForraje(controlRegistro,id,listaTerreno);
+                accionRegistrar.Mostrar();
                 break;
             case "MODIFICAR":
                 break;

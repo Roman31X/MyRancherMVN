@@ -1,11 +1,11 @@
 package VistaRegistro;
 
-public class RegistrarForraje extends javax.swing.JFrame {
+public class RegistroForraje extends javax.swing.JFrame {
 
     /**
      * Creates new form VistaRegistrarForraje
      */
-    public RegistrarForraje() {
+    public RegistroForraje() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -31,8 +31,8 @@ public class RegistrarForraje extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         Forraje = new javax.swing.JTextField();
         Hectarea = new javax.swing.JTextField();
+        IDterreno = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        Estado1 = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -76,7 +76,7 @@ public class RegistrarForraje extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(38, 38, 38)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -123,16 +123,16 @@ public class RegistrarForraje extends javax.swing.JFrame {
         Hectarea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Hectarea.setPreferredSize(new java.awt.Dimension(60, 25));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("ID TERRENO:");
-
-        Estado1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Estado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
-        Estado1.addActionListener(new java.awt.event.ActionListener() {
+        IDterreno.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        IDterreno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
+        IDterreno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Estado1ActionPerformed(evt);
+                IDterrenoActionPerformed(evt);
             }
         });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("ID TERRENO:");
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MUESTRAS TOMADAS Kg.", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -204,7 +204,7 @@ public class RegistrarForraje extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel7)
                             .addGap(27, 27, 27)
-                            .addComponent(Estado1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(IDterreno, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
@@ -214,7 +214,7 @@ public class RegistrarForraje extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(Estado1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IDterreno, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -329,17 +329,17 @@ public class RegistrarForraje extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CalcularActionPerformed
 
-    private void Estado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Estado1ActionPerformed
+    private void IDterrenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDterrenoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Estado1ActionPerformed
+    }//GEN-LAST:event_IDterrenoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JToggleButton Calcular;
     public javax.swing.JToggleButton Cerrar;
-    public javax.swing.JComboBox<String> Estado1;
     public javax.swing.JTextField Forraje;
     public javax.swing.JTextField Hectarea;
+    public javax.swing.JComboBox<String> IDterreno;
     public javax.swing.JToggleButton Limpiar;
     public javax.swing.JTextField MuestraDos;
     public javax.swing.JTextField MuestraUno;

@@ -4,15 +4,10 @@ import DTO.ProduccionDTO;
 import DTO.TerrenoDTO;
 import JDBC.ProduccionJDBC;
 import VistaRegistro.RegistroProduccion;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorRegistroProduccion implements ActionListener{
