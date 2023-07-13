@@ -20,9 +20,10 @@ public class VistaAlmacenListaForraje extends javax.swing.JFrame {
 
         PanelForraje = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaForraje = new javax.swing.JTable();
         Agregar = new javax.swing.JButton();
         Eliminar = new javax.swing.JButton();
+        Modificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -32,30 +33,48 @@ public class VistaAlmacenListaForraje extends javax.swing.JFrame {
         PanelForraje.setMinimumSize(new java.awt.Dimension(698, 398));
         PanelForraje.setPreferredSize(new java.awt.Dimension(698, 398));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaForraje.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Forraje", "Muestra 1", "Muestra 2", "Hectarea", "Peso Generado"
+                "ID", "IDTerreno", "Forraje", "Muestra 1", "Muestra 2", "Hectarea", "Peso Generado"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaForraje);
 
         Agregar.setBackground(new java.awt.Color(0, 102, 102));
         Agregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Agregar.setForeground(new java.awt.Color(255, 255, 255));
-        Agregar.setText("AGREGAR");
+        Agregar.setText("REGISTRAR");
         Agregar.setPreferredSize(new java.awt.Dimension(100, 25));
+        Agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarActionPerformed(evt);
+            }
+        });
 
         Eliminar.setBackground(new java.awt.Color(0, 102, 102));
         Eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Eliminar.setForeground(new java.awt.Color(255, 255, 255));
         Eliminar.setText("ELIMINAR");
         Eliminar.setPreferredSize(new java.awt.Dimension(100, 25));
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+
+        Modificar.setBackground(new java.awt.Color(0, 102, 102));
+        Modificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Modificar.setForeground(new java.awt.Color(255, 255, 255));
+        Modificar.setText("MODIFICAR");
+        Modificar.setPreferredSize(new java.awt.Dimension(100, 25));
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelForrajeLayout = new javax.swing.GroupLayout(PanelForraje);
         PanelForraje.setLayout(PanelForrajeLayout);
@@ -66,11 +85,13 @@ public class VistaAlmacenListaForraje extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(PanelForrajeLayout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
+                .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93)
                 .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151))
+                .addGap(84, 84, 84))
         );
         PanelForrajeLayout.setVerticalGroup(
             PanelForrajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +101,8 @@ public class VistaAlmacenListaForraje extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(PanelForrajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31))
         );
 
@@ -102,11 +124,24 @@ public class VistaAlmacenListaForraje extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarActionPerformed
+
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModificarActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Agregar;
-    private javax.swing.JButton Eliminar;
+    public javax.swing.JButton Agregar;
+    public javax.swing.JButton Eliminar;
+    public javax.swing.JButton Modificar;
     public javax.swing.JPanel PanelForraje;
+    public javax.swing.JTable TablaForraje;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

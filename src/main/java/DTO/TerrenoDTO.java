@@ -16,6 +16,11 @@ public class TerrenoDTO extends UsuarioDTO{
         this.idterreno = idterreno;
     }
 
+    public TerrenoDTO(int idterreno, int idPersona) {
+        super(idPersona);
+        this.idterreno = idterreno;
+    }
+
     public TerrenoDTO(int idPersona, String propietario, String ubicacion, String hectarea, String estadoTerreno) {
         super(idPersona);
         this.propietario = propietario;

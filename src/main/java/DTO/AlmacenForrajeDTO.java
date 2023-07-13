@@ -1,12 +1,12 @@
 package DTO;
 
-public class AlmacenForrajeDTO {
+public class AlmacenForrajeDTO extends TerrenoDTO{
     //Atributos
     private int idalmacenforraje;
     private String forraje;
     private String muestra1;
     private String muestra2;
-    private String hectarea;
+    private String dimencion;
     private String pesogenerado;
     
     //Constructor
@@ -17,25 +17,26 @@ public class AlmacenForrajeDTO {
         this.idalmacenforraje = idalmacenforraje;
     }
 
-    public AlmacenForrajeDTO(String forraje, String muestra1, String muestra2, String hectarea, String pesogenerado) {
+    public AlmacenForrajeDTO(int idterreno, int idPersona, String forraje, String muestra1, String muestra2, String dimencion, String pesogenerado) {
+        super(idterreno, idPersona);
         this.forraje = forraje;
         this.muestra1 = muestra1;
         this.muestra2 = muestra2;
-        this.hectarea = hectarea;
+        this.dimencion = dimencion;
         this.pesogenerado = pesogenerado;
     }
     
-    public AlmacenForrajeDTO(int idalmacenforraje, String forraje, String muestra1, String muestra2, String hectarea, String pesogenerado) {
+    public AlmacenForrajeDTO(int idalmacenforraje, int idterreno, int idPersona, String forraje, String muestra1, String muestra2, String dimencion, String pesogenerado) {
+        super(idterreno, idPersona);
         this.idalmacenforraje = idalmacenforraje;
         this.forraje = forraje;
         this.muestra1 = muestra1;
         this.muestra2 = muestra2;
-        this.hectarea = hectarea;
+        this.dimencion = dimencion;
         this.pesogenerado = pesogenerado;
     }
     
     //GETTER Y SETTER
-
     public int getIdalmacenforraje() {
         return idalmacenforraje;
     }
@@ -57,14 +58,11 @@ public class AlmacenForrajeDTO {
     public String getMuestra2() {
         return muestra2;
     }
-    public void setMuestra2(String muestra2) {
-        this.muestra2 = muestra2;
+    public String getDimencion() {
+        return dimencion;
     }
-    public String getHectarea() {
-        return hectarea;
-    }
-    public void setHectarea(String hectarea) {
-        this.hectarea = hectarea;
+    public void setDimencion(String dimencion) {
+        this.dimencion = dimencion;
     }
     public String getPesogenerado() {
         return pesogenerado;
@@ -74,10 +72,9 @@ public class AlmacenForrajeDTO {
     }
     
     //ToString
-
     @Override
     public String toString() {
-        return idalmacenforraje + forraje +  muestra1 + muestra2 + hectarea + pesogenerado;
+        return idalmacenforraje +"||"+super.getIdPersona()+"||"+ forraje+"||"+ muestra1+"||"+ muestra2+"||"+ dimencion+"||"+ pesogenerado;
     }
     
     

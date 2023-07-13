@@ -7,15 +7,19 @@ import java.awt.event.ActionListener;
 
 public class ControladorGestionAlmacen implements ActionListener{
     //Atributos
-    GestionAlmacen controlAlmacen;
-    VistaAlmacenCosecha controlCosecha;
-    VistaAlmacenAlimento controlAlimento;
+    private final GestionAlmacen controlAlmacen;
+    private VistaAlmacenCosecha controlCosecha;
+    private VistaAlmacenAlimento controlAlimento;
+    int id;
     
-    ControladorPanelesMenuPrincipal principalInterfaz;
+    private ControladorPanelesMenuPrincipal principalInterfaz;
+    private ControladorAlmacenCosecha cosecha;
+    private ControladorAlmacenAlimento alimento;
     //Constructor
 
-    public ControladorGestionAlmacen(GestionAlmacen controlAlmacen2) {
+    public ControladorGestionAlmacen(GestionAlmacen controlAlmacen2,int id2) {
         this.controlAlmacen = controlAlmacen2;
+        this.id = id2;
         controlAlmacen.AlmacenCosecha.addActionListener(this);
         controlAlmacen.AlmacenGanado.addActionListener(this);
     }
@@ -31,11 +35,11 @@ public class ControladorGestionAlmacen implements ActionListener{
         switch(accion){
             case "ALMACEN COSECHA":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlAlmacen.PanelAlmacen,controlCosecha.PanelCosecha );
-                ControladorAlmacenCosecha cosecha = new ControladorAlmacenCosecha(controlCosecha);
+                cosecha = new ControladorAlmacenCosecha(controlCosecha,id);
                 break;
             case "ALMACEN GANADO":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlAlmacen.PanelAlmacen,controlAlimento.PanelAlimento);
-                ControladorAlmacenAlimento alimento = new ControladorAlmacenAlimento(controlAlimento);
+                alimento = new ControladorAlmacenAlimento(controlAlimento);
                 break;                
         }
     }

@@ -7,9 +7,9 @@ import Modelo.ProduccionCosecha;
 public class TestDatos {
     public static void main(String[] args) {
         
-        int numero = (int)99.5;
         
-        System.out.println("numero = " + numero);
+        
+        System.out.println("numero = " + Math.round(44799.9999 * 100d) / 100d);
 //        int dos = 2+2;
 //        System.out.println("dos = " + dos);
         
