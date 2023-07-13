@@ -1,9 +1,12 @@
 package Controlador;
 
+import DTO.AlmacenForrajeDTO;
 import DTO.TerrenoDTO;
+import JDBC.AlmacenForrajeJDBC;
 import Modelo.CalculoForraje;
 import VistaRegistro.RegistroForraje;
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.util.*;
 import javax.swing.JOptionPane;
 
@@ -63,6 +66,9 @@ public class ControladorRegistroForraje implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         CalculoForraje calculo;
+        
+        AlmacenForrajeDTO forrajeNuevo;
+        AlmacenForrajeJDBC insertarForraje = new AlmacenForrajeJDBC();
         
         String accion = e.getActionCommand();
         switch(accion){
@@ -125,8 +131,13 @@ public class ControladorRegistroForraje implements ActionListener{
                     return;
                 }
                 
-                
-                
+                forrajeNuevo = new AlmacenForrajeDTO(numero,id,forraje,dato1,dato2,dimencion,producto);
+                try {
+                    insertarForraje.insertar(forrajeNuevo);
+                } catch (SQLException ex) {
+                    ex.printStackTrace(System.out);
+                }
+                registro.setVisible(false);
                 break;
             case "LIMPIAR":
                 registro.IDterreno.setSelectedIndex(0);
