@@ -26,8 +26,11 @@ public class ControladorAlmacenCosecha implements ActionListener{
     
     String[] objeto;
     
-    AlmacenForrajeDTO activoForraje;
-    List<AlmacenForrajeDTO> usuarioForraje;
+    //DATOS REGISTRO
+    private List<TerrenoDTO> idTerreno;
+    private TerrenoDTO datosActivos;    
+    private AlmacenForrajeDTO activoForraje;
+    private List<AlmacenForrajeDTO> usuarioForraje;
     
     //conexion
     private TerrenoJDBC terreno;
@@ -76,7 +79,13 @@ public class ControladorAlmacenCosecha implements ActionListener{
         }
         
         usuarioForraje = new ArrayList<>();
+        idTerreno = new ArrayList<>();
         
+        //Seleccion Terreno Usuario
+        for (TerrenoDTO lista : listaTerreno) {
+            datosActivos = new TerrenoDTO(lista.getIdterreno(),lista.getIdPersona(),lista.getPropietario(),lista.getUbicacion(),lista.getHectarea());
+            idTerreno.add(datosActivos);
+        }
         
         switch(accion){
             case "LISTAR FORRAJE":
@@ -97,7 +106,7 @@ public class ControladorAlmacenCosecha implements ActionListener{
                         usuarioForraje.add(activoForraje);
                     }
                 }
-                accionForraje = new ControladorAccionAlmacenForraje(panelForraje,id,usuarioForraje);
+                accionForraje = new ControladorAccionAlmacenForraje(panelForraje,id,usuarioForraje,idTerreno);
                 break;
             case "LISTAR COSECHA":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlCosecha.PanelListaCosecha,panelCosecha.PanelCosecha);
