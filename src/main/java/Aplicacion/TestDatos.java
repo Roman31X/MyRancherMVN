@@ -7,13 +7,9 @@ import Modelo.ProduccionCosecha;
 public class TestDatos {
     public static void main(String[] args) {
         
-        if(1.0 < 1){
-            System.out.println("menor");
-        }else{
-            System.out.println("Mayor");
-        }
+        int numero = (int)99.5;
         
-        
+        System.out.println("numero = " + numero);
 //        int dos = 2+2;
 //        System.out.println("dos = " + dos);
         

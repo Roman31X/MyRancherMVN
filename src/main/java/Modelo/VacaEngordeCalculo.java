@@ -2,7 +2,6 @@ package Modelo;
 
 public class VacaEngordeCalculo extends Vaca{
     
-
     public VacaEngordeCalculo() {
     }
 

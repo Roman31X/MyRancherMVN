@@ -53,7 +53,6 @@ public class ControladorAccionesListar implements ActionListener{
                     eliminarTerreno.ListaID.addItem(Integer.toString(lista.getIdterreno()));
                 }
                 eliminar = new ControladorElimnarTerreno(eliminarTerreno);
-                
                 eliminar.Mostrar();
                 break;
         }

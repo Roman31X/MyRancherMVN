@@ -1,9 +1,5 @@
 package VistaAlmacen;
 
-/**
- *
- * @author DIEGO
- */
 public class VistaAlmacenCosecha extends javax.swing.JFrame {
 
     /**

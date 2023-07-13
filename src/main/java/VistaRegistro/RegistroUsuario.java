@@ -1,10 +1,6 @@
 
 package VistaRegistro;
 
-/**
- *
- * @author DIEGO
- */
 public class RegistroUsuario extends javax.swing.JFrame {
 
     /**

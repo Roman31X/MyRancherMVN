@@ -154,10 +154,7 @@ public class GestionGanado extends javax.swing.JFrame {
     private void ProduccionGanadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProduccionGanadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ProduccionGanadoActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */  
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton ListarGanado;
     public javax.swing.JPanel PanelGanado;
