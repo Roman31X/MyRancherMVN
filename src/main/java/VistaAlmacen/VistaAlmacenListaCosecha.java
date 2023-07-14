@@ -20,9 +20,10 @@ public class VistaAlmacenListaCosecha extends javax.swing.JFrame {
 
         PanelCosecha = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaCosecha = new javax.swing.JTable();
         Agregar = new javax.swing.JButton();
         Eliminar = new javax.swing.JButton();
+        Modificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -32,18 +33,15 @@ public class VistaAlmacenListaCosecha extends javax.swing.JFrame {
         PanelCosecha.setMinimumSize(new java.awt.Dimension(698, 398));
         PanelCosecha.setPreferredSize(new java.awt.Dimension(698, 398));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaCosecha.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Producto", "Peso", "Hectarea", "Fecha"
+                "ID", "IDTERRENO", "Producto", "Peso", "Hectarea", "Fecha"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaCosecha);
 
         Agregar.setBackground(new java.awt.Color(0, 102, 102));
         Agregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -62,6 +60,17 @@ public class VistaAlmacenListaCosecha extends javax.swing.JFrame {
         Eliminar.setText("ELIMINAR");
         Eliminar.setPreferredSize(new java.awt.Dimension(100, 25));
 
+        Modificar.setBackground(new java.awt.Color(0, 102, 102));
+        Modificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Modificar.setForeground(new java.awt.Color(255, 255, 255));
+        Modificar.setText("MODIFICAR");
+        Modificar.setPreferredSize(new java.awt.Dimension(100, 25));
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelCosechaLayout = new javax.swing.GroupLayout(PanelCosecha);
         PanelCosecha.setLayout(PanelCosechaLayout);
         PanelCosechaLayout.setHorizontalGroup(
@@ -71,21 +80,24 @@ public class VistaAlmacenListaCosecha extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(PanelCosechaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(172, 172, 172)
-                .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148))
+                .addGap(73, 73, 73)
+                .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
+                .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
         PanelCosechaLayout.setVerticalGroup(
             PanelCosechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelCosechaLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(PanelCosechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
 
@@ -111,11 +123,16 @@ public class VistaAlmacenListaCosecha extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AgregarActionPerformed
 
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModificarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Agregar;
-    private javax.swing.JButton Eliminar;
+    public javax.swing.JButton Agregar;
+    public javax.swing.JButton Eliminar;
+    public javax.swing.JButton Modificar;
     public javax.swing.JPanel PanelCosecha;
+    public javax.swing.JTable TablaCosecha;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

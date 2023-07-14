@@ -1,11 +1,11 @@
 package DTO;
 
-public class AlmacenCosechaDTO {
+public class AlmacenCosechaDTO extends TerrenoDTO{
     //Atributo
     private int idalmacenCosecha;
     private String producto;
     private String peso;
-    private String hectarea;
+    private String dimension;
     private String fecha;
 
     //Constructor
@@ -16,21 +16,26 @@ public class AlmacenCosechaDTO {
         this.idalmacenCosecha = idalmacenCosecha;
     }
 
-    public AlmacenCosechaDTO(String producto, String peso, String hectarea, String fecha) {
+    public AlmacenCosechaDTO(int idterreno, int idPersona, String producto, String peso, String dimension, String fecha) {
+        super(idterreno, idPersona);
         this.producto = producto;
         this.peso = peso;
-        this.hectarea = hectarea;
+        this.dimension = dimension;
         this.fecha = fecha;
     }
+
     
-    public AlmacenCosechaDTO(int idalmacenCosecha, String producto, String peso, String hectarea, String fecha) {
+    public AlmacenCosechaDTO(int idalmacenCosecha, int idterreno, int idPersona, String producto, String peso, String dimension, String fecha) {
+        super(idterreno, idPersona);
         this.idalmacenCosecha = idalmacenCosecha;
         this.producto = producto;
         this.peso = peso;
-        this.hectarea = hectarea;
+        this.dimension = dimension;
         this.fecha = fecha;
     }
     
+    
+
     //GETTER Y SETTER
     public int getIdalmacenCosecha() {
         return idalmacenCosecha;
@@ -50,12 +55,12 @@ public class AlmacenCosechaDTO {
     public void setPeso(String peso) {
         this.peso = peso;
     }
-    public String getHectarea() {
-        return hectarea;
+    public String getDimension() {
+        return dimension;
     }
-    public void setHectarea(String hectarea) {
-        this.hectarea = hectarea;
-    }
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
+    }    
     public String getFecha() {
         return fecha;
     }
@@ -64,10 +69,9 @@ public class AlmacenCosechaDTO {
     }
     
     //ToString
-
     @Override
     public String toString() {
-        return idalmacenCosecha + producto + peso  + hectarea + fecha;
+        return idalmacenCosecha + super.idterreno + super.getIdPersona()+ producto + peso  + hectarea + fecha;
     }
        
 }

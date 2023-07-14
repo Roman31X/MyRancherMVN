@@ -1,9 +1,7 @@
 package Controlador;
 
-import DTO.AlmacenForrajeDTO;
-import DTO.TerrenoDTO;
-import JDBC.AlmacenForrajeJDBC;
-import JDBC.TerrenoJDBC;
+import DTO.*;
+import JDBC.*;
 import MySql.Conexion;
 import VistaAlmacen.*;
 import java.awt.event.*;
@@ -20,23 +18,30 @@ public class ControladorAlmacenCosecha implements ActionListener{
     
     private ControladorPanelesMenuPrincipal principalInterfaz;
     private ControladorAccionAlmacenForraje accionForraje;
+    private ControladorAccionAlmacenCosecha accionCosecha;
     
     //TABLA
     DefaultTableModel model;
+    DefaultTableModel model2;
     
     String[] objeto;
+    String[] objeto2;
     
     //DATOS REGISTRO
     private List<TerrenoDTO> idTerreno;
     private TerrenoDTO datosActivos;    
     private AlmacenForrajeDTO activoForraje;
     private List<AlmacenForrajeDTO> usuarioForraje;
+    private AlmacenCosechaDTO activoCosecha;
+    private List<AlmacenCosechaDTO> usuarioCosecha;
     
     //conexion
     private TerrenoJDBC terreno;
     private List<TerrenoDTO> listaTerreno;
     private AlmacenForrajeJDBC forraje;
     private List<AlmacenForrajeDTO> listaForraje;
+    private AlmacenCosechaJDBC cosecha;
+    private List<AlmacenCosechaDTO> listaCosecha;
     
     //Constructor
     public ControladorAlmacenCosecha(VistaAlmacenCosecha controlCosecha3,int id3) {
@@ -54,6 +59,7 @@ public class ControladorAlmacenCosecha implements ActionListener{
         panelCosecha = new VistaAlmacenListaCosecha();
         
         model = new DefaultTableModel(); 
+        model2 = new DefaultTableModel();
         
         Connection conexion = null;
         try {
@@ -66,6 +72,8 @@ public class ControladorAlmacenCosecha implements ActionListener{
         listaTerreno  = terreno.seleccionar();
         forraje = new AlmacenForrajeJDBC();
         listaForraje = forraje.seleccionar();
+        cosecha = new AlmacenCosechaJDBC();
+        listaCosecha = cosecha.seleccionar();
         
         conexion.commit();
         } catch (SQLException ex) {
@@ -80,6 +88,7 @@ public class ControladorAlmacenCosecha implements ActionListener{
         
         usuarioForraje = new ArrayList<>();
         idTerreno = new ArrayList<>();
+        usuarioCosecha = new ArrayList<>();
         
         //Seleccion Terreno Usuario
         for (TerrenoDTO lista : listaTerreno) {
@@ -112,6 +121,22 @@ public class ControladorAlmacenCosecha implements ActionListener{
                 break;
             case "LISTAR COSECHA":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlCosecha.PanelListaCosecha,panelCosecha.PanelCosecha);
+                model2 = (DefaultTableModel) panelCosecha.TablaCosecha.getModel();
+                objeto2 = new String[6];
+                for (AlmacenCosechaDTO lista : listaCosecha) {
+                    if(lista.getIdPersona() == id){
+                        objeto2[0] = Integer.toString(lista.getIdalmacenCosecha());
+                        objeto2[1] = Integer.toString(lista.getIdterreno());
+                        objeto2[2] = lista.getProducto();
+                        objeto2[3] = lista.getPeso();
+                        objeto2[4] = lista.getDimension();
+                        objeto2[5] = lista.getFecha();
+                        model2.addRow(objeto2);
+                        activoCosecha = new AlmacenCosechaDTO(lista.getIdalmacenCosecha(),lista.getIdterreno(),lista.getIdPersona(),lista.getProducto(),lista.getPeso(),lista.getDimension(),lista.getFecha());
+                        usuarioCosecha.add(activoCosecha);
+                    }
+                }
+                accionCosecha = new ControladorAccionAlmacenCosecha(panelCosecha,id,idTerreno,usuarioCosecha);
                 break;
         }        
     }
