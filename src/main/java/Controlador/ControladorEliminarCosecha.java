@@ -59,7 +59,7 @@ public class ControladorEliminarCosecha implements ActionListener{
                     
                 }else{
                     JOptionPane.showMessageDialog(null,"Debe seleccionar el numero\n"+
-                                                                   "   ID ALMACEN FORRAJE\n"+
+                                                                   "   ID ALMACEN COSECHA\n"+
                                                                    "        a eliminar");
                     return;
                 }

@@ -29,13 +29,13 @@ public class RegistroCosecha extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        Forraje = new javax.swing.JTextField();
-        Hectarea = new javax.swing.JTextField();
+        Cosecha = new javax.swing.JTextField();
+        Peso = new javax.swing.JTextField();
         IDterreno = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        Producion = new javax.swing.JTextField();
+        Hectarea = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        Producion1 = new javax.swing.JTextField();
+        Fecha = new javax.swing.JTextField();
         Limpiar = new javax.swing.JToggleButton();
         Cerrar = new javax.swing.JToggleButton();
 
@@ -112,11 +112,11 @@ public class RegistroCosecha extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("HECTAREA:");
 
-        Forraje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Forraje.setPreferredSize(new java.awt.Dimension(60, 25));
+        Cosecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Cosecha.setPreferredSize(new java.awt.Dimension(60, 25));
 
-        Hectarea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Hectarea.setPreferredSize(new java.awt.Dimension(60, 25));
+        Peso.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Peso.setPreferredSize(new java.awt.Dimension(60, 25));
 
         IDterreno.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         IDterreno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
@@ -129,14 +129,14 @@ public class RegistroCosecha extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("ID TERRENO:");
 
-        Producion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Producion.setPreferredSize(new java.awt.Dimension(60, 25));
+        Hectarea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Hectarea.setPreferredSize(new java.awt.Dimension(60, 25));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("FECHA:");
 
-        Producion1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Producion1.setPreferredSize(new java.awt.Dimension(60, 25));
+        Fecha.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Fecha.setPreferredSize(new java.awt.Dimension(60, 25));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -157,10 +157,10 @@ public class RegistroCosecha extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Producion1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Peso, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Hectarea, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Producion, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Forraje, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Cosecha, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(IDterreno, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -174,19 +174,19 @@ public class RegistroCosecha extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(Forraje, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Cosecha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(Hectarea, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Peso, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(Producion, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Hectarea, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(Producion1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -276,12 +276,12 @@ public class RegistroCosecha extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JToggleButton Cerrar;
-    public javax.swing.JTextField Forraje;
+    public javax.swing.JTextField Cosecha;
+    public javax.swing.JTextField Fecha;
     public javax.swing.JTextField Hectarea;
     public javax.swing.JComboBox<String> IDterreno;
     public javax.swing.JToggleButton Limpiar;
-    public javax.swing.JTextField Producion;
-    public javax.swing.JTextField Producion1;
+    public javax.swing.JTextField Peso;
     public javax.swing.JToggleButton Registrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

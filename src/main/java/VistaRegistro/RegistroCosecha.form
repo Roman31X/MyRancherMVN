@@ -218,10 +218,10 @@
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="Producion1" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
+                          <Component id="Fecha" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
+                          <Component id="Peso" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
                           <Component id="Hectarea" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="Producion" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="Forraje" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
+                          <Component id="Cosecha" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
                           <Component id="IDterreno" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="22" max="32767" attributes="0"/>
@@ -239,22 +239,22 @@
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Forraje" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="Cosecha" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Hectarea" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="Peso" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Producion" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="Hectarea" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Producion1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="Fecha" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="12" max="32767" attributes="0"/>
                   </Group>
@@ -286,7 +286,7 @@
                 <Property name="text" type="java.lang.String" value="HECTAREA:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="Forraje">
+            <Component class="javax.swing.JTextField" name="Cosecha">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
@@ -299,7 +299,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="Hectarea">
+            <Component class="javax.swing.JTextField" name="Peso">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
@@ -339,7 +339,7 @@
                 <Property name="text" type="java.lang.String" value="ID TERRENO:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="Producion">
+            <Component class="javax.swing.JTextField" name="Hectarea">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
@@ -360,7 +360,7 @@
                 <Property name="text" type="java.lang.String" value="FECHA:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="Producion1">
+            <Component class="javax.swing.JTextField" name="Fecha">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>

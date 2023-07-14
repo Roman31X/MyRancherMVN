@@ -3,19 +3,21 @@ package Controlador;
 import DTO.*;
 import VistaAlmacen.VistaAlmacenListaCosecha;
 import VistaAlmacen.VistaEliminarCosecha;
+import VistaRegistro.RegistroCosecha;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
 public class ControladorAccionAlmacenCosecha implements ActionListener{
     private VistaAlmacenListaCosecha controlCosecha;
-    
+    private RegistroCosecha registro;
     private VistaEliminarCosecha eliminar;
     
     private int id;
     private List<TerrenoDTO> listaTerreno;
     private List<AlmacenCosechaDTO> listaCosecha;
     
+    ControladorRegistroCosecha accionRegistrar;
     ControladorEliminarCosecha accionEliminar;
 
     public ControladorAccionAlmacenCosecha(VistaAlmacenListaCosecha controlCosecha2, int id2, List<TerrenoDTO> listaTerreno2,List<AlmacenCosechaDTO> listaCosecha2) {
@@ -32,12 +34,17 @@ public class ControladorAccionAlmacenCosecha implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         
+        registro = new RegistroCosecha();
         eliminar = new VistaEliminarCosecha();
         
         String accion = e.getActionCommand();
-        System.out.println("accion = " + accion);
         switch(accion){
             case "AGREGAR":
+                for (TerrenoDTO lista : listaTerreno) {
+                    registro.IDterreno.addItem(String.valueOf(lista.getIdterreno()));
+                }
+                accionRegistrar = new ControladorRegistroCosecha(registro,id,listaTerreno);
+                accionRegistrar.Mostrar();
                 break;
             case "MODIFICAR":
                 break;
