@@ -114,7 +114,6 @@ public class ControladorRegistroForraje implements ActionListener{
                                                                    "    mumeros enteros [1] y decimales [1.5]");
                    
                 }
-                
                 break;
             case "AGREGAR":
                 String forraje = registro.Forraje.getText();

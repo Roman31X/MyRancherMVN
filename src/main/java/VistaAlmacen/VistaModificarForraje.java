@@ -1,11 +1,11 @@
-package VistaRegistro;
+package VistaAlmacen;
 
-public class RegistroForraje extends javax.swing.JFrame {
+public class VistaModificarForraje extends javax.swing.JFrame {
 
     /**
-     * Creates new form VistaRegistrarForraje
+     * Creates new form VistaModificarForraje
      */
-    public RegistroForraje() {
+    public VistaModificarForraje() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -24,7 +24,7 @@ public class RegistroForraje extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        Registrar = new javax.swing.JToggleButton();
+        Modificar = new javax.swing.JToggleButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -42,6 +42,8 @@ public class RegistroForraje extends javax.swing.JFrame {
         Limpiar = new javax.swing.JToggleButton();
         Cerrar = new javax.swing.JToggleButton();
         Calcular = new javax.swing.JToggleButton();
+        jLabel9 = new javax.swing.JLabel();
+        IDForraje = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -95,13 +97,13 @@ public class RegistroForraje extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Registrar.setBackground(new java.awt.Color(0, 102, 102));
-        Registrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Registrar.setForeground(new java.awt.Color(255, 255, 255));
-        Registrar.setText("AGREGAR");
-        Registrar.addActionListener(new java.awt.event.ActionListener() {
+        Modificar.setBackground(new java.awt.Color(0, 102, 102));
+        Modificar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Modificar.setForeground(new java.awt.Color(255, 255, 255));
+        Modificar.setText("MODIFICAR");
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistrarActionPerformed(evt);
+                ModificarActionPerformed(evt);
             }
         });
 
@@ -125,6 +127,7 @@ public class RegistroForraje extends javax.swing.JFrame {
 
         IDterreno.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         IDterreno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
+        IDterreno.setActionCommand("comboBox");
         IDterreno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDterrenoActionPerformed(evt);
@@ -206,7 +209,7 @@ public class RegistroForraje extends javax.swing.JFrame {
                             .addGap(27, 27, 27)
                             .addComponent(IDterreno, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,6 +265,17 @@ public class RegistroForraje extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("ID FORRAJE:");
+
+        IDForraje.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        IDForraje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-" }));
+        IDForraje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDForrajeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -272,31 +286,41 @@ public class RegistroForraje extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Registrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Limpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Cerrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Calcular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Limpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Cerrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Calcular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(27, 27, 27)
+                .addComponent(IDForraje, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(IDForraje, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Calcular)
-                        .addGap(43, 43, 43)
-                        .addComponent(Registrar)
-                        .addGap(50, 50, 50)
-                        .addComponent(Limpiar)
-                        .addGap(49, 49, 49)
-                        .addComponent(Cerrar)
-                        .addGap(94, 94, 94))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(30, Short.MAX_VALUE))))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(Calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -313,9 +337,13 @@ public class RegistroForraje extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RegistrarActionPerformed
+    }//GEN-LAST:event_ModificarActionPerformed
+
+    private void IDterrenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDterrenoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDterrenoActionPerformed
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         // TODO add your handling code here:
@@ -329,22 +357,22 @@ public class RegistroForraje extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CalcularActionPerformed
 
-    private void IDterrenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDterrenoActionPerformed
+    private void IDForrajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDForrajeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IDterrenoActionPerformed
-
+    }//GEN-LAST:event_IDForrajeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JToggleButton Calcular;
     public javax.swing.JToggleButton Cerrar;
     public javax.swing.JTextField Forraje;
     public javax.swing.JTextField Hectarea;
+    public javax.swing.JComboBox<String> IDForraje;
     public javax.swing.JComboBox<String> IDterreno;
     public javax.swing.JToggleButton Limpiar;
+    public javax.swing.JToggleButton Modificar;
     public javax.swing.JTextField MuestraDos;
     public javax.swing.JTextField MuestraUno;
     public javax.swing.JTextField Producion;
-    public javax.swing.JToggleButton Registrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -353,6 +381,7 @@ public class RegistroForraje extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

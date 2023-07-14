@@ -104,7 +104,6 @@ public class ControladorModificarCronograma implements ActionListener{
                     controlModificar.TipoCultivo.setText("");
                     controlModificar.estadoActividad.setSelectedIndex(0);
                 }
-                
                 break;
             case "MODIFICAR":
                 nuevoId = controlModificar.boxID.getSelectedItem().toString();
