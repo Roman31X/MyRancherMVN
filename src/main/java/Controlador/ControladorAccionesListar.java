@@ -15,6 +15,10 @@ public class ControladorAccionesListar implements ActionListener{
     private final List<TerrenoDTO> idTerreno;
     private int id;
 
+    private ControladorRegistroTerreno registrar;
+    private ControladorModificarTerreno modificar;
+    private ControladorElimnarTerreno eliminar;
+        
     public ControladorAccionesListar(VistaTablaTerreno listaTerreno2, int id2,List<TerrenoDTO> idTerreno2 ) {
         this.listaTerreno = listaTerreno2;
         this.idTerreno = idTerreno2;
@@ -27,15 +31,12 @@ public class ControladorAccionesListar implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String accion = e.getActionCommand();
+        
         nuevoTerreno = new RegistroTerreno();
         eliminarTerreno = new VistaEliminarTerreno();
         modificarTerreno = new VistaModificarTerreno();
         
-        ControladorRegistroTerreno registrar;
-        ControladorModificarTerreno modificar;
-        ControladorElimnarTerreno eliminar;
-        
+        String accion = e.getActionCommand();        
         switch(accion){
             case "REGISTRAR":
                 registrar = new ControladorRegistroTerreno(nuevoTerreno,id);

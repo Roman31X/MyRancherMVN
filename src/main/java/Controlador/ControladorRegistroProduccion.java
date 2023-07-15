@@ -1,7 +1,6 @@
 package Controlador;
 
-import DTO.ProduccionDTO;
-import DTO.TerrenoDTO;
+import DTO.*;
 import JDBC.ProduccionJDBC;
 import VistaRegistro.RegistroProduccion;
 import java.awt.event.*;
@@ -11,10 +10,10 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorRegistroProduccion implements ActionListener{
-    private RegistroProduccion controlRegistro;
-    private int id;
-    private List<TerrenoDTO> idTerreno;
-    private String[] calculo;
+    private final RegistroProduccion controlRegistro;
+    private final int id;
+    private final List<TerrenoDTO> idTerreno;
+    private final String[] calculo;
     
     private String seleccion;
     private String hoy;

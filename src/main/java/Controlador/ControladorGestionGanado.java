@@ -28,10 +28,10 @@ public class ControladorGestionGanado implements ActionListener{
     String[] objeto1;
     
     //Datos conexion
-    GanadoJDBC todoGanado;
-    List<GanadoDTO> listaGanado;
-    ProductoGanadoJDBC todoProducto;
-    List<ProductoGanadoDTO> listaProducto;
+    private GanadoJDBC todoGanado;
+    private List<GanadoDTO> listaGanado;
+    private ProductoGanadoJDBC todoProducto;
+    private List<ProductoGanadoDTO> listaProducto;
     
     //Enviar datos modificar
     private List<GanadoDTO> idGanado;
@@ -101,6 +101,7 @@ public class ControladorGestionGanado implements ActionListener{
                 exx.printStackTrace(System.out);
             }
         }
+        
         String accion = e.getActionCommand();
         switch(accion){
             case "REGISTRO GANADO":

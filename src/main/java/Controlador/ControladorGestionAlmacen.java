@@ -28,10 +28,12 @@ public class ControladorGestionAlmacen implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //Atributos
-        String accion = e.getActionCommand();
+        
         controlCosecha = new VistaAlmacenCosecha();
         controlAlimento =  new VistaAlmacenAlimento();
+        
+        //Atributos
+        String accion = e.getActionCommand();
         switch(accion){
             case "ALMACEN COSECHA":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlAlmacen.PanelAlmacen,controlCosecha.PanelCosecha );

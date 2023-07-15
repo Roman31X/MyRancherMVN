@@ -1,10 +1,7 @@
 package Controlador;
 
 import DTO.GanadoDTO;
-import VistaGanado.VistaEliminarGanado;
-import VistaGanado.VistaFiltroGanado;
-import VistaGanado.VistaListarGanado;
-import VistaGanado.VistaModificarGanado;
+import VistaGanado.*;
 import java.awt.event.*;
 import java.util.List;
 

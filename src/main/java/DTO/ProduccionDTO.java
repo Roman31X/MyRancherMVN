@@ -78,7 +78,7 @@ public class ProduccionDTO extends TerrenoDTO{
     //toString
     @Override
     public String toString() {
-        return "ProduccionDTO : " + idregistrocosecha + "||"+super.idterreno+"||" + cosecha + "||" + pesocosecha + "||" + precio + "||" + ganacia + "||" + fechaincriccion;
+        return "ProduccionDTO : " + idregistrocosecha + "||"+super.idterreno+"||" +super.getIdPersona()+"||"+ cosecha + "||" + pesocosecha + "||" + precio + "||" + ganacia + "||" + fechaincriccion;
     }
     
     

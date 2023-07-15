@@ -39,7 +39,6 @@ public class ControladorAccionAlmacenAlimento implements ActionListener{
         vistaEliminar = new VistaEliminarAlimento();
         
         String accion = e.getActionCommand();
-        System.out.println("accion = " + accion);
         switch(accion){
             case "AGREGAR":
                 accionRegistrar = new ControladorRegistroAlimento(registro,id);

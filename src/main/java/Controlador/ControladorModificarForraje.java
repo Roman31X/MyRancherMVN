@@ -10,7 +10,7 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorModificarForraje implements ActionListener{
-    private VistaModificarForraje modificar;
+    private final VistaModificarForraje modificar;
     private int id;
     private List<AlmacenForrajeDTO> listaForraje;
     private List<TerrenoDTO> listaTerreno;
@@ -20,9 +20,9 @@ public class ControladorModificarForraje implements ActionListener{
     private int datoId;
     private int datoIdT;
     private String resultado;
-    String muestra1;
-    String muestra2;
-    String hectarea;
+    private String muestra1;
+    private String muestra2;
+    private String hectarea;
     
     public ControladorModificarForraje(VistaModificarForraje modificar2, int id2, List<AlmacenForrajeDTO> listaForraje2, List<TerrenoDTO> listaTerreno2) {
         this.modificar = modificar2;

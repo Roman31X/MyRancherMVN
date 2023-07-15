@@ -27,7 +27,7 @@ public class GestionPanel extends javax.swing.JFrame {
         PanelGif.setBackground(new java.awt.Color(255, 255, 255));
         PanelGif.setMaximumSize(new java.awt.Dimension(750, 650));
         PanelGif.setMinimumSize(new java.awt.Dimension(750, 650));
-        PanelGif.setPreferredSize(new java.awt.Dimension(750, 650));
+        PanelGif.setPreferredSize(new java.awt.Dimension(733, 640));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageneIcon/menuGif.gif"))); // NOI18N
 
@@ -36,14 +36,14 @@ public class GestionPanel extends javax.swing.JFrame {
         PanelGifLayout.setHorizontalGroup(
             PanelGifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelGifLayout.createSequentialGroup()
-                .addContainerGap(204, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(196, 196, 196))
         );
         PanelGifLayout.setVerticalGroup(
             PanelGifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelGifLayout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(145, 145, 145))
         );
@@ -52,15 +52,11 @@ public class GestionPanel extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelGif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(PanelGif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelGif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(PanelGif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

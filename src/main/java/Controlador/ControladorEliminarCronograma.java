@@ -59,7 +59,7 @@ public class ControladorEliminarCronograma implements ActionListener{
                     }
                 }else{
                     JOptionPane.showMessageDialog(null,"Debe seleccionar el numero\n"+
-                                                                   "   IDCRONOGRAMA a eliminar");
+                                                                   " ID CRONOGRAMA a eliminar");
                     return;
                 }
                 eliminarCronograma.setVisible(false);

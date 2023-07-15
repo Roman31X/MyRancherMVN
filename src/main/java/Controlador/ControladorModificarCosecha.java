@@ -1,17 +1,17 @@
 package Controlador;
 
 import DTO.*;
+import JDBC.AlmacenCosechaJDBC;
 import VistaAlmacen.VistaModificarCosecha;
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorModificarCosecha implements ActionListener{
-    private VistaModificarCosecha modificar;
-    private int id;
+    private final VistaModificarCosecha modificar;
+    private final int id;
     private List<AlmacenCosechaDTO> listaCosecha;
     private List<TerrenoDTO> listaTerreno;
     
@@ -68,6 +68,9 @@ public class ControladorModificarCosecha implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        AlmacenCosechaDTO modificarCosecha;
+        AlmacenCosechaJDBC actualizarCosecha = new AlmacenCosechaJDBC();
         
         Date fechaHoy = new Date();
         SimpleDateFormat nuevaFecha = new SimpleDateFormat("dd/MM/yyyy");
@@ -127,7 +130,12 @@ public class ControladorModificarCosecha implements ActionListener{
                 if(isNumeric(idcosecha) == true){
                     if(isNumeric(seleccion2) == true){
                         if(Decimal(peso) == true){
-                            System.out.println("Modificado :" + numero+"||"+numero2+"||"+id+"||"+cosecha+"||"+peso+"||"+hectarea+"||"+fecha);
+                            modificarCosecha = new AlmacenCosechaDTO (numero,numero2,id,cosecha,peso,hectarea,fecha);
+                            try {
+                                actualizarCosecha.actualizar(modificarCosecha);
+                            } catch (SQLException ex) {
+                                ex.printStackTrace(System.out);
+                            }
                         }else{
                             JOptionPane.showMessageDialog(null,"En el campo de peso solo esta permitido ingresar\n"+
                                                                            "numeros enteros [1000] y decimales [1000.0]");

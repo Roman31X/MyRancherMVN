@@ -3,15 +3,15 @@ package Controlador;
 import DTO.TerrenoDTO;
 import JDBC.TerrenoJDBC;
 import VistaTerreno.VistaEliminarTerreno;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ControladorElimnarTerreno implements ActionListener{
     private final VistaEliminarTerreno eliminarTerreno;
-    TerrenoDTO terrenoEliminado;
-    TerrenoJDBC insertarTerreno;
+    
+    private TerrenoDTO terrenoEliminado;
+    private TerrenoJDBC insertarTerreno;
 
     public ControladorElimnarTerreno(VistaEliminarTerreno eliminarTerreno2) {
         this.eliminarTerreno = eliminarTerreno2;
@@ -69,7 +69,4 @@ public class ControladorElimnarTerreno implements ActionListener{
                 break;
         }
     }
-    
-    
-    
 }

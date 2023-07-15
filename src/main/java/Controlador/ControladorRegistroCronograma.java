@@ -1,7 +1,6 @@
 package Controlador;
 
-import DTO.CronogramaDTO;
-import DTO.TerrenoDTO;
+import DTO.*;
 import JDBC.CronogramaJDBC;
 import VistaRegistro.RegistroCronograma;
 import java.awt.event.*;
@@ -12,11 +11,11 @@ import javax.swing.JOptionPane;
 
 public class ControladorRegistroCronograma implements ActionListener{
     private final RegistroCronograma nuevoRegistro;
-    
     int id;
-    int numero;
-    String hoy;
-    private final List<TerrenoDTO> idActivos;
+    private List<TerrenoDTO> idActivos;
+    
+    private String hoy;
+    private int numero;
 
     public ControladorRegistroCronograma(RegistroCronograma nuevoRegistro2, int id2, List<TerrenoDTO> idActivos2) {
         this.nuevoRegistro = nuevoRegistro2;

@@ -11,8 +11,10 @@ import javax.swing.JOptionPane;
 
 public class ControladorRegistroUsuario implements ActionListener{
     //Atributos Objetos
-    private Login login;
     private final RegistroUsuario registro;
+    private Login login;
+    
+    private ControladorLogin volverLogin;
     
     //Constructor
     public ControladorRegistroUsuario(RegistroUsuario registro2) {
@@ -31,12 +33,15 @@ public class ControladorRegistroUsuario implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //Identificador
-        String accion = e.getActionCommand();
+        
         login = new Login();
         
         UsuarioDTO datosNuevoUsuario;
         UsuarioJDBC insertarNuevoUsuario = new UsuarioJDBC();
+        
+        //Identificador
+        String accion = e.getActionCommand();
+        
         //Funcion
         switch(accion){
             case "REGISTRAR":
@@ -62,14 +67,14 @@ public class ControladorRegistroUsuario implements ActionListener{
                     JOptionPane.showMessageDialog(null," Muy bien su registro fue exitoso\n"+
                                                                    "le damos la Bienvenida a la familia\n"+
                                                                    "                MyRancher\n"+
-                                                                   "     ¡YA PUEDE LOGEARSE!");
+                                                                   "         ¡YA PUEDE LOGEARSE!");
                     try {
                         insertarNuevoUsuario.insertar(datosNuevoUsuario);
                     } catch (SQLException ex) {
                         ex.printStackTrace(System.out);
                     }
                     registro.setVisible(false);
-                    ControladorLogin volverLogin = new ControladorLogin(login);
+                    volverLogin = new ControladorLogin(login);
                     volverLogin.Mostrar();
                 }else{
                     JOptionPane.showMessageDialog(null,"La contraseña no coincide");
@@ -85,7 +90,7 @@ public class ControladorRegistroUsuario implements ActionListener{
                 break;
             case "REGRESAR":
                 registro.setVisible(false);
-                ControladorLogin volverLogin = new ControladorLogin(login);
+                volverLogin = new ControladorLogin(login);
                 volverLogin.Mostrar();
                 break;
         }

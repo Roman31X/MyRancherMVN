@@ -18,6 +18,9 @@ public class ControladorGestionTerreno implements ActionListener{
     private VistaTablaCronograma controlCronograma;
     private VistaTablaProduccion controlProduccion;
     
+    private ControladorAccionesListar ListarTerreno;
+    private ControladorAccionCronograma accionCronograma;        
+    private ControladorAccionProduccion accionProduccion;
     
     private final int id;
     DefaultTableModel model;
@@ -66,10 +69,6 @@ public class ControladorGestionTerreno implements ActionListener{
         controlCronograma = new VistaTablaCronograma();
         controlProduccion = new VistaTablaProduccion();
         
-        ControladorAccionesListar ListarTerreno;
-        ControladorAccionCronograma accionCronograma;        
-        ControladorAccionProduccion accionProduccion;
-        
         model = new DefaultTableModel(); 
         modeldos = new DefaultTableModel(); 
         Connection conexion = null;
@@ -78,6 +77,7 @@ public class ControladorGestionTerreno implements ActionListener{
         if(conexion.getAutoCommit()){
             conexion.setAutoCommit(false);
         }
+        
         terreno = new TerrenoJDBC();
         listaTerreno  = terreno.seleccionar();
         cronogramaTerreno = new CronogramaJDBC();
@@ -95,7 +95,6 @@ public class ControladorGestionTerreno implements ActionListener{
                 exx.printStackTrace(System.out);
             }
         }
-        
         
         idTerreno = new ArrayList<>();
         idActivos = new ArrayList<>();

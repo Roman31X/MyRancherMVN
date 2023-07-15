@@ -10,14 +10,15 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorRegistroGanado implements ActionListener{
-    private RegistroGanado registroGanado; 
-    int id;
-    String hoy;
+    private final RegistroGanado registroGanado; 
+    private int id;
+    private String hoy;
 
     public ControladorRegistroGanado(RegistroGanado registroGanado1, int id1) {
         this.registroGanado = registroGanado1;
         this.id = id1;
         
+        registroGanado.Sexo.addActionListener(this);
         registroGanado.Registrar.addActionListener(this);
         registroGanado.Limpiar.addActionListener(this);
     }
@@ -59,6 +60,20 @@ public class ControladorRegistroGanado implements ActionListener{
         
         String accion = e.getActionCommand();
         switch(accion){
+            case "Ganado":
+                String imagen = registroGanado.Sexo.getSelectedItem().toString();
+                switch(imagen){
+                    case "-Seleccione-":
+                        registroGanado.jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageneIcon/GanadoX.png")));
+                        break;
+                    case "Macho":
+                        registroGanado.jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageneIcon/Toro.jpg")));
+                        break;
+                    case "Hembra":
+                        registroGanado.jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageneIcon/VacaA.jpg")));
+                        break;
+                }
+                break;
             case "REGISTRAR":
                 String fecha = registroGanado.FechaNacimineto.getText();
                 String edad = registroGanado.edad.getText();
@@ -92,8 +107,6 @@ public class ControladorRegistroGanado implements ActionListener{
                                                                    "ingresa numeros enteros[1] y decimales [1.5]");
                     return;
                 }
-                
-                //System.out.println("ganado: "+id+"||"+fecha+"||"+edad+"||"+raza+"||"+sexo+"||"+tipo+"||"+numeroCrias);
                 
                 ganadoNuevo = new GanadoDTO(id,fecha,edad,raza,sexo,tipo,numeroCrias);
             

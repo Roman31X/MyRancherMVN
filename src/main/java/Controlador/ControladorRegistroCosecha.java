@@ -1,16 +1,12 @@
 package Controlador;
 
-import DTO.AlmacenCosechaDTO;
-import DTO.TerrenoDTO;
+import DTO.*;
 import JDBC.AlmacenCosechaJDBC;
 import VistaRegistro.RegistroCosecha;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorRegistroCosecha implements ActionListener{

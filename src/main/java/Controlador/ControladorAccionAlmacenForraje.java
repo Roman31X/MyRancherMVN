@@ -1,7 +1,6 @@
 package Controlador;
 
-import DTO.AlmacenForrajeDTO;
-import DTO.TerrenoDTO;
+import DTO.*;
 import VistaAlmacen.*;
 import VistaRegistro.RegistroForraje;
 import java.awt.event.*;

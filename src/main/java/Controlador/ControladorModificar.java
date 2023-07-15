@@ -4,11 +4,9 @@ import DTO.UsuarioDTO;
 import JDBC.UsuarioJDBC;
 import VistaMenu.MenuPrincipal;
 import VistaPaneles.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorModificar implements ActionListener{
@@ -50,7 +48,6 @@ public class ControladorModificar implements ActionListener{
                 
                 //Enviamos los nuevos datos para actualizar
                 updateUsuario = new UsuarioDTO(idusuario,nuevoNombre,nuevoApellido,nuevoUsuario,nuevoEmail,nuevaContraseñaUno,nuevaConstraseñaDos);
-                
                 try {
                     nuevaData.actualizar(updateUsuario);
                 } catch (SQLException ex) {

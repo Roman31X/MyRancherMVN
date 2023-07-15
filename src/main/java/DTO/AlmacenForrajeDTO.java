@@ -74,7 +74,7 @@ public class AlmacenForrajeDTO extends TerrenoDTO{
     //ToString
     @Override
     public String toString() {
-        return idalmacenforraje +"||"+super.getIdPersona()+"||"+ forraje+"||"+ muestra1+"||"+ muestra2+"||"+ dimencion+"||"+ pesogenerado;
+        return idalmacenforraje +"||"+super.idterreno+"||"+super.getIdPersona()+"||"+ forraje+"||"+ muestra1+"||"+ muestra2+"||"+ dimencion+"||"+ pesogenerado;
     }
     
     

@@ -13,6 +13,10 @@ public class ControladorSubMenu implements ActionListener{
     private ControladorPanelesMenuPrincipal principalInterfaz;
     private int id;
     
+    ControladorGestionTerreno terreno;
+    ControladorGestionAlmacen almacen;
+    ControladorGestionGanado ganado;
+    
     //Contructor   
     public ControladorSubMenu(GestionMenu controlMenu4, int id2) {
         this.controlMenu = controlMenu4;
@@ -34,15 +38,15 @@ public class ControladorSubMenu implements ActionListener{
         switch(accion){
             case "Gestion Terreno":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlMenu.PanelMenu, controlTerreno.PanelTerreno);
-                ControladorGestionTerreno terreno = new ControladorGestionTerreno(controlTerreno,id);
+                terreno = new ControladorGestionTerreno(controlTerreno,id);
                 break;
             case "Gestion Almacen":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlMenu.PanelMenu, controlAlmacen.PanelGestionAlmacen);
-                ControladorGestionAlmacen almacen = new ControladorGestionAlmacen(controlAlmacen,id);
+                almacen = new ControladorGestionAlmacen(controlAlmacen,id);
                 break;
             case "Gestion Ganado":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlMenu.PanelMenu, controlGanado.PanelGestionGanado);
-                ControladorGestionGanado ganado = new ControladorGestionGanado(controlGanado,id);
+                ganado = new ControladorGestionGanado(controlGanado,id);
                 break;
         }
     }

@@ -9,8 +9,8 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorRegistroGanadoProducto implements ActionListener{
-    private RegistroProductoGanado agregarProducto;
-    private int id;
+    private final RegistroProductoGanado agregarProducto;
+    private final int id;
 
     public ControladorRegistroGanadoProducto(RegistroProductoGanado agregarProducto1, int id1) {
         this.agregarProducto = agregarProducto1;

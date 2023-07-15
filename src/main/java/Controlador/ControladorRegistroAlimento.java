@@ -11,12 +11,12 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorRegistroAlimento implements ActionListener{
-    private RegistroAlimento registro;
+    private final RegistroAlimento registro;
     private int id;
 
     private String hoy;
-    String peso;
-    String cantidad;
+    private String peso;
+    private String cantidad;
     
     public ControladorRegistroAlimento(RegistroAlimento registro1, int id1) {
         this.registro = registro1;
@@ -87,12 +87,10 @@ public class ControladorRegistroAlimento implements ActionListener{
                     }else{
                         JOptionPane.showMessageDialog(null,"   En el campo Cantidad solo esta \n"+
                                                                        "permitido ingresar numeros enteros [1]");
-                            return;
                     }
                 }else{
                     JOptionPane.showMessageDialog(null,"En el campo PESO solo esta permitido ingresar\n"+
                                                                    "numeros enteros [1000.0] y decimales [1500.0]");
-                        return;
                 }
                 break;
             case "AGREGAR":
@@ -122,7 +120,7 @@ public class ControladorRegistroAlimento implements ActionListener{
                         }else{
                             JOptionPane.showMessageDialog(null,"En el campo PESO TOTAL solo esta permitido ingresar\n"+
                                                                            " numeros enteros [1000] y numeros decimales[1000.0]");
-                        return;
+                            return;
                         }
                             
                     }else{

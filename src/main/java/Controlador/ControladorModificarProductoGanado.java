@@ -9,8 +9,8 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorModificarProductoGanado implements ActionListener{
-    private VistaModificarProducto controlModificar;
-    private int id;
+    private final VistaModificarProducto controlModificar;
+    private final int id;
     private List<ProductoGanadoDTO> listaProducto;
 
     private String selecionID;

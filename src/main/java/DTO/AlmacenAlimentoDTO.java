@@ -79,7 +79,7 @@ public class AlmacenAlimentoDTO extends UsuarioDTO{
 
     @Override
     public String toString() {
-        return idalmacenAlimento  + tipoalimento + pesoSaco  + cantidadSaco +  pesoTotal  + fechaEntrega;
+        return idalmacenAlimento  +"||"+super.getIdPersona()+"||"+ tipoalimento + pesoSaco  + cantidadSaco +  pesoTotal  + fechaEntrega;
     }
     
     

@@ -1,7 +1,6 @@
 package Controlador;
 
-import DTO.ProduccionDTO;
-import DTO.TerrenoDTO;
+import DTO.*;
 import Modelo.ProduccionCosecha;
 import VistaRegistro.RegistroProduccion;
 import VistaTerreno.*;

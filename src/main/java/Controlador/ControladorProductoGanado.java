@@ -6,15 +6,13 @@ import VistaRegistro.RegistroProductoGanado;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
+import org.jfree.chart.*;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 public class ControladorProductoGanado implements ActionListener{
     private final VistaProduccionGanado controlProducto;
-    int id;
+    private final int id;
     private List<ProductoGanadoDTO> listaProducto;
     private double ganancia;
     int numeros;

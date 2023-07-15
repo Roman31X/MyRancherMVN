@@ -8,10 +8,10 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ControladorEliminarProduccion implements ActionListener{
-    VistaEliminarProduccion vistaEliminar;
+    private final VistaEliminarProduccion vistaEliminar;
     
-    ProduccionDTO eliminar;
-    ProduccionJDBC accionEliminar;
+    private ProduccionDTO eliminar;
+    private ProduccionJDBC accionEliminar;
 
     public ControladorEliminarProduccion(VistaEliminarProduccion vistaEliminar1) {
         this.vistaEliminar = vistaEliminar1;
@@ -56,7 +56,7 @@ public class ControladorEliminarProduccion implements ActionListener{
                     
                 }else{
                     JOptionPane.showMessageDialog(null,"Debe seleccionar el numero\n"+
-                                                                   " IDPRODUCCION a eliminar");
+                                                                   " ID PRODUCCION a eliminar");
                     return;
                 }
                 vistaEliminar.setVisible(false);

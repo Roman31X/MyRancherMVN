@@ -1,17 +1,12 @@
 package Controlador;
 
-import DTO.AlmacenAlimentoDTO;
-import DTO.GanadoDTO;
-import JDBC.AlmacenAlimentoJDBC;
-import JDBC.GanadoJDBC;
+import DTO.*;
+import JDBC.*;
 import MySql.Conexion;
 import VistaAlmacen.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
 import javax.swing.table.DefaultTableModel;
 
 public class ControladorAlmacenAlimento implements ActionListener{

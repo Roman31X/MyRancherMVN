@@ -69,9 +69,7 @@ public class ControladorModificarCronograma implements ActionListener{
         
         modificadoCronograma = new CronogramaJDBC();
         
-        String accion = e.getActionCommand();
-        
-        
+        String accion = e.getActionCommand();        
         switch(accion){
             case "comboBoxChanged":
                 nuevoId = controlModificar.boxID.getSelectedItem().toString();

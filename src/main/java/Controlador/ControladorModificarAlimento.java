@@ -4,13 +4,10 @@ import DTO.AlmacenAlimentoDTO;
 import JDBC.AlmacenAlimentoJDBC;
 import Modelo.CalculoSacos;
 import VistaAlmacen.VistaModificarAlimento;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorModificarAlimento implements ActionListener{
@@ -18,10 +15,10 @@ public class ControladorModificarAlimento implements ActionListener{
     private int id;
     private List<AlmacenAlimentoDTO> listaAlmacen;
     
-    String hoy;
-    String peso;
-    String cantidad;
-    String seleccion;
+    private String hoy;
+    private String peso;
+    private String cantidad;
+    private String seleccion;
     int datoId;
     
     public ControladorModificarAlimento(VistaModificarAlimento modificar2, int id2, List<AlmacenAlimentoDTO> listaAlmacen2) {
@@ -79,7 +76,6 @@ public class ControladorModificarAlimento implements ActionListener{
         CalculoSacos nuevoCalculo;
         
         String accion = e.getActionCommand();
-        System.out.println("accion = " + accion);
         switch(accion){
             case "comboBoxChanged":
                 seleccion = modificar.listaID.getSelectedItem().toString();

@@ -3,15 +3,16 @@ package Controlador;
 import DTO.AlmacenCosechaDTO;
 import JDBC.AlmacenCosechaJDBC;
 import VistaAlmacen.VistaEliminarCosecha;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ControladorEliminarCosecha implements ActionListener{
-    private VistaEliminarCosecha eliminar;
-    AlmacenCosechaDTO cosechaEliminado;
-    AlmacenCosechaJDBC eliminarCosecha;
+    private final VistaEliminarCosecha eliminar;
+    
+    private AlmacenCosechaDTO cosechaEliminado;
+    private AlmacenCosechaJDBC eliminarCosecha;
+    
     public ControladorEliminarCosecha(VistaEliminarCosecha eliminar3) {
         this.eliminar = eliminar3;
         

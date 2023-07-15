@@ -18,6 +18,10 @@ public class ControladorLogin implements ActionListener{
     static int intentos = 5;
     int id;
     
+    private UsuarioJDBC usuario;
+    private List<UsuarioDTO> listaUsuario;
+    boolean busqueda=false;
+    
     //Constructor     
     public ControladorLogin(Login controLogin1) {
         this.controLogin = controLogin1;
@@ -34,28 +38,37 @@ public class ControladorLogin implements ActionListener{
     }
  
     @Override
-    public void actionPerformed(ActionEvent e) {        
-        //Atributos
-        String accion = e.getActionCommand();
-        Connection conexion = null; 
+    public void actionPerformed(ActionEvent e) {  
+        //Vistas
         registroLogin = new RegistroUsuario ();
         menuLogin = new MenuPrincipal();
         
-        UsuarioJDBC usuario;
-        List<UsuarioDTO> listaUsuario;
-        boolean busqueda=false;
+        //Conexion
+        Connection conexion = null; 
         
+        try {
+            conexion = Conexion.getConnection();
+            if(conexion.getAutoCommit()){
+                conexion.setAutoCommit(false);
+            }
+            usuario = new UsuarioJDBC();
+            listaUsuario  = usuario.seleccionar();
+            conexion.commit();
+        } catch (SQLException ep) {
+            ep.printStackTrace(System.out);
+            System.out.println("Sucedio un error al rollback");
+            try {
+                conexion.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
+        
+        //Atributos
+        String accion = e.getActionCommand();
         //Opcion y funcionalidad
         switch(accion){
             case "INGRESAR": 
-                try {
-                    conexion = Conexion.getConnection();
-                    if(conexion.getAutoCommit()){
-                        conexion.setAutoCommit(false);
-                    }
-                    usuario = new UsuarioJDBC();
-                    listaUsuario  = usuario.seleccionar();
-                    conexion.commit();
                     for(UsuarioDTO lista : listaUsuario){
                         if(lista.getNombreUsuario().equals(controLogin.usuario.getText()) && lista.getContraseñaUna().equals(controLogin.contraseña.getText())){
                             id = lista.getIdPersona();
@@ -92,19 +105,9 @@ public class ControladorLogin implements ActionListener{
                         }
                         JOptionPane.showMessageDialog(null,"Usuario o contraseña incorrecta \nvuelva a intentar TE QUEDAN ["+intentos+"]\n intentos permitidos [4]");
                     }
-                    
-                } catch (SQLException ep) {
-                    ep.printStackTrace(System.out);
-                    System.out.println("Sucedio un error al rollback");
-                    try {
-                        conexion.rollback();
-                    } catch (SQLException ex) {
-                        ex.printStackTrace(System.out);
-                    }
-                }
                 break;
             case "REGISTRAR":
-                controLogin.Logologin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenLogin/MyRancher1.png")));
+                intentos = 5;
                 ControladorRegistroUsuario registro = new ControladorRegistroUsuario(registroLogin);
                 controLogin.setVisible(false);
                 registro.Mostrar();                

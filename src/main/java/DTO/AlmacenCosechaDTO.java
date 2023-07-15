@@ -23,7 +23,6 @@ public class AlmacenCosechaDTO extends TerrenoDTO{
         this.dimension = dimension;
         this.fecha = fecha;
     }
-
     
     public AlmacenCosechaDTO(int idalmacenCosecha, int idterreno, int idPersona, String producto, String peso, String dimension, String fecha) {
         super(idterreno, idPersona);
@@ -33,8 +32,6 @@ public class AlmacenCosechaDTO extends TerrenoDTO{
         this.dimension = dimension;
         this.fecha = fecha;
     }
-    
-    
 
     //GETTER Y SETTER
     public int getIdalmacenCosecha() {

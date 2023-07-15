@@ -1,7 +1,6 @@
 package Controlador;
 
-import DTO.AlmacenForrajeDTO;
-import DTO.TerrenoDTO;
+import DTO.*;
 import JDBC.AlmacenForrajeJDBC;
 import Modelo.CalculoForraje;
 import VistaRegistro.RegistroForraje;
@@ -12,16 +11,16 @@ import javax.swing.JOptionPane;
 
 public class ControladorRegistroForraje implements ActionListener{
     private final RegistroForraje registro;
-    int id;
-    List<TerrenoDTO> listaTerreno;
+    private int id;
+    private List<TerrenoDTO> listaTerreno;
     
     private String seleccion;
     private String resultado;
     private int numero;
     
-    String muestra1;
-    String muestra2;
-    String hectarea;
+    private String muestra1;
+    private String muestra2;
+    private String hectarea;
 
     public ControladorRegistroForraje(RegistroForraje registro1, int id1, List<TerrenoDTO> listaTerreno1) {
         this.registro = registro1;
@@ -134,12 +133,30 @@ public class ControladorRegistroForraje implements ActionListener{
                     return;
                 }
                 
-                forrajeNuevo = new AlmacenForrajeDTO(numero,id,forraje,dato1,dato2,dimencion,producto);
-                try {
-                    insertarForraje.insertar(forrajeNuevo);
-                } catch (SQLException ex) {
-                    ex.printStackTrace(System.out);
-                }              
+                if(Decimal(muestra1) == true){
+                    if(Decimal(muestra2) == true){
+                        if(Decimal(hectarea) == true){
+                            forrajeNuevo = new AlmacenForrajeDTO(numero,id,forraje,dato1,dato2,dimencion,producto);
+                            try {
+                                insertarForraje.insertar(forrajeNuevo);
+                            } catch (SQLException ex) {
+                                ex.printStackTrace(System.out);
+                            } 
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Debe el campo de HECTAREA solo esta pemitido\n"+
+                                                                           "    mumeros enteros [1] y decimales [1.5]");
+                            return;
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Debe el campo de MUESTRA 2 solo esta pemitido\n"+
+                                                                       "    mumeros enteros [1] y decimales [1.5]");
+                        return;
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null,"Debe el campo de MUESTRA 1 solo esta pemitido\n"+
+                                                                   "    mumeros enteros [1] y decimales [1.5]");
+                    return;
+                }       
                 registro.setVisible(false);
                 break;
             case "LIMPIAR":

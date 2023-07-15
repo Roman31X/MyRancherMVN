@@ -1,10 +1,8 @@
 package Controlador;
 
 import DTO.GanadoDTO;
-import VistaGanado.VistaFiltroGanado;
-import VistaGanado.VistaListarGanado;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import VistaGanado.*;
+import java.awt.event.*;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -47,6 +45,7 @@ public class ControladorFiltroGanado implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         model = (DefaultTableModel) controlGanado.Tablaganado.getModel();
         for (int i = 0; i < controlGanado.Tablaganado.getRowCount(); i++) {
             model.removeRow(i);
@@ -54,6 +53,7 @@ public class ControladorFiltroGanado implements ActionListener{
         }
         objeto = new String[7];
         model = (DefaultTableModel) controlGanado.Tablaganado.getModel();
+        
         String accion = e.getActionCommand();
         switch(accion){
             case "FILTRAR":
@@ -61,7 +61,7 @@ public class ControladorFiltroGanado implements ActionListener{
                 String tipo = filtro.ListaTipo.getSelectedItem().toString();
                 
                 if(sexo.equals("-Seleccionar-") || tipo.equals("-Seleccionar-")){
-                    JOptionPane.showMessageDialog(null,"Debe seleccionar una opcion del combobox\n"+
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar una opcion del comboBOX\n"+
                                                                    "       SEXO y una opcion del TIPO");
                     return;
                 }else{

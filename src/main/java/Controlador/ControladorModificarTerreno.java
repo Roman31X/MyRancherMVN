@@ -12,9 +12,10 @@ public class ControladorModificarTerreno implements ActionListener{
     private final VistaModificarTerreno modificarTerreno;
     private final List<TerrenoDTO> idTerreno;
     private final int id;
-    double hectarea;
-    int datoId;
-    String llenarCampos;
+    
+    private double hectarea;
+    private int datoId;
+    private String llenarCampos;
 
     public ControladorModificarTerreno(VistaModificarTerreno modificarTerreno2,int id2, List<TerrenoDTO> idTerreno2) {
         this.modificarTerreno = modificarTerreno2;
@@ -147,6 +148,4 @@ public class ControladorModificarTerreno implements ActionListener{
                 break;
         }        
     }
-    
-    
 }

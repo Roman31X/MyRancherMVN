@@ -43,10 +43,11 @@ public class ControladorRegistroTerreno implements ActionListener{
     //Acciones
     @Override
     public void actionPerformed(ActionEvent e) {
-        String accion = e.getActionCommand();
         
         TerrenoDTO terrenoNuevo;
         TerrenoJDBC insertarTerreno = new TerrenoJDBC();
+        
+        String accion = e.getActionCommand();
         switch(accion){
             case "AGREGAR":
                 String propietario = nuevoTerreno.Propietario.getText();

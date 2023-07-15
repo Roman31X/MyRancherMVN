@@ -4,8 +4,7 @@ import DAO.AlmacenAlimentoDAO;
 import DTO.AlmacenAlimentoDTO;
 import static MySql.Conexion.*;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class AlmacenAlimentoJDBC implements AlmacenAlimentoDAO{
     

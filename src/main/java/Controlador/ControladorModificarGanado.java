@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 
 public class ControladorModificarGanado implements ActionListener{
-    private VistaModificarGanado vistaModificar;
+    private final VistaModificarGanado vistaModificar;
     private int id;
     private List<GanadoDTO> idActivos;
     private String seleccionID;
