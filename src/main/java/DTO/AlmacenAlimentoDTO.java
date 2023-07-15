@@ -1,6 +1,6 @@
 package DTO;
 
-public class AlmacenAlimentoDTO {
+public class AlmacenAlimentoDTO extends UsuarioDTO{
     //Atributo
     private int idalmacenAlimento;
     private String tipoalimento;
@@ -17,7 +17,8 @@ public class AlmacenAlimentoDTO {
         this.idalmacenAlimento = idalmacenAlimento;
     }
 
-    public AlmacenAlimentoDTO(String tipoalimento, String pesoSaco, String cantidadSaco, String pesoTotal, String fechaEntrega) {
+    public AlmacenAlimentoDTO(int idPersona, String tipoalimento, String pesoSaco, String cantidadSaco, String pesoTotal, String fechaEntrega) {
+        super(idPersona);
         this.tipoalimento = tipoalimento;
         this.pesoSaco = pesoSaco;
         this.cantidadSaco = cantidadSaco;
@@ -25,7 +26,8 @@ public class AlmacenAlimentoDTO {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public AlmacenAlimentoDTO(int idalmacenAlimento, String tipoalimento, String pesoSaco, String cantidadSaco, String pesoTotal, String fechaEntrega) {
+    public AlmacenAlimentoDTO(int idalmacenAlimento, int idPersona, String tipoalimento, String pesoSaco, String cantidadSaco, String pesoTotal, String fechaEntrega) {
+        super(idPersona);
         this.idalmacenAlimento = idalmacenAlimento;
         this.tipoalimento = tipoalimento;
         this.pesoSaco = pesoSaco;
@@ -33,6 +35,7 @@ public class AlmacenAlimentoDTO {
         this.pesoTotal = pesoTotal;
         this.fechaEntrega = fechaEntrega;
     }
+
     
     //GETTER Y SETTER
     public int getIdalmacenAlimento() {

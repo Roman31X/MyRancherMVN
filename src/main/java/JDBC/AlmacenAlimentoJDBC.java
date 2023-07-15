@@ -1,49 +1,50 @@
 package JDBC;
 
-import DAO.AlmacenCosechaDAO;
-import DTO.AlmacenCosechaDTO;
+import DAO.AlmacenAlimentoDAO;
+import DTO.AlmacenAlimentoDTO;
 import static MySql.Conexion.*;
 import java.sql.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class AlmacenCosechaJDBC implements AlmacenCosechaDAO{
+public class AlmacenAlimentoJDBC implements AlmacenAlimentoDAO{
     
-     private Connection conexionTrasaccional;
+    private Connection conexionTrasaccional;
     //sentencias
-    private static final String SQL_SELECT = "SELECT idalmacencosecha, idterreno, idusuario, cosecha, peso, hectarea, fecha FROM almacencosecha";
-    private static final String SQL_INSERT = "INSERT INTO almacencosecha(idterreno, idusuario, cosecha, peso, hectarea, fecha) VALUES(?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE almacencosecha SET idterreno = ?, idusuario = ?, cosecha = ?, peso = ?, hectarea = ?, fecha = ? WHERE idalmacencosecha = ?";
-    private static final String SQL_DELETE = "DELETE FROM almacencosecha WHERE idalmacencosecha = ?";
+    private static final String SQL_SELECT = "SELECT idalmacenalimento, idusuario, tipo, pesounidad, cantidad, pesototal, fecha FROM almacenalimento";
+    private static final String SQL_INSERT = "INSERT INTO almacenalimento(idusuario, tipo, pesounidad, cantidad, pesototal, fecha) VALUES(?,?,?,?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE almacenalimento SET idusuario = ?, tipo = ?, pesounidad = ?, cantidad = ?, pesototal = ?, fecha = ? WHERE idalmacenalimento = ?";
+    private static final String SQL_DELETE = "DELETE FROM almacenalimento WHERE idalmacenalimento = ?";
     
     //constrcutor vacio
-    public AlmacenCosechaJDBC() {
+    public AlmacenAlimentoJDBC() {
     }
     
-    public AlmacenCosechaJDBC(Connection conexionTrasaccional) {
+    public AlmacenAlimentoJDBC(Connection conexionTrasaccional) {
         this.conexionTrasaccional = conexionTrasaccional;
     }
 
     @Override
-    public List<AlmacenCosechaDTO> seleccionar() throws SQLException {
+    public List<AlmacenAlimentoDTO> seleccionar() throws SQLException {
         Connection conector = null;
         PreparedStatement stmt = null;
         ResultSet result = null;
-        AlmacenCosechaDTO almacenCosecha = null;
-        List<AlmacenCosechaDTO> listaCosecha = new ArrayList<>();
+        AlmacenAlimentoDTO almacenAlimento = null;
+        List<AlmacenAlimentoDTO> listaAlimento = new ArrayList<>();
         try {
             conector = (this.conexionTrasaccional != null) ? this.conexionTrasaccional : getConnection();
             stmt = conector.prepareStatement(SQL_SELECT);
             result = stmt.executeQuery();
             while (result.next()) {
-                int idalmacencosecha = result.getInt("idalmacencosecha");
-                int idterreno = result.getInt("idterreno");
+                int idalmacenalimento = result.getInt("idalmacenalimento");
                 int idusuario = result.getInt("idusuario");
-                String cosecha = result.getString("cosecha");
-                String peso = result.getString("peso");
-                String hectarea = result.getString("hectarea");
+                String tipo = result.getString("tipo");
+                String pesounidad = result.getString("pesounidad");
+                String cantidad = result.getNString("cantidad");
+                String pesototal = result.getString("pesototal");
                 String fecha = result.getString("fecha");
-                almacenCosecha = new AlmacenCosechaDTO(idalmacencosecha, idterreno, idusuario, cosecha, peso, hectarea, fecha);
-                listaCosecha.add(almacenCosecha);
+                almacenAlimento = new AlmacenAlimentoDTO(idalmacenalimento, idusuario, tipo, pesounidad,cantidad, pesototal, fecha);
+                listaAlimento.add(almacenAlimento);
             }
         }finally {
             try {
@@ -56,23 +57,23 @@ public class AlmacenCosechaJDBC implements AlmacenCosechaDAO{
                 ex.printStackTrace(System.out);
             }
         }
-        return listaCosecha;
+        return listaAlimento;
     }
 
     @Override
-    public int insertar(AlmacenCosechaDTO almacencosecha) throws SQLException {
+    public int insertar(AlmacenAlimentoDTO almacenalimento) throws SQLException {
         Connection conectar = null;
         PreparedStatement stmt = null;
         int registro = 0;
         try {
             conectar = (this.conexionTrasaccional != null) ? this.conexionTrasaccional : getConnection();
             stmt  = conectar.prepareStatement(SQL_INSERT);
-            stmt.setInt(1,almacencosecha.getIdterreno());
-            stmt.setInt(2,almacencosecha.getIdPersona());
-            stmt.setString(3,almacencosecha.getProducto());
-            stmt.setString(4,almacencosecha.getPeso());
-            stmt.setString(5,almacencosecha.getDimension());
-            stmt.setString(6,almacencosecha.getFecha());
+            stmt.setInt(1,almacenalimento.getIdPersona());
+            stmt.setString(2,almacenalimento.getTipoalimento());
+            stmt.setString(3,almacenalimento.getPesoSaco());
+            stmt.setString(4,almacenalimento.getCantidadSaco());
+            stmt.setString(5,almacenalimento.getPesoTotal());
+            stmt.setString(6,almacenalimento.getFechaEntrega());
             registro  = stmt.executeUpdate();
         }finally {
             try {
@@ -86,9 +87,9 @@ public class AlmacenCosechaJDBC implements AlmacenCosechaDAO{
         }
         return registro;
     }
-    
+
     @Override
-    public int actualizar(AlmacenCosechaDTO almacencosecha) throws SQLException {
+    public int actualizar(AlmacenAlimentoDTO almacenalimento) throws SQLException {
         Connection conectar = null;
         PreparedStatement stmt = null;
         int registro = 0;
@@ -96,13 +97,13 @@ public class AlmacenCosechaJDBC implements AlmacenCosechaDAO{
             conectar = (this.conexionTrasaccional != null) ? this.conexionTrasaccional : getConnection();
                                
             stmt = conectar.prepareStatement(SQL_UPDATE);
-            stmt.setInt(1,almacencosecha.getIdterreno());
-            stmt.setInt(2,almacencosecha.getIdPersona());
-            stmt.setString(3,almacencosecha.getProducto());
-            stmt.setString(4,almacencosecha.getPeso());
-            stmt.setString(5,almacencosecha.getDimension());
-            stmt.setString(6,almacencosecha.getFecha());
-            stmt.setInt(7,almacencosecha.getIdalmacenCosecha());            
+            stmt.setInt(1,almacenalimento.getIdPersona());
+            stmt.setString(2,almacenalimento.getTipoalimento());
+            stmt.setString(3,almacenalimento.getPesoSaco());
+            stmt.setString(4,almacenalimento.getCantidadSaco());
+            stmt.setString(5,almacenalimento.getPesoTotal());
+            stmt.setString(6,almacenalimento.getFechaEntrega());
+            stmt.setInt(7,almacenalimento.getIdalmacenAlimento());            
             registro  = stmt.executeUpdate();
         }finally {
             try {
@@ -118,14 +119,14 @@ public class AlmacenCosechaJDBC implements AlmacenCosechaDAO{
     }
 
     @Override
-    public int eliminar(AlmacenCosechaDTO almacencosecha) throws SQLException {
+    public int eliminar(AlmacenAlimentoDTO almacenalimento) throws SQLException {
         Connection conectar = null;
         PreparedStatement stmt = null;
         int registro = 0;
         try {
             conectar = (this.conexionTrasaccional != null) ? this.conexionTrasaccional : getConnection();
             stmt = conectar.prepareStatement(SQL_DELETE);
-            stmt.setInt(1,almacencosecha.getIdalmacenCosecha());
+            stmt.setInt(1,almacenalimento.getIdalmacenAlimento());
             registro  = stmt.executeUpdate();
         }finally {
             try {
@@ -139,5 +140,5 @@ public class AlmacenCosechaJDBC implements AlmacenCosechaDAO{
         }
         return registro;
     }
-    
+
 }

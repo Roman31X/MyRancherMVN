@@ -39,7 +39,7 @@ public class ControladorGestionAlmacen implements ActionListener{
                 break;
             case "ALMACEN GANADO":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlAlmacen.PanelAlmacen,controlAlimento.PanelAlimento);
-                alimento = new ControladorAlmacenAlimento(controlAlimento);
+                alimento = new ControladorAlmacenAlimento(controlAlimento,id);
                 break;                
         }
     }
