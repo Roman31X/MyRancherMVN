@@ -66,23 +66,31 @@ public class VistaAlmacenAlimentoCalculo extends javax.swing.JFrame {
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Adultos:");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ternero:");
 
+        CantidadTernero.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         CantidadTernero.setPreferredSize(new java.awt.Dimension(100, 25));
 
+        CantidadAdulto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         CantidadAdulto.setPreferredSize(new java.awt.Dimension(100, 25));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Peso Adulto Prom: ");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Peso Ternero Prom: ");
 
+        PesoPromedioTernero.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         PesoPromedioTernero.setPreferredSize(new java.awt.Dimension(100, 25));
 
+        PesoPromedioAdulto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         PesoPromedioAdulto.setPreferredSize(new java.awt.Dimension(100, 25));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -165,12 +173,14 @@ public class VistaAlmacenAlimentoCalculo extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Alimento Seco:");
 
+        ConsumoSecoAdulto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ConsumoSecoAdulto.setPreferredSize(new java.awt.Dimension(120, 25));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Alimento Verde:");
 
+        ConsumoVerdeAdulto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ConsumoVerdeAdulto.setPreferredSize(new java.awt.Dimension(120, 25));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -227,12 +237,14 @@ public class VistaAlmacenAlimentoCalculo extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Alimento Seco:");
 
+        ConsumoSecoTernero.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ConsumoSecoTernero.setPreferredSize(new java.awt.Dimension(120, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Alimento Verde:");
 
+        ConsumoVerdeTernero.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ConsumoVerdeTernero.setPreferredSize(new java.awt.Dimension(120, 30));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

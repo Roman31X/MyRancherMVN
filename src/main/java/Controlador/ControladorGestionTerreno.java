@@ -70,7 +70,7 @@ public class ControladorGestionTerreno implements ActionListener{
         ControladorAccionCronograma accionCronograma;        
         ControladorAccionProduccion accionProduccion;
         
-        model = new DefaultTableModel();  
+        model = new DefaultTableModel(); 
         modeldos = new DefaultTableModel(); 
         Connection conexion = null;
         try {
