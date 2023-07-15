@@ -3,35 +3,43 @@ package Controlador;
 import DTO.AlmacenAlimentoDTO;
 import JDBC.AlmacenAlimentoJDBC;
 import Modelo.CalculoSacos;
-import VistaRegistro.RegistroAlimento;
-import java.awt.event.*;
+import VistaAlmacen.VistaModificarAlimento;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 
-public class ControladorRegistroAlimento implements ActionListener{
-    private RegistroAlimento registro;
+public class ControladorModificarAlimento implements ActionListener{
+    private final VistaModificarAlimento modificar;
     private int id;
-
-    private String hoy;
+    private List<AlmacenAlimentoDTO> listaAlmacen;
+    
+    String hoy;
     String peso;
     String cantidad;
+    String seleccion;
+    int datoId;
     
-    public ControladorRegistroAlimento(RegistroAlimento registro1, int id1) {
-        this.registro = registro1;
-        this.id = id1;
+    public ControladorModificarAlimento(VistaModificarAlimento modificar2, int id2, List<AlmacenAlimentoDTO> listaAlmacen2) {
+        this.modificar = modificar2;
+        this.id = id2;
+        this.listaAlmacen = listaAlmacen2;
         
-        registro.Calcular.addActionListener(this);
-        registro.Registrar.addActionListener(this);
-        registro.Limpiar.addActionListener(this);
-        registro.Cerrar.addActionListener(this);
-    }
-    
-    public void Mostrar(){
-        registro.setVisible(true);
+        modificar.listaID.addActionListener(this);
+        modificar.Calcular.addActionListener(this);
+        modificar.Modificar.addActionListener(this);
+        modificar.Limpiar.addActionListener(this);
+        modificar.Cerrar.addActionListener(this);
     }
 
+    public void Mostrar(){
+        modificar.setVisible(true);
+    }
+    
     public boolean Entero(String cadena) {
 
         boolean resultado;
@@ -45,7 +53,6 @@ public class ControladorRegistroAlimento implements ActionListener{
 
         return resultado;
     }
-    
     public boolean Decimal(String cadena) {
 
         boolean resultado;
@@ -59,48 +66,70 @@ public class ControladorRegistroAlimento implements ActionListener{
 
         return resultado;
     }
-    
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        AlmacenAlimentoDTO nuevaAlimento;
-        AlmacenAlimentoJDBC regristroAlimento = new AlmacenAlimentoJDBC();
+        AlmacenAlimentoDTO alimentoModificado;
+        AlmacenAlimentoJDBC modificarAlimento = new AlmacenAlimentoJDBC();
         
         Date fechaHoy = new Date();
         SimpleDateFormat nuevaFecha = new SimpleDateFormat("dd/MM/yyyy");
         hoy = nuevaFecha.format(fechaHoy);
-        registro.fecha.setText(hoy);
+        modificar.fecha.setText(hoy);
         CalculoSacos nuevoCalculo;
         
         String accion = e.getActionCommand();
+        System.out.println("accion = " + accion);
         switch(accion){
+            case "comboBoxChanged":
+                seleccion = modificar.listaID.getSelectedItem().toString();
+                if(Entero(seleccion) == true){
+                    datoId = Integer.parseInt(seleccion);
+                    for (AlmacenAlimentoDTO lista : listaAlmacen) {
+                        if (lista.getIdalmacenAlimento() == datoId){
+                            modificar.tipo.setText(lista.getTipoalimento());
+                            modificar.peso.setText(lista.getPesoSaco());
+                            modificar.cantidad.setText(lista.getCantidadSaco());
+                            modificar.pesototal.setText(lista.getPesoTotal());
+                            modificar.fecha.setText(lista.getFechaEntrega());
+                        }
+                    }
+                }else{
+                    modificar.tipo.setText("");
+                    modificar.peso.setText("");
+                    modificar.cantidad.setText("");
+                    modificar.pesototal.setText("");
+                    modificar.fecha.setText("");
+                }
+                break;
             case "CALCULAR":
-                peso = registro.peso.getText();
-                cantidad = registro.cantidad.getText();
+                peso = modificar.peso.getText();
+                cantidad = modificar.cantidad.getText();
                 if(Decimal(peso) == true){
                     if(Entero(cantidad) == true){
                             double nuevopeso = Double.parseDouble(peso);
                             int nuevaCantidad = Integer.parseInt(cantidad);
                             nuevoCalculo = new CalculoSacos(nuevopeso,nuevaCantidad);
-                            registro.pesototal.setText(nuevoCalculo.Total());
+                            modificar.pesototal.setText(nuevoCalculo.Total());
                             
                     }else{
                         JOptionPane.showMessageDialog(null,"   En el campo Cantidad solo esta \n"+
                                                                        "permitido ingresar numeros enteros [1]");
-                            return;
+                            
                     }
                 }else{
                     JOptionPane.showMessageDialog(null,"En el campo PESO solo esta permitido ingresar\n"+
                                                                    "numeros enteros [1000.0] y decimales [1500.0]");
-                        return;
+                       
                 }
                 break;
-            case "AGREGAR":
-                String tipo = registro.tipo.getText();
-                String pesoSaco = registro.peso.getText();
-                String cantidadSaco = registro.cantidad.getText();
-                String pesoTotal = registro.pesototal.getText();
-                String fecha = registro.fecha.getText();
+            case "MODIFICAR":
+                String idseleccion = modificar.listaID.getSelectedItem().toString();
+                String tipo = modificar.tipo.getText();
+                String pesoSaco = modificar.peso.getText();
+                String cantidadSaco = modificar.cantidad.getText();
+                String pesoTotal = modificar.pesototal.getText();
+                String fecha = modificar.fecha.getText();
                 
                 String [] alimento = {tipo,pesoSaco,cantidadSaco,pesoTotal,fecha};
                 List datos = Arrays.asList(alimento);
@@ -109,13 +138,19 @@ public class ControladorRegistroAlimento implements ActionListener{
                     JOptionPane.showMessageDialog(null,"Debe rellenar todos los campos");
                     return;
                 }
-                
+                if(Entero(idseleccion) == true){
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null,"Debe de seleccionar un\n"+
+                                                                   " ID ALMACEN ALIMENTO");
+                        return;
+                }
                 if(Decimal(pesoSaco) == true){
                     if(Entero(cantidadSaco) == true){
-                        if(Decimal(pesoTotal) == true){                            
-                            nuevaAlimento = new AlmacenAlimentoDTO(id,tipo,pesoSaco,cantidadSaco,pesoTotal,fecha);
+                        if(Decimal(pesoTotal) == true){
+                                alimentoModificado = new AlmacenAlimentoDTO(datoId,id,tipo,pesoSaco,cantidadSaco,pesoTotal,fecha);
                             try {
-                                regristroAlimento.insertar(nuevaAlimento);
+                                modificarAlimento.actualizar(alimentoModificado);
                             } catch (SQLException ex) {
                                 ex.printStackTrace(System.out);
                             }
@@ -135,17 +170,18 @@ public class ControladorRegistroAlimento implements ActionListener{
                                                                    "numeros enteros [1000.0] y decimales [1500.0]");
                         return;
                 }
-                registro.setVisible(false);
+                modificar.setVisible(false);
                 break;
             case "LIMPIAR":
-                registro.tipo.setText("");
-                registro.peso.setText("");
-                registro.cantidad.setText("");
-                registro.pesototal.setText("");
-                registro.fecha.setText(hoy);
+                modificar.listaID.setSelectedIndex(0);
+                modificar.tipo.setText("");
+                modificar.peso.setText("");
+                modificar.cantidad.setText("");
+                modificar.pesototal.setText("");
+                modificar.fecha.setText(hoy);
                 break;
             case "CERRAR":
-                registro.setVisible(false);
+                modificar.setVisible(true);
                 break;
         }
     }
