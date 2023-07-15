@@ -43,7 +43,7 @@ public class VistaTablaProduccion extends javax.swing.JFrame {
         panelProduccion.setMinimumSize(new java.awt.Dimension(717, 453));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("COSECHA");
+        jLabel1.setText("CALCULO COSECHA");
 
         Calcular.setBackground(new java.awt.Color(0, 102, 102));
         Calcular.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -135,9 +135,6 @@ public class VistaTablaProduccion extends javax.swing.JFrame {
                     .addGroup(panelProduccionLayout.createSequentialGroup()
                         .addGroup(panelProduccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelProduccionLayout.createSequentialGroup()
-                                .addGap(312, 312, 312)
-                                .addComponent(jLabel1))
-                            .addGroup(panelProduccionLayout.createSequentialGroup()
                                 .addGap(60, 60, 60)
                                 .addGroup(panelProduccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,13 +150,15 @@ public class VistaTablaProduccion extends javax.swing.JFrame {
                                 .addGap(40, 40, 40)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Ganancia, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Ganancia, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelProduccionLayout.createSequentialGroup()
+                                .addGap(274, 274, 274)
+                                .addComponent(jLabel1))
+                            .addGroup(panelProduccionLayout.createSequentialGroup()
+                                .addGap(251, 251, 251)
+                                .addComponent(jLabel2)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(panelProduccionLayout.createSequentialGroup()
-                .addGap(261, 261, 261)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelProduccionLayout.setVerticalGroup(
             panelProduccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,9 +187,9 @@ public class VistaTablaProduccion extends javax.swing.JFrame {
                         .addComponent(Calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel2)
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelProduccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
