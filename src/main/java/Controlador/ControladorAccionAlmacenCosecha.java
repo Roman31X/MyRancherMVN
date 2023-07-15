@@ -1,16 +1,15 @@
 package Controlador;
 
 import DTO.*;
-import VistaAlmacen.VistaAlmacenListaCosecha;
-import VistaAlmacen.VistaEliminarCosecha;
+import VistaAlmacen.*;
 import VistaRegistro.RegistroCosecha;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.List;
 
 public class ControladorAccionAlmacenCosecha implements ActionListener{
     private VistaAlmacenListaCosecha controlCosecha;
     private RegistroCosecha registro;
+    private VistaModificarCosecha modificar;
     private VistaEliminarCosecha eliminar;
     
     private int id;
@@ -18,7 +17,9 @@ public class ControladorAccionAlmacenCosecha implements ActionListener{
     private List<AlmacenCosechaDTO> listaCosecha;
     
     ControladorRegistroCosecha accionRegistrar;
+    ControladorModificarCosecha accionModificar;
     ControladorEliminarCosecha accionEliminar;
+    
 
     public ControladorAccionAlmacenCosecha(VistaAlmacenListaCosecha controlCosecha2, int id2, List<TerrenoDTO> listaTerreno2,List<AlmacenCosechaDTO> listaCosecha2) {
         this.controlCosecha = controlCosecha2;
@@ -35,7 +36,9 @@ public class ControladorAccionAlmacenCosecha implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         registro = new RegistroCosecha();
+        modificar = new VistaModificarCosecha();
         eliminar = new VistaEliminarCosecha();
+        
         
         String accion = e.getActionCommand();
         switch(accion){
@@ -47,6 +50,15 @@ public class ControladorAccionAlmacenCosecha implements ActionListener{
                 accionRegistrar.Mostrar();
                 break;
             case "MODIFICAR":
+                for (TerrenoDTO lista : listaTerreno) {
+                    modificar.IDterreno.addItem(String.valueOf(lista.getIdterreno()));
+                }
+                
+                for (AlmacenCosechaDTO lista : listaCosecha) {
+                    modificar.IDForraje.addItem(String.valueOf(lista.getIdalmacenCosecha()));
+                }
+                accionModificar = new ControladorModificarCosecha(modificar,id,listaCosecha,listaTerreno);
+                accionModificar.Mostrar();
                 break;
             case "ELIMINAR":
                 for (AlmacenCosechaDTO lista : listaCosecha) {

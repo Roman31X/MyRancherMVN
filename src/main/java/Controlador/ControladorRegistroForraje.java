@@ -18,6 +18,10 @@ public class ControladorRegistroForraje implements ActionListener{
     private String seleccion;
     private String resultado;
     private int numero;
+    
+    String muestra1;
+    String muestra2;
+    String hectarea;
 
     public ControladorRegistroForraje(RegistroForraje registro1, int id1, List<TerrenoDTO> listaTerreno1) {
         this.registro = registro1;
@@ -86,9 +90,9 @@ public class ControladorRegistroForraje implements ActionListener{
                 }
                 break;
             case "CALCULAR":
-                String muestra1 = registro.MuestraUno.getText();
-                String muestra2 = registro.MuestraDos.getText();
-                String hectarea = registro.Hectarea.getText();
+                muestra1 = registro.MuestraUno.getText();
+                muestra2 = registro.MuestraDos.getText();
+                hectarea = registro.Hectarea.getText();
                 
                 if(Decimal(muestra1) == true){
                     if(Decimal(muestra2) == true){
@@ -135,7 +139,7 @@ public class ControladorRegistroForraje implements ActionListener{
                     insertarForraje.insertar(forrajeNuevo);
                 } catch (SQLException ex) {
                     ex.printStackTrace(System.out);
-                }
+                }              
                 registro.setVisible(false);
                 break;
             case "LIMPIAR":

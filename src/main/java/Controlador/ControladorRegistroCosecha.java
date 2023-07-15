@@ -11,14 +11,12 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControladorRegistroCosecha implements ActionListener{
-    private RegistroCosecha registrar;
-    private int id;
-    private List<TerrenoDTO> listaTerreno;
+    private final RegistroCosecha registrar;
+    private final int id;
+    private final List<TerrenoDTO> listaTerreno;
     
     private String seleccion;
     private String hoy;
@@ -112,17 +110,23 @@ public class ControladorRegistroCosecha implements ActionListener{
                     return;
                 }
                 
-                if(Decimal(peso) == true){                    
-                    nuevaCosecha = new AlmacenCosechaDTO(numero,id,cosecha,peso,hectarea,fecha);
-                    try {
-                        regristroCosecha.insertar(nuevaCosecha);
-                    } catch (SQLException ex) {
-                        ex.printStackTrace(System.out);
-                    }  
+                if(isNumeric(seleccion) == true){ 
+                    if(Decimal(peso) == true){                    
+                        nuevaCosecha = new AlmacenCosechaDTO(numero,id,cosecha,peso,hectarea,fecha);
+                        try {
+                            regristroCosecha.insertar(nuevaCosecha);
+                        } catch (SQLException ex) {
+                            ex.printStackTrace(System.out);
+                        }  
+                    }else{
+                        JOptionPane.showMessageDialog(null,"En el campo PESO solo esta permitido ingresar\n"+
+                                                                       "numeros enteros [1000.0] y decimales [1500.0]");
+                        return;
+                    }
                 }else{
-                    JOptionPane.showMessageDialog(null,"En el campo PESO solo esta permitido ingresar\n"+
-                                                                   "numeros enteros [1000.0] y decimales [1500.0]");
-                    return;
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar un\n"+
+                                                                       "    ID TERRENO");
+                        return;
                 }
                 registrar.setVisible(false);
                 break;

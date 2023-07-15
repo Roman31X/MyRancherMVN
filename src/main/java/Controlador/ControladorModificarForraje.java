@@ -1,16 +1,12 @@
 package Controlador;
 
-import DTO.AlmacenForrajeDTO;
-import DTO.TerrenoDTO;
+import DTO.*;
 import JDBC.AlmacenForrajeJDBC;
 import Modelo.CalculoForraje;
 import VistaAlmacen.VistaModificarForraje;
 import java.awt.event.*;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorModificarForraje implements ActionListener{
@@ -24,6 +20,9 @@ public class ControladorModificarForraje implements ActionListener{
     private int datoId;
     private int datoIdT;
     private String resultado;
+    String muestra1;
+    String muestra2;
+    String hectarea;
     
     public ControladorModificarForraje(VistaModificarForraje modificar2, int id2, List<AlmacenForrajeDTO> listaForraje2, List<TerrenoDTO> listaTerreno2) {
         this.modificar = modificar2;
@@ -75,7 +74,7 @@ public class ControladorModificarForraje implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         CalculoForraje calculo;
-        
+                
         AlmacenForrajeDTO forrajeActualizado;
         AlmacenForrajeJDBC actualizarForraje = new AlmacenForrajeJDBC();
         
@@ -87,7 +86,7 @@ public class ControladorModificarForraje implements ActionListener{
                     datoId = Integer.parseInt(seleccionID);
                     for (AlmacenForrajeDTO lista : listaForraje) {
                         if(lista.getIdalmacenforraje() == datoId){
-                            modificar.IDterreno.setSelectedIndex(lista.getIdterreno());
+                            //modificar.IDterreno.setSelectedIndex(lista.getIdterreno());
                             modificar.Forraje.setText(lista.getForraje());
                             modificar.MuestraUno.setText(lista.getMuestra1());
                             modificar.MuestraDos.setText(lista.getMuestra2());
@@ -120,9 +119,17 @@ public class ControladorModificarForraje implements ActionListener{
                 }
                 break;
             case "CALCULAR":
-                String muestra1 = modificar.MuestraUno.getText();
-                String muestra2 = modificar.MuestraDos.getText();
-                String hectarea = modificar.Hectarea.getText();
+                muestra1 = modificar.MuestraUno.getText();
+                muestra2 = modificar.MuestraDos.getText();
+                hectarea = modificar.Hectarea.getText();
+                
+                if(isNumeric(seleccionIDT) == true){
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar un\n"+
+                                                                       "    ID TERRENO");
+                        return;
+                }
                 
                 if(Decimal(muestra1) == true){
                     if(Decimal(muestra2) == true){
@@ -136,20 +143,21 @@ public class ControladorModificarForraje implements ActionListener{
                         }else{
                             JOptionPane.showMessageDialog(null,"Debe el campo de HECTAREA solo esta pemitido\n"+
                                                                            "    mumeros enteros [1] y decimales [1.5]");
-                            
+                           
                         }
                     }else{
                         JOptionPane.showMessageDialog(null,"Debe el campo de MUESTRA 2 solo esta pemitido\n"+
                                                                        "    mumeros enteros [1] y decimales [1.5]");
-                        
+                      
                     }
                 }else{
                     JOptionPane.showMessageDialog(null,"Debe el campo de MUESTRA 1 solo esta pemitido\n"+
                                                                    "    mumeros enteros [1] y decimales [1.5]");
-                   
+                 
                 }
                 break;
             case "MODIFICAR":
+                String modificaID = modificar.IDterreno.getSelectedItem().toString();
                 String forraje = modificar.Forraje.getText();
                 String muestraUNO = modificar.MuestraUno.getText();
                 String muestraDOS = modificar.MuestraDos.getText();
@@ -164,13 +172,45 @@ public class ControladorModificarForraje implements ActionListener{
                     return;
                 }
                 
-                //System.out.println("datos = " + seleccionID+seleccionIDT+id+forraje+muestraUNO+muestraDOS+hectareas+producion);
-                forrajeActualizado = new AlmacenForrajeDTO(datoId,datoIdT,id,forraje,muestraUNO,muestraDOS,hectareas,producion);
-                try {
-                    actualizarForraje.actualizar(forrajeActualizado);
-                } catch (SQLException ex) {
-                    ex.printStackTrace(System.out);
+                if(isNumeric(modificaID) == true){
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar un\n"+
+                                                                       "    ID TERRENO");
+                    return;
+                }                
+                
+                if(Decimal(muestraUNO) == true){
+                    if(Decimal(muestraDOS) == true){
+                        if(Decimal(hectareas) == true){
+                            double recuperaMuestra1 = Double.parseDouble(modificar.MuestraUno.getText());
+                            double recuperaMuestra2 = Double.parseDouble(modificar.MuestraDos.getText());
+                            double recuperaHectarea = Double.parseDouble(modificar.Hectarea.getText());
+                            calculo = new CalculoForraje(recuperaMuestra1,recuperaMuestra2,recuperaHectarea);
+                            resultado = String.valueOf(calculo.TotalForraje());
+                            modificar.Producion.setText(resultado);
+                            forrajeActualizado = new AlmacenForrajeDTO(datoId,datoIdT,id,forraje,muestraUNO,muestraDOS,hectareas,producion);
+                            try {
+                                actualizarForraje.actualizar(forrajeActualizado);
+                            } catch (SQLException ex) {
+                                ex.printStackTrace(System.out);
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Debe el campo de HECTAREA solo esta pemitido\n"+
+                                                                           "    mumeros enteros [1] y decimales [1.5]");
+                            return;
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Debe el campo de MUESTRA 2 solo esta pemitido\n"+
+                                                                       "    mumeros enteros [1] y decimales [1.5]");
+                        return;
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null,"Debe el campo de MUESTRA 1 solo esta pemitido\n"+
+                                                                   "    mumeros enteros [1] y decimales [1.5]");
+                   return;
                 }
+                
                 modificar.setVisible(false);
                 break;
             case "LIMPIAR":
