@@ -1,7 +1,9 @@
 package Controlador;
 
 import DTO.AlmacenAlimentoDTO;
+import DTO.GanadoDTO;
 import JDBC.AlmacenAlimentoJDBC;
+import JDBC.GanadoJDBC;
 import MySql.Conexion;
 import VistaAlmacen.*;
 import java.awt.event.ActionEvent;
@@ -21,7 +23,7 @@ public class ControladorAlmacenAlimento implements ActionListener{
     
     private ControladorPanelesMenuPrincipal principalInterfaz;
     private ControladorAccionAlmacenAlimento accionControlAlimento;
-    
+    private ControladorAccionAlmacenCalculo accionCalculo;
     //TABLA
     DefaultTableModel model;
     
@@ -30,10 +32,14 @@ public class ControladorAlmacenAlimento implements ActionListener{
     //LISTAR
     private AlmacenAlimentoDTO activoAlimento;
     private List<AlmacenAlimentoDTO> usuarioAlimento;
+    private GanadoDTO usuarioGanado;
+    private List<GanadoDTO> listaGanadoUsuario;
     
     //conexion
     private AlmacenAlimentoJDBC almacenAlimento;
     private List<AlmacenAlimentoDTO> listaAlimento;
+    GanadoJDBC todoGanado;
+    List<GanadoDTO> listaGanado;
     
     //Constructor
     public ControladorAlmacenAlimento(VistaAlmacenAlimento controlAlimento3,int id3) {
@@ -57,6 +63,8 @@ public class ControladorAlmacenAlimento implements ActionListener{
         
         almacenAlimento = new AlmacenAlimentoJDBC();
         listaAlimento  = almacenAlimento.seleccionar();
+        todoGanado = new GanadoJDBC();
+        listaGanado  = todoGanado.seleccionar();
         
         conexion.commit();
         } catch (SQLException ex) {
@@ -70,6 +78,7 @@ public class ControladorAlmacenAlimento implements ActionListener{
         }
         
         usuarioAlimento = new ArrayList<>();
+        listaGanadoUsuario = new ArrayList<>();
         
         //Atributos
         String accion = e.getActionCommand();
@@ -97,7 +106,14 @@ public class ControladorAlmacenAlimento implements ActionListener{
                 break;
             case "CALCULAR CONSUMO":
                 principalInterfaz = new ControladorPanelesMenuPrincipal(controlAlimento.PanelLista,calculo.PanelCalculoAlimento);
+                for (GanadoDTO lista : listaGanado) {
+                   if(lista.getIdPersona() == id){
+                       usuarioGanado = new GanadoDTO(lista.getIdGanado(),lista.getIdPersona(),lista.getFechaNacimiento(),lista.getEdad(),lista.getRaza(),lista.getSexo(),lista.getTipoGanado(),lista.getNumeroCrias());
+                       listaGanadoUsuario.add(usuarioGanado);
+                   }
+                }
                 
+                accionCalculo = new ControladorAccionAlmacenCalculo(calculo,listaGanadoUsuario);
                 break;
         }
     }
