@@ -25,17 +25,15 @@ public class ControladorElimnarTerreno implements ActionListener{
         
     }
     
+    //Verifica si es Entero
     public boolean isNumeric(String cadena) {
-
         boolean resultado;
-
         try {
             Integer.parseInt(cadena);
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
         }
-
         return resultado;
     }
     

@@ -10,11 +10,9 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorModificar implements ActionListener{
-    //Atributos
+    
     private final MenuPrincipal controlPrincipal;
     private final GestionModificar controlModificar;
-    
-    //Constructor
     
     public ControladorModificar(MenuPrincipal controlPrincipal1, GestionModificar controlModificar1) {
         this.controlPrincipal = controlPrincipal1;
@@ -22,7 +20,6 @@ public class ControladorModificar implements ActionListener{
         controlModificar.ModificarDatos.addActionListener(this);
     }
     
-    //Accion
     @Override
     public void actionPerformed(ActionEvent e) {
         String accion = e.getActionCommand();

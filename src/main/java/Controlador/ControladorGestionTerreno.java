@@ -40,11 +40,9 @@ public class ControladorGestionTerreno implements ActionListener{
     private List<CronogramaDTO> idActivosCronograma;
     private CronogramaDTO informacionCronograma;
     
-    //Produccion
     private List<ProduccionDTO> idActivosProduccion;
     private ProduccionDTO informacionProduccion;
     
-    //Conexion
     private TerrenoJDBC terreno;
     private List<TerrenoDTO> listaTerreno;
     private CronogramaJDBC cronogramaTerreno;
@@ -52,7 +50,6 @@ public class ControladorGestionTerreno implements ActionListener{
     private ProduccionJDBC produccio;
     private List<ProduccionDTO> listaProduccion;
     
-    //Constructor
     public ControladorGestionTerreno(GestionTerreno controlTerreno2,int id2) {
         this.controlTerreno = controlTerreno2;
         this.id = id2;
@@ -61,7 +58,6 @@ public class ControladorGestionTerreno implements ActionListener{
         controlTerreno.Produccion.addActionListener(this);
     }
     
-    //Accion
     @Override
     public void actionPerformed(ActionEvent e) {
         //Atribbutos

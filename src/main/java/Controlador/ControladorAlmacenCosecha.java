@@ -35,7 +35,6 @@ public class ControladorAlmacenCosecha implements ActionListener{
     private AlmacenCosechaDTO activoCosecha;
     private List<AlmacenCosechaDTO> usuarioCosecha;
     
-    //conexion
     private TerrenoJDBC terreno;
     private List<TerrenoDTO> listaTerreno;
     private AlmacenForrajeJDBC forraje;
@@ -43,15 +42,13 @@ public class ControladorAlmacenCosecha implements ActionListener{
     private AlmacenCosechaJDBC cosecha;
     private List<AlmacenCosechaDTO> listaCosecha;
     
-    //Constructor
     public ControladorAlmacenCosecha(VistaAlmacenCosecha controlCosecha3,int id3) {
         this.controlCosecha = controlCosecha3;
         this.id = id3;
+        
         controlCosecha.ListarForraje.addActionListener(this);
         controlCosecha.ListarCosecha.addActionListener(this);
     }
-    
-    //Accion
     @Override
     public void actionPerformed(ActionEvent e) {
         String accion = e.getActionCommand();

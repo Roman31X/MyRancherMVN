@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ControladorSubMenu implements ActionListener{
-    //Atributos
+    
     private final GestionMenu controlMenu;
     private GestionTerreno controlTerreno;
     private GestionAlmacen controlAlmacen;
@@ -17,7 +17,6 @@ public class ControladorSubMenu implements ActionListener{
     ControladorGestionAlmacen almacen;
     ControladorGestionGanado ganado;
     
-    //Contructor   
     public ControladorSubMenu(GestionMenu controlMenu4, int id2) {
         this.controlMenu = controlMenu4;
         this.id = id2;
@@ -26,7 +25,6 @@ public class ControladorSubMenu implements ActionListener{
         controlMenu.Ganado.addActionListener(this);
     }
     
-    //Funciones
     @Override
     public void actionPerformed(ActionEvent e) {
         controlTerreno = new GestionTerreno();

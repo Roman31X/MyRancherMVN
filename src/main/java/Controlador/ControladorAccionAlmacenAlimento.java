@@ -16,9 +16,9 @@ public class ControladorAccionAlmacenAlimento implements ActionListener{
     private VistaModificarAlimento modificar;
     private VistaEliminarAlimento vistaEliminar;
     
-    ControladorRegistroAlimento accionRegistrar;
-    ControladorModificarAlimento accionModificar;
-    ControladorEliminarAlimento accionEliminar;
+    private ControladorRegistroAlimento accionRegistrar;
+    private ControladorModificarAlimento accionModificar;
+    private ControladorEliminarAlimento accionEliminar;
     
     public ControladorAccionAlmacenAlimento(VistaAlmacenListarAlimento controlAlimento1, int id1, List<AlmacenAlimentoDTO> listaAlimento1) {
         this.controlAlimento = controlAlimento1;

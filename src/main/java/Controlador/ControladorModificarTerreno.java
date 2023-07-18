@@ -32,17 +32,15 @@ public class ControladorModificarTerreno implements ActionListener{
         modificarTerreno.setVisible(true);
     }
 
+    //Verifica numeros Enteros
     public boolean isNumeric(String cadena) {
-
         boolean resultado;
-
         try {
             Integer.parseInt(cadena);
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
         }
-
         return resultado;
     }
     

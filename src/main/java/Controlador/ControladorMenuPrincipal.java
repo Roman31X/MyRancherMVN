@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.List;
 
 public class ControladorMenuPrincipal implements ActionListener{
-    //Atributo Objeto
+    
     private Login controlLogin;
     private final MenuPrincipal controlMenu;
     private static int id;
@@ -26,8 +26,7 @@ public class ControladorMenuPrincipal implements ActionListener{
     private ControladorModificar modificar;
     private ControladorSubMenu segundoMenu;
     private ControladorLogin contrologin;
-    
-    //Contructor
+ 
     public ControladorMenuPrincipal(MenuPrincipal controlMenu3,int id2) {
         this.controlMenu = controlMenu3;
         this.id = id2;
@@ -36,11 +35,11 @@ public class ControladorMenuPrincipal implements ActionListener{
         controlMenu.Salir.addActionListener(this);
     }
     
-    //Mostrar
+    
     public void Mostrar(){
         controlMenu.setVisible(true);
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         controlLogin = new Login();

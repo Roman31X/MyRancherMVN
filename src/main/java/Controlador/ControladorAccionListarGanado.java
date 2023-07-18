@@ -9,6 +9,7 @@ public class ControladorAccionListarGanado implements ActionListener{
     private final VistaListarGanado controlGanado;
     private VistaEliminarGanado controlEliminar;
     private VistaFiltroGanado filtro;
+    
     int id;
     private List<GanadoDTO> idActivos;
     

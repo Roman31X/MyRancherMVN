@@ -26,19 +26,17 @@ public class ControladorEliminarCosecha implements ActionListener{
     }
 
     public boolean isNumeric(String cadena) {
-
         boolean resultado;
-
         try {
             Integer.parseInt(cadena);
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
         }
-
         return resultado;
     }
     
+    //Accion
     @Override
     public void actionPerformed(ActionEvent e) {
         

@@ -44,33 +44,28 @@ public class ControladorModificarForraje implements ActionListener{
     }
 
     public boolean isNumeric(String cadena) {
-
         boolean resultado;
-
         try {
             Integer.parseInt(cadena);
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
         }
-
         return resultado;
     }
     
     public boolean Decimal(String cadena) {
-
         boolean resultado;
-
         try {
             Double.parseDouble(cadena);
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
         }
-
         return resultado;
     }
     
+    //Accion
     @Override
     public void actionPerformed(ActionEvent e) {
         CalculoForraje calculo;

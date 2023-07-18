@@ -26,7 +26,6 @@ public class ControladorRegistroUsuario implements ActionListener{
         registro.Regresar.addActionListener(this); 
     }
     
-    //Mostrar
     public void Mostrar(){
         registro.setVisible(true);
     }
@@ -41,8 +40,6 @@ public class ControladorRegistroUsuario implements ActionListener{
         
         //Identificador
         String accion = e.getActionCommand();
-        
-        //Funcion
         switch(accion){
             case "REGISTRAR":
                 String nombre = registro.nombre.getText();

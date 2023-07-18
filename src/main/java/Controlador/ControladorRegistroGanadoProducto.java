@@ -27,19 +27,17 @@ public class ControladorRegistroGanadoProducto implements ActionListener{
     }
     
     public boolean isNumeric(String cadena) {
-
         boolean resultado;
-
         try {
             Double.parseDouble(cadena);
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
         }
-
         return resultado;
     }
 
+    //Acciones
     @Override
     public void actionPerformed(ActionEvent e) {
         

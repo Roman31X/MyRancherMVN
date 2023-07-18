@@ -11,39 +11,39 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ControladorLogin implements ActionListener{
-    //Atributos objetos
+    
     private final Login controLogin;
     private RegistroUsuario registroLogin;
     private MenuPrincipal menuLogin;
     static int intentos = 5;
-    int id;
+    private int id;
     
     private UsuarioJDBC usuario;
     private List<UsuarioDTO> listaUsuario;
     boolean busqueda=false;
     
-    //Constructor     
+        
     public ControladorLogin(Login controLogin1) {
         this.controLogin = controLogin1;
         
-        //funciones
+        
         controLogin.Ingresar.addActionListener(this);
         controLogin.Registrar.addActionListener(this);
         controLogin.Salir.addActionListener(this);
     }
     
-    //Mostrar
+    
     public void Mostrar(){
         controLogin.setVisible(true);
     }
  
     @Override
     public void actionPerformed(ActionEvent e) {  
-        //Vistas
+        
         registroLogin = new RegistroUsuario ();
         menuLogin = new MenuPrincipal();
         
-        //Conexion
+        
         Connection conexion = null; 
         
         try {
@@ -64,9 +64,9 @@ public class ControladorLogin implements ActionListener{
             }
         }
         
-        //Atributos
+        
         String accion = e.getActionCommand();
-        //Opcion y funcionalidad
+        
         switch(accion){
             case "INGRESAR": 
                     for(UsuarioDTO lista : listaUsuario){

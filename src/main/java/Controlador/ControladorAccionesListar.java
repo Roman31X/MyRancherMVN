@@ -31,11 +31,9 @@ public class ControladorAccionesListar implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         nuevoTerreno = new RegistroTerreno();
         eliminarTerreno = new VistaEliminarTerreno();
         modificarTerreno = new VistaModificarTerreno();
-        
         String accion = e.getActionCommand();        
         switch(accion){
             case "REGISTRAR":

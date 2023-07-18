@@ -36,7 +36,6 @@ public class ControladorAlmacenAlimento implements ActionListener{
     GanadoJDBC todoGanado;
     List<GanadoDTO> listaGanado;
     
-    //Constructor
     public ControladorAlmacenAlimento(VistaAlmacenAlimento controlAlimento3,int id3) {
         this.controlAlimento = controlAlimento3;
         this.id = id3;
@@ -45,7 +44,6 @@ public class ControladorAlmacenAlimento implements ActionListener{
         controlAlimento.CalcularAlimento.addActionListener(this);
     }
 
-    //Accion
     @Override
     public void actionPerformed(ActionEvent e) {
         
@@ -75,7 +73,6 @@ public class ControladorAlmacenAlimento implements ActionListener{
         usuarioAlimento = new ArrayList<>();
         listaGanadoUsuario = new ArrayList<>();
         
-        //Atributos
         String accion = e.getActionCommand();
         alimento = new VistaAlmacenListarAlimento();
         calculo = new VistaAlmacenAlimentoCalculo();

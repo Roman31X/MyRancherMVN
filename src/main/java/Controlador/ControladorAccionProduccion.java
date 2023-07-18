@@ -9,7 +9,7 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ControladorAccionProduccion implements ActionListener{
-    private VistaTablaProduccion controlProduccion;
+    private final VistaTablaProduccion controlProduccion;
     private VistaEliminarProduccion VistaEliminar;
     private RegistroProduccion vistalRegistro;
     int id;
@@ -35,19 +35,17 @@ public class ControladorAccionProduccion implements ActionListener{
     }
 
     public boolean isNumeric(String cadena) {
-
         boolean resultado;
-
         try {
             Double.parseDouble(cadena);
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
         }
-
         return resultado;
     }
     
+    //Acciones
     @Override
     public void actionPerformed(ActionEvent e) {
         

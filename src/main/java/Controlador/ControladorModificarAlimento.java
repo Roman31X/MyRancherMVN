@@ -38,31 +38,26 @@ public class ControladorModificarAlimento implements ActionListener{
     }
     
     public boolean Entero(String cadena) {
-
         boolean resultado;
-
         try {
             Integer.parseInt(cadena);
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
         }
-
         return resultado;
     }
     public boolean Decimal(String cadena) {
-
         boolean resultado;
-
         try {
             Double.parseDouble(cadena);
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
         }
-
         return resultado;
     }
+    //acciones
     @Override
     public void actionPerformed(ActionEvent e) {
         

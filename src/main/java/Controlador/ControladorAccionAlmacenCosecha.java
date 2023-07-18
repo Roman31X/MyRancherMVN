@@ -32,13 +32,13 @@ public class ControladorAccionAlmacenCosecha implements ActionListener{
         controlCosecha.Eliminar.addActionListener(this);
     }
 
+    //Acciones
     @Override
     public void actionPerformed(ActionEvent e) {
         
         registro = new RegistroCosecha();
         modificar = new VistaModificarCosecha();
         eliminar = new VistaEliminarCosecha();
-        
         
         String accion = e.getActionCommand();
         switch(accion){

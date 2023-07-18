@@ -26,7 +26,6 @@ public class ControladorProductoGanado implements ActionListener{
     private ControladorEliminarGanadoProducion accionEliminar;
     private ControladorPanelesMenuPrincipal principalInterfaz;
     
-
     public ControladorProductoGanado(VistaProduccionGanado controlProducto1, int id1, List<ProductoGanadoDTO> listaProducto1) {
         this.controlProducto = controlProducto1;
         this.id = id1;
@@ -38,6 +37,7 @@ public class ControladorProductoGanado implements ActionListener{
         controlProducto.Graficar.addActionListener(this);
     }
 
+    //Acciones
     @Override
     public void actionPerformed(ActionEvent e) {
         

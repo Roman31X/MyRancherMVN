@@ -29,7 +29,8 @@ public class ControladorAccionAlmacenForraje implements ActionListener{
         controlForraje.Modificar.addActionListener(this);
         controlForraje.Eliminar.addActionListener(this);
     }
-
+    
+    //Accion
     @Override
     public void actionPerformed(ActionEvent e) {
         controlRegistro = new RegistroForraje();

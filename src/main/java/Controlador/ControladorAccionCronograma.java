@@ -7,6 +7,7 @@ import java.awt.event.*;
 import java.util.List;
 
 public class ControladorAccionCronograma implements ActionListener{
+    //Atributo
     private final VistaTablaCronograma controlCronograma;
     private RegistroCronograma nuevoRegistro;
     private VistaModificarCronograma modificarCronograma;

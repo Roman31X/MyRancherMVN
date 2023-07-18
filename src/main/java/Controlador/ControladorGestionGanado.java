@@ -44,7 +44,6 @@ public class ControladorGestionGanado implements ActionListener{
     private ControladorAccionListarGanado modificarGanado;
     private ControladorProductoGanado controlProducto;
         
-    //Constructor
     public ControladorGestionGanado(GestionGanado controlGanado3,int id3) {
         this.controlGanado = controlGanado3;
         this.id = id3;
@@ -55,16 +54,13 @@ public class ControladorGestionGanado implements ActionListener{
     }
     
     public boolean Años(String cadena) {
-
         boolean resultado;
-
         try {
             Integer.parseInt(cadena);
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
         }
-
         return resultado;
     }
     

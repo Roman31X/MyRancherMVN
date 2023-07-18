@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ControladorGestionAlmacen implements ActionListener{
-    //Atributos
     private final GestionAlmacen controlAlmacen;
     private VistaAlmacenCosecha controlCosecha;
     private VistaAlmacenAlimento controlAlimento;
@@ -15,7 +14,6 @@ public class ControladorGestionAlmacen implements ActionListener{
     private ControladorPanelesMenuPrincipal principalInterfaz;
     private ControladorAlmacenCosecha cosecha;
     private ControladorAlmacenAlimento alimento;
-    //Constructor
 
     public ControladorGestionAlmacen(GestionAlmacen controlAlmacen2,int id2) {
         this.controlAlmacen = controlAlmacen2;
@@ -24,8 +22,6 @@ public class ControladorGestionAlmacen implements ActionListener{
         controlAlmacen.AlmacenGanado.addActionListener(this);
     }
     
-    //Accion
-
     @Override
     public void actionPerformed(ActionEvent e) {
         
