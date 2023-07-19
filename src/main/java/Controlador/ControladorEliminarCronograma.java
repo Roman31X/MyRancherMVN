@@ -13,7 +13,6 @@ public class ControladorEliminarCronograma implements ActionListener{
     private CronogramaDTO idElimar;
     private CronogramaJDBC eliminar;
 
-    //Constructor
     public ControladorEliminarCronograma(VistaEliminarCronograma eliminarCronograma3) {
         this.eliminarCronograma = eliminarCronograma3;
         

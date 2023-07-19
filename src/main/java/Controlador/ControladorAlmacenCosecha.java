@@ -49,6 +49,7 @@ public class ControladorAlmacenCosecha implements ActionListener{
         controlCosecha.ListarForraje.addActionListener(this);
         controlCosecha.ListarCosecha.addActionListener(this);
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         String accion = e.getActionCommand();

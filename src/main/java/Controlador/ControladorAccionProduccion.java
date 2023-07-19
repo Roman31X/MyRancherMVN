@@ -45,7 +45,6 @@ public class ControladorAccionProduccion implements ActionListener{
         return resultado;
     }
     
-    //Acciones
     @Override
     public void actionPerformed(ActionEvent e) {
         

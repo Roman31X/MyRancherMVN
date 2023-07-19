@@ -34,7 +34,7 @@ public class ControladorEliminarForraje implements ActionListener{
         }
         return resultado;
     }
-    //Acciones
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         eliminarForraje = new AlmacenForrajeJDBC();

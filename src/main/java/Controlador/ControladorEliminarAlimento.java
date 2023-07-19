@@ -35,7 +35,6 @@ public class ControladorEliminarAlimento implements ActionListener{
         return resultado;
     }
     
-    //Acciones
     @Override
     public void actionPerformed(ActionEvent e) {
         
