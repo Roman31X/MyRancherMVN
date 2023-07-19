@@ -172,7 +172,7 @@ public class ControladorModificarAlimento implements ActionListener{
                 modificar.fecha.setText(hoy);
                 break;
             case "CERRAR":
-                modificar.setVisible(true);
+                modificar.setVisible(false);
                 break;
         }
     }

@@ -42,6 +42,7 @@ public class RegistroAlimento extends javax.swing.JFrame {
         Calcular = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
