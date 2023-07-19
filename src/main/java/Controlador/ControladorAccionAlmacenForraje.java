@@ -12,6 +12,7 @@ public class ControladorAccionAlmacenForraje implements ActionListener{
     private VistaModificarForraje controlModificar;
     private VistaEliminarForraje controlforraje;
     private int id;
+    
     private List<AlmacenForrajeDTO> listaForraje;
     private List<TerrenoDTO> listaTerreno;
 
@@ -30,7 +31,6 @@ public class ControladorAccionAlmacenForraje implements ActionListener{
         controlForraje.Eliminar.addActionListener(this);
     }
     
-    //Accion
     @Override
     public void actionPerformed(ActionEvent e) {
         controlRegistro = new RegistroForraje();

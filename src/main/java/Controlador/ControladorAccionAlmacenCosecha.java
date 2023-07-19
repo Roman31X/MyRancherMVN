@@ -31,8 +31,7 @@ public class ControladorAccionAlmacenCosecha implements ActionListener{
         controlCosecha.Modificar.addActionListener(this);
         controlCosecha.Eliminar.addActionListener(this);
     }
-
-    //Acciones
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         
