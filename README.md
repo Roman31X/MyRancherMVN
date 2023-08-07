@@ -9,9 +9,10 @@
 <di>
 <table>
 <tr>
-<td><img width="100" heigth="100" src="MyRancherMVN/src/main/resources/Capturas_Aplicacion
+<td><img width="100" heigth="100" src="src/main/resources/Capturas_Aplicacion
 /Login.png"/></td></td>
-<td></td>
+<td><img width="100" heigth="100" src="src/main/resources/Capturas_Aplicacion
+/Registro.png"/></td>
 </tr>
 </table>
 </div>
