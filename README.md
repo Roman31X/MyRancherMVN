@@ -9,10 +9,9 @@
 <di>
 <table>
 <tr>
-<td><img width="100" heigth="100" src="src/main/resources/Capturas_Aplicacion
-/Login.png"/></td></td>
-<td><img width="100" heigth="100" src="src/main/resources/Capturas_Aplicacion
-/Registro.png"/></td>
+<td>![LOGIN](https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/Login.png)
+</td></td>
+<td>![REGISTRO](https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/Registro.png)</td>
 </tr>
 </table>
 </div>
