@@ -1,4 +1,4 @@
-# __MyRancher V2.0.0__ ||:computer:||:cow:
+# __MyRancher V2.0.0__ ||:computer:||:cow:||:tractor:
 
 ## DESCRIPCION
 
@@ -14,15 +14,14 @@ de los JAR necesarios para el funcionamiento del software.
 
 * DIAGRAMA UML || :book:
 
-<a href="https://github.com/Roman31X/MyRancherMVN/tree/master/src/main/resources/DiagramaUML" >Diagrama UML trabajado Draw.io</a>
+&nbsp<a href="https://github.com/Roman31X/MyRancherMVN/tree/master/src/main/resources/DiagramaUML" >Diagrama UML trabajado Draw.io</a>
 
 * ARCHIVO TEXT CON CODIGO MySQL || :book:
 
-<a href="https://github.com/Roman31X/MyRancherMVN/tree/master/src/main/resources/CREAR_BD_MyRancher.txt" >Diagrama UML trabajado Draw.io</a>
+&nbsp<a href="https://github.com/Roman31X/MyRancherMVN/tree/master/src/main/resources/ArchivoMySQL" >Archivo text con codigo fuente para ejecutar en MySQL</a>
 
 
-
-### DISEÑO DE LOGIN
+### DISEÑO INTERFAZ 
 
 <di>
 <table>
@@ -40,9 +39,39 @@ de los JAR necesarios para el funcionamiento del software.
 
 ### DISEÑO DE MENU
 
-
+<di>
+<table>
+<tr>
+<th>MENU LOGIN</th>
+<th>MENU MODIFICACAR</th>
+<th>MENU PRINCIPAL</th>
+</tr>
+<tr>
+<td><img src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuInicio.png" /></td>
+<td><img src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuModificar.png" /></td>
+<td><img src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuPricipalInterfaces.png" /></td>
+</tr>
+</table>
+</div>
 
 ## FUNCIONALIDAD
 
+* LOGIN DE SEGURIDAD DE USUARIO || :closed_lock_with_key:
+
+
+
+* REGISTRO DE NUEVO USUARIO A LA BASE DE DATOS || :memo:
+
+
+
+* MENU MODIFICAR || :writing_hand:
+
+
+
+* MENU PRINCIPAL || :bar_chart:
+
+
+
+* CERRAR SESION || :lock:
 
 
