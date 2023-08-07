@@ -1,0 +1,129 @@
+#CREAR BASE DE DATOS
+CREATE SCHEMA `myrancher` DEFAULT CHARACTER SET utf8 ;
+
+#USAR LA BASE DE DATOS
+use myrancher;
+
+#CREAR TABLA USUARIO
+CREATE TABLE `myrancher`.`usuario` (
+  `idusuario` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(45) NOT NULL,
+  `nombreusuario` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `contraseñauno` VARCHAR(45) NOT NULL,
+  `contraseñados` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idusuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+#CREAR TABLA TERRENO
+CREATE TABLE `myrancher`.`terreno` (
+  `idterreno` INT NOT NULL AUTO_INCREMENT,
+  `idusuario` INT NOT NULL,
+  `propietario` VARCHAR(45) NOT NULL,
+  `ubicacion` VARCHAR(45) NOT NULL,
+  `hectarea` VARCHAR(45) NOT NULL,
+  `estado` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idterreno`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+#CREAR TABLA CRONOGRAMA
+CREATE TABLE `myrancher`.`cronograma` (
+  `idcronograma` INT NOT NULL AUTO_INCREMENT,
+  `idterreno` INT NOT NULL,
+  `idusuario` INT NOT NULL,
+  `propietario` VARCHAR(45) NOT NULL,
+  `ubicacion` VARCHAR(45) NOT NULL,
+  `hectarea` VARCHAR(45) NOT NULL,
+  `fecha` VARCHAR(45) NOT NULL,
+  `actividad` VARCHAR(45) NOT NULL,
+  `cultivo` VARCHAR(45) NOT NULL,
+  `estado` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idcronograma`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+#CREAR TABLA PRODUCCION
+CREATE TABLE `myrancher`.`produccion` (
+  `idproduccion` INT NOT NULL AUTO_INCREMENT,
+  `idterreno` INT NOT NULL,
+  `idusuario` INT NOT NULL,
+  `propietario` VARCHAR(45) NOT NULL,
+  `ubicacion` VARCHAR(45) NOT NULL,
+  `hectarea` VARCHAR(45) NOT NULL,
+  `cosecha` VARCHAR(45) NOT NULL,
+  `pesototal` VARCHAR(45) NOT NULL,
+  `precio` VARCHAR(45) NOT NULL,
+  `ganancia` VARCHAR(45) NOT NULL,
+  `fecha` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idproduccion`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+#CREAR TABLA ALMACEN FORRAJE
+CREATE TABLE `myrancher`.`almacenforraje` (
+  `idalmacenforraje` INT NOT NULL AUTO_INCREMENT,
+  `idterreno` INT NOT NULL,
+  `idusuario` INT NOT NULL,
+  `forraje` VARCHAR(45) NOT NULL,
+  `muestrauno` VARCHAR(45) NOT NULL,
+  `muestrados` VARCHAR(45) NOT NULL,
+  `hectarea` VARCHAR(45) NOT NULL,
+  `pesototal` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idalmacenforraje`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+#CREAR TABLA ALMACEN COSECHA
+CREATE TABLE `myrancher`.`almacencosecha` (
+  `idalmacencosecha` INT NOT NULL AUTO_INCREMENT,
+  `idterreno` INT NOT NULL,
+  `idusuario` INT NOT NULL,
+  `cosecha` VARCHAR(45) NOT NULL,
+  `peso` VARCHAR(45) NOT NULL,
+  `hectarea` VARCHAR(45) NOT NULL,
+  `fecha` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idalmacencosecha`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+#CREAR TABLA ALMACEN ALIMENTO
+CREATE TABLE `myrancher`.`almacenalimento` (
+  `idalmacenalimento` INT NOT NULL AUTO_INCREMENT,
+  `idusuario` INT NOT NULL,
+  `tipo` VARCHAR(45) NOT NULL,
+  `pesounidad` VARCHAR(45) NOT NULL,
+  `cantidad` VARCHAR(45) NOT NULL,
+  `pesototal` VARCHAR(45) NOT NULL,
+  `fecha` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idalmacenalimento`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+#CREAR TABLA GANADO
+CREATE TABLE `myrancher`.`ganado` (
+  `idganado` INT NOT NULL AUTO_INCREMENT,
+  `idusuario` INT NOT NULL,
+  `fechanacimiento` VARCHAR(45) NOT NULL,
+  `edad` VARCHAR(45) NOT NULL,
+  `raza` VARCHAR(45) NOT NULL,
+  `sexo` VARCHAR(45) NOT NULL,
+  `tipo` VARCHAR(45) NOT NULL,
+  `numerocrias` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idganado`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+#CREAR TABLA PRODUCCION GANADO
+CREATE TABLE `myrancher`.`productoganado` (
+  `idproductoganado` INT NOT NULL AUTO_INCREMENT,
+  `idusuario` INT NOT NULL,
+  `producto` VARCHAR(45) NOT NULL,
+  `mes` VARCHAR(45) NOT NULL,
+  `ganancia` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idproductoganado`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
