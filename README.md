@@ -43,12 +43,10 @@ de los JAR necesarios para el funcionamiento del software.
 <table>
 <tr>
 <th>MENU LOGIN</th>
-<th>MENU MODIFICACAR</th>
-<th>MENU PRINCIPAL</th>
-</tr>
-<tr>
 <td><img src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuInicio.png" /></td>
+<th>MENU MODIFICACAR</th>
 <td><img src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuModificar.png" /></td>
+<th>MENU PRINCIPAL</th>
 <td><img src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuPricipalInterfaces.png" /></td>
 </tr>
 </table>
