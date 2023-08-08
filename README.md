@@ -14,11 +14,11 @@ de los JAR necesarios para el funcionamiento del software.
 
 * DIAGRAMA UML || :book:
 
-&nbsp<a href="https://github.com/Roman31X/MyRancherMVN/tree/master/src/main/resources/DiagramaUML" >Diagrama UML trabajado Draw.io</a>
+<a href="https://github.com/Roman31X/MyRancherMVN/tree/master/src/main/resources/DiagramaUML" >Diagrama UML trabajado Draw.io</a>
 
 * ARCHIVO TEXT CON CODIGO MySQL || :book:
 
-&nbsp<a href="https://github.com/Roman31X/MyRancherMVN/tree/master/src/main/resources/ArchivoMySQL" >Archivo text con codigo fuente para ejecutar en MySQL</a>
+<a href="https://github.com/Roman31X/MyRancherMVN/tree/master/src/main/resources/ArchivoMySQL" >Archivo text con codigo fuente para ejecutar en MySQL</a>
 
 
 ### DISEÑO INTERFAZ 
@@ -39,25 +39,25 @@ de los JAR necesarios para el funcionamiento del software.
 
 ### DISEÑO DE MENU
 
-<div>
+<div align="center" valign="middle" >
 <table>
 <tr>
 <th>MENU LOGIN</th>
 </tr>
 <tr>
-<td><img width="500" heigth="200" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuInicio.png" /></td>
+<td><img width="800" heigth="400" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuInicio.png" /></td>
 </tr>
 <tr>
 <th>MENU MODIFICACAR</th>
 </tr>
 <tr>
-<td><img width="500" heigth="200" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuModificar.png" /></td>
+<td><img width="800" heigth="400" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuModificar.png" /></td>
 </tr>
 <tr>
 <th>MENU PRINCIPAL</th>
 </tr>
 <tr>
-<td><img width="500" heigth="200" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuPricipalInterfaces.png" /></td>
+<td><img width="800" heigth="400" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuPricipalInterfaces.png" /></td>
 </tr>
 </table>
 </div>
@@ -66,20 +66,25 @@ de los JAR necesarios para el funcionamiento del software.
 
 * LOGIN DE SEGURIDAD DE USUARIO || :closed_lock_with_key:
 
-
+Para  una mejor seguridad del software se previo de que los datos del usuario no se encuentren en código duro, Por ende se optó por almacenar y 
+consultar a un gestor de base de datos en este caso MySQL Workbench 8.0.
 
 * REGISTRO DE NUEVO USUARIO A LA BASE DE DATOS || :memo:
 
-
+Para no limitar la poca información de nuestros usuarios, se adaptó la interfaz de registro para que este tenga  un mejor control de información 
+con el gestor datos, almacenando información individual por nuevo usuario a trabajar con el software y control de su información.
 
 * MENU MODIFICAR || :writing_hand:
 
-
+Se brinda una opción en el menú para proporcionar información del usuario a través de la interfaz, donde se puede apreciar los campos a modificar
+ con su información personal. Manejo se verán reflejados tiempo real en nuestro gestor de datos. 
 
 * MENU PRINCIPAL || :bar_chart:
 
-
+Para  una mejor gestión de la información se optó por segmentar las interfaces en la gestión de información agrícola con la Gestión de Terrenos, 
+la información con insumos almacenados en la propiedad con la Gestión de Almacén, la información del sector ganadero con el segmento de Gestión 
+de Ganado para una mejor administración de las cabezas de res y su producción.
 
 * CERRAR SESION || :lock:
 
-
+Por último, la opción de cerrar sesión nos permitirá cerrar la interfaz de menú redirigiéndonos a la interfaz de Login.
