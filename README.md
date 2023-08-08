@@ -39,31 +39,25 @@ de los JAR necesarios para el funcionamiento del software.
 
 ### DISEÑO DE MENU
 
-<di>
+<div>
 <table>
 <tr>
 <th>MENU LOGIN</th>
 </tr>
 <tr>
-<td><img width="100" heigth="50" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuInicio.png" /></td>
+<td><img width="500" heigth="200" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuInicio.png" /></td>
 </tr>
 <tr>
 <th>MENU MODIFICACAR</th>
 </tr>
 <tr>
-<td><img width="100" heigth="50" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuModificar.png" /></td>
+<td><img width="500" heigth="200" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuModificar.png" /></td>
 </tr>
 <tr>
 <th>MENU PRINCIPAL</th>
 </tr>
 <tr>
-<td><img width="100" heigth="50" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuPricipalInterfaces.png" /></td>
-</tr>
-<tr>
-
-</tr>
-<tr>
-
+<td><img width="500" heigth="200" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/MenuPricipalInterfaces.png" /></td>
 </tr>
 </table>
 </div>
