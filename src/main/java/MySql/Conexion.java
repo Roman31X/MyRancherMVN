@@ -6,9 +6,9 @@ import java.sql.*;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 public class Conexion {
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/myrancher?userSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3308/myrancher?userSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String JDBC_USER = "root";
-    private static final String JDBC_PASSWORD = "admin";
+    private static final String JDBC_PASSWORD = "";
     
     //MÉTODO PARA INICIALIZAR POOL DE CONEXIONES
    public static DataSource getDataSource(){
@@ -17,7 +17,7 @@ public class Conexion {
         ds.setUsername(JDBC_USER);
         ds.setPassword(JDBC_PASSWORD);
         //DEFINIMOS EL TAMAÑO INICIAL DEL POOL DE CONEXIONES
-        ds.setInitialSize(5);
+        ds.setInitialSize(20);
         return ds;
     }
    

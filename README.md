@@ -88,3 +88,23 @@ de Ganado para una mejor administración de las cabezas de res y su producción.
 * CERRAR SESION || :lock:
 
 Por último, la opción de cerrar sesión nos permitirá cerrar la interfaz de menú redirigiéndonos a la interfaz de Login.
+
+## PRUEBAS DE EJECUCIÓN
+
+<div>
+<table>
+<tr>
+<th>PRIMERA PARTE</th>
+</tr>
+<tr>
+<td><img width="800" heigth="400" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/Prueba1.gif" /></td>
+</tr>
+<tr>
+<th>SEGUNDA PARTE</th>
+</tr>
+<tr>
+<td><img width="800" heigth="400" src="https://github.com/Roman31X/MyRancherMVN/blob/master/src/main/resources/Capturas_Aplicacion/Prueba2.gif" /></td>
+</tr>
+</table>
+</div>
+
